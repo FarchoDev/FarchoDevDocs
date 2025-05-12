@@ -1,0 +1,13 @@
+{
+  "title": "Automatización de Procesos para la Eficiencia Organizacional",
+  "root": true,
+  "pages": [
+    "index",
+    "---Requerimientos del proceso de automatización---",
+    "1-introduccion",
+    "2-requerimientos",
+    "3-caracteristicas-de-requerimientos",
+    "---Creación de la automatización---"
+
+  ]
+}

@@ -1,0 +1,81 @@
+---
+title: 1.4. Herramientas clave para implementar Shift Left Testing
+---
+
+Aplicar Shift Left Testing requiere integrar herramientas que permitan automatizar, validar, analizar y colaborar **desde las primeras etapas del desarrollo**. A continuación, se clasifican por tipo y propósito:
+
+---
+
+## Herramientas para pruebas unitarias
+
+Estas se integran directamente en el flujo de desarrollo del equipo:
+
+| Lenguaje              | Herramienta             | Características destacadas                        |
+| --------------------- | ----------------------- | ------------------------------------------------- |
+| JavaScript/TypeScript | **Jest**, Mocha, Vitest | Rápido, soporta mocks, cobertura integrada        |
+| Java                  | **JUnit 5**, TestNG     | Integración con Maven/Gradle, assertions potentes |
+| Python                | **Pytest**              | Sintaxis simple, muy extensible                   |
+| C#                    | **NUnit**, xUnit        | Integración con Visual Studio                     |
+
+➡️ *Recomendación:* Integrarlas en el entorno de desarrollo (IDE) y en el pipeline CI para ejecución automática.
+
+---
+
+## Herramientas para TDD/BDD
+
+Permiten escribir pruebas basadas en comportamiento y lenguaje natural:
+
+| Herramienta            | Lenguaje / Stack               | Propósito                  |
+| ---------------------- | ------------------------------ | -------------------------- |
+| **Cucumber**           | Multilenguaje (Java, JS, etc.) | BDD con Gherkin            |
+| **SpecFlow**           | .NET                           | BDD en C#                  |
+| **Behave**             | Python                         | Gherkin + Python           |
+| **Cypress + Cucumber** | JS / Frontend                  | Pruebas end-to-end con BDD |
+
+➡️ *Recomendación:* Usar en conjunto con el PO y QA para definir criterios de aceptación automatizados.
+
+---
+
+## Herramientas para pruebas de integración temprana
+
+Prueban cómo interactúan módulos entre sí, incluso con servicios externos o simulados (mocking):
+
+| Herramienta                   | Uso principal                         |
+| ----------------------------- | ------------------------------------- |
+| **Postman/Newman**            | Validación de APIs REST               |
+| **WireMock**                  | Simulación de servicios HTTP          |
+| **TestContainers**            | Integración con entornos dockerizados |
+| **MSW (Mock Service Worker)** | Mock de APIs en frontend JS           |
+
+➡️ *Recomendación:* Utilizar mocks para permitir pruebas sin depender de servicios aún no desarrollados.
+
+---
+
+## Integración con CI/CD
+
+Para lograr retroalimentación continua en entornos ágiles y DevOps:
+
+| Herramienta CI/CD       | Integraciones de testing                 | Destacado por...               |
+| ----------------------- | ---------------------------------------- | ------------------------------ |
+| **GitHub Actions**      | Jobs con Node, Pytest, etc.              | Simplicidad, gratuito para OSS |
+| **GitLab CI**           | Integración nativa con pipelines         | Control total del flujo CI/CD  |
+| **Jenkins**             | Plugins para pruebas, cobertura, reporte | Personalizable y escalable     |
+| **CircleCI / TravisCI** | Integración cloud                        | Uso en proyectos open source   |
+
+➡️ *Recomendación:* Configurar la ejecución automática de pruebas unitarias e integración en cada `push`, `PR` y `merge`.
+
+---
+
+## Otras herramientas complementarias
+
+| Tipo                       | Herramientas recomendadas        | Uso                                              |
+| -------------------------- | -------------------------------- | ------------------------------------------------ |
+| **Linting & estática**     | ESLint, SonarQube, PMD           | Detección temprana de errores y deuda técnica    |
+| **Cobertura de pruebas**   | Istanbul/nyc (JS), JaCoCo (Java) | Asegura que el código probado sea significativo  |
+| **Revisión de requisitos** | Notion, Confluence, Jira + Xray  | Documentación colaborativa y validación temprana |
+
+---
+
+💡 **Consejo senior:** No se trata de usar *todas* las herramientas, sino de seleccionar un stack liviano y automatizado que el equipo pueda mantener fácilmente.
+
+---

@@ -1,0 +1,78 @@
+---
+title: 3.1 Flujo ideal de pruebas en CI/CD con enfoque Shift Left
+---
+
+La integración de pruebas en el pipeline CI/CD es **uno de los pilares fundamentales de Shift Left Testing**, ya que permite detectar errores desde el momento en que el código es creado y compartido. Un buen pipeline no solo compila, sino **evalúa la calidad del software de forma continua.**
+
+---
+
+## Flujo ideal para una estrategia de pruebas automatizadas
+
+```plaintext
+Push/PR → Test + Análisis → Merge → Pruebas de integración → Staging → API/UI tests → Producción → Validaciones ligeras
+```
+
+### Etapas detalladas
+
+1. **Pull Request (PR)**
+
+   * Ejecutar pruebas unitarias.
+   * Análisis estático (linters, duplicación, smells).
+   * Validaciones de sintaxis, convenciones y seguridad.
+
+2. **Merge a main/master**
+
+   * Pruebas de integración automatizadas.
+   * Contract tests (si aplica microservicios).
+   * Build del sistema.
+
+3. **Despliegue a Staging**
+
+   * Pruebas automatizadas de API (Postman, Playwright API mode).
+   * Pruebas de UI funcionales (Playwright/Cypress).
+
+4. **Despliegue a Producción**
+
+   * Pruebas tipo *smoke* para validar servicios clave.
+   * Health checks automáticos post-deploy.
+   * Alertas en caso de falla.
+
+---
+
+## Herramientas clave para CI/CD orientado a pruebas
+
+| Tipo                    | Herramientas recomendadas                         |
+| ----------------------- | ------------------------------------------------- |
+| **Pipelines**           | GitHub Actions, GitLab CI, Jenkins                |
+| **Contenedores**        | Docker, Docker Compose (para entornos aislados)   |
+| **Pruebas funcionales** | Playwright, Cypress, Newman (Postman CLI)         |
+| **Análisis de calidad** | ESLint, SonarQube, CodeClimate                    |
+| **Reporting avanzado**  | Allure, ReportPortal, HTML reports con Playwright |
+
+🔍 *Consejo:* Usa Docker para emular staging local y facilitar pruebas sin depender de servidores externos.
+
+---
+
+## Ejemplo real de pipeline (GitHub Actions)
+
+Imagina un flujo para una app Node.js con los siguientes pasos:
+
+🔹 Al hacer `push` o `pull request`:
+
+* Instalar dependencias (`npm ci`)
+* Ejecutar ESLint (`npm run lint`)
+* Ejecutar Jest (`npm run test`)
+
+🔹 Al hacer `merge` a main:
+
+* Ejecutar pruebas de integración
+* Build del sistema
+* Desplegar a staging (Docker Compose)
+* Ejecutar pruebas de API con Postman (via Newman)
+
+🔹 Al desplegar a producción:
+
+* Ejecutar pruebas de UI con Cypress o Playwright
+* Validaciones smoke + health check
+
+---

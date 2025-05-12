@@ -1,0 +1,68 @@
+---
+title: Tipos de virtualización
+full: false
+---
+
+Los tipos de virtualización dependen de lo que se desee clasificar, esto se da desde la virtualización de servidores, sistemas operativos, de la red y de escritorios. A continuación, se enlista la intención de cada uno:
+
+## Virtualización de servidores
+
+La virtualización de servidores es una implementación en la que **un servidor físico (host) se divide mediante software en varios servidores virtuales únicos y aislados**, los cuales se visualizan al cliente como servidores independientes. Según VMware (s. f.), este tipo de virtualización tiene las siguientes ventajas clave:
+
+<img src="/images/virtualizacion/003.png" alt="Virtualización de servidores" />
+
+**La virtualización de servidores se puede clasificar en dos tipos:** 
+
+### Virtualización completa
+
+En este tipo de virtualización, **se usa el hipervisor**, el cual es un software desde el cual se realiza la supervisión y gestión de los recursos físicos y, adicionalmente, se encarga de independizar cada servidor virtual. Sin embargo, el hipervisor requiere recursos para hacer el procesamiento correspondiente, **lo que puede afectar el rendimiento general del servidor.**
+
+<img src="/images/virtualizacion/004.svg" alt="Virtualización completa" />
+
+### Paravirtualización
+
+En este esquema, cada sistema operativo de los servidores virtuales tiene conocimiento de la existencia de los otros, por ende, el hipervisor se libera un poco de la carga para gestionar los sistemas operativos; adicionalmente, se tienen ventajas como la posibilidad de crear copias de seguridad fácilmente, migraciones más rápidas, mejor utilización del sistema y ahorro de energía. No todos los sistemas operativos son aptos para este proceso, en algunos casos se pueden presentar problemas de compatibilidad de hardware.
+
+<img src="/images/virtualizacion/005.svg" alt="Paravirtualización" />
+
+## Virtualización a nivel de sistema operativo o basada en contenedores
+
+En este tipo de virtualización **no se usa hipervisor**, se hace uso del sistema operativo del servidor físico, el cual se encarga de las actividades de virtualización; sin embargo, en este esquema, **los servidores virtuales deben ejecutar el mismo sistema operativo del host**.
+
+<img src="/images/virtualizacion/006.svg" alt="Virtualización a nivel de sistema operativo o basada en contenedores" />
+
+## Virtualización de red
+
+Consiste en la creación de redes virtuales independientes y separadas, mediante el uso de software sobre redes físicas. Este tipo de virtualización se puede presentar de dos maneras:
+
+- **Virtualización externa:**
+
+La cual consiste en la combinación de **varias redes completas, o partes, en una unidad virtual**.
+
+- **Virtualización interna:**
+
+Esta hace **uso de contenedores de software** para proveer la funcionalidad de una unidad de red física.
+
+> Algunos ejemplos de aplicaciones y enfoque de virtualización de red con: **VPN, VLAN, SDN**.
+
+## Virtualización de escritorios
+
+Este tipo de virtualización es empleada por muchas empresas en la actualidad, también se conoce como VDI por sus siglas en inglés (infraestructura de escritorios virtuales), en este esquema se dispone de un conjunto de servidores, o data centers, que publican varias páginas virtuales, cada una con su propio sistema operativo, aplicaciones y servicios, con su propio entorno de escritorio. **Estas máquinas de escritorio virtuales se entregan a los usuarios de forma remota, a través de una red pública o privada**; los usuarios no necesitan descargar la máquina virtual, ya que reciben la imagen de sus escritorios desde los servidores, de forma remota. La máquina virtual se ejecuta en los servidores y no en la PC del usuario. **Es decir, la carga de procesamiento, almacenamiento y demás capacidades de gestión se realiza por medio del servidor remoto**.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

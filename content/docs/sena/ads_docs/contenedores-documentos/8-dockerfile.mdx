@@ -1,0 +1,23 @@
+---
+title: DockerFile 
+full: false
+---
+
+Es un archivo de texto plano en el que se listan instrucciones que se pasan al motor de Docker para la automatización del proceso de construcción de imágenes y contenedores. Este archivo puede incluir instrucciones como las que se indican en la siguiente tabla.
+
+**Tabla 1 Sentencias comunes en un archivo Dockerfile.**
+
+| Instrucción       | Significado                                                  |
+| ------------------| -------------------------------------------------------------|
+| FROM              | Le indica la imagen inicial a descargar y a partir de la cual se espera montar el contenedor a construir. Esta sentencia es obligatoria ya que todos los contenedores se construyen de imágenes.                 |
+| MAINTAINER        | Nombre de la persona que está creando el archivo     |
+| RUN               | Ejecución de comandos específicos sobre la imagen descargada en el FROM                                       |
+| EXPOSE            | Apertura de puertos en el contenedor                                       |
+| CMD               | Fija un comando o proceso que se ejecutará cada vez que se ejecute un contenedor desde la nueva imagen           |
+
+Para información más detallada, en el material complementario se encuentran los enlaces para la documentación de referencia de Docker sobre archivos Dockerfile y la documentación de Dockerfile para Windows.
+
+> **¿Cómo automatizar el proceso de construcción y configuración de una imagen utilizando un archivo Dockerfile?**
+Este [PDF](https://zajuna.sena.edu.co/Repositorio/Titulada/institution/SENA/Tecnologia/228118/Contenido/OVA/CF44/downloads/dockerFile.pdf) muestra cómo automatizar el proceso de construcción y configuración de una imagen utilizando un archivo DockerFile en lugar de ejecutar comandos manualmente.
+
+Para este caso se creará una imagen con sistema operativo ubuntu, con un servidor apache funcionando por el puerto 80. En el caso de Windows puede utilizar el editor de texto que considere más conveniente, pero deberá tener en cuenta la ubicación del archivo, este deberá llamarse Dockerfile y adicionalmente este archivo no puede tener ninguna extensión.

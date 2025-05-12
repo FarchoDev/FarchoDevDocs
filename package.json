@@ -1,0 +1,48 @@
+{
+  "name": "farchodevdocs",
+  "version": "1.0.0",
+  "private": true,
+  "description": "This is a Next.js application generated with\r [Create Fumadocs](https://github.com/fuma-nama/fumadocs).",
+  "homepage": "https://github.com/farley-developer/FarchoDevDocs#readme",
+  "bugs": {
+    "url": "https://github.com/farley-developer/FarchoDevDocs/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/farley-developer/FarchoDevDocs.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "build": "next build",
+    "dev": "next dev --turbopack",
+    "start": "next start",
+    "postinstall": "fumadocs-mdx"
+  },
+  "dependencies": {
+    "class-variance-authority": "^0.7.1",
+    "framer-motion": "^12.5.0",
+    "fumadocs-core": "15.0.6",
+    "fumadocs-mdx": "^11.5.7",
+    "fumadocs-ui": "15.0.6",
+    "lucide-react": "^0.483.0",
+    "next": "^15.2.3",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.0.5",
+    "@types/mdx": "^2.0.13",
+    "@types/node": "22.13.1",
+    "@types/react": "^19.0.8",
+    "@types/react-dom": "^19.0.3",
+    "postcss": "^8.5.1",
+    "tailwindcss": "^4.0.5",
+    "typescript": "^5.7.3"
+  }
+}

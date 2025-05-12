@@ -1,0 +1,105 @@
+---
+title: 2.3 Herramientas recomendadas para aplicar Shift Left Testing (con Playwright)
+---
+
+El enfoque Shift Left se potencia con herramientas que permitan escribir, ejecutar y validar pruebas desde las primeras fases del desarrollo. Playwright no solo encaja aquí: **es protagonista** en muchas organizaciones modernas.
+
+---
+
+## Herramientas para TDD (Test Driven Development)
+
+| Lenguaje        | Herramienta      | Características principales                     |
+| --------------- | ---------------- | ----------------------------------------------- |
+| JavaScript / TS | **Jest**, Vitest | Cobertura integrada, mocks, rapidez             |
+| Java            | **JUnit 5**      | Estándar de facto, integración con Gradle/Maven |
+| Python          | **Pytest**       | Simplicidad y legibilidad, soporte a fixtures   |
+
+➡️ Estas herramientas son ideales para validar unidades pequeñas de lógica. Pueden usarse en paralelo con pruebas funcionales como las que hace Playwright.
+
+---
+
+## Herramientas para BDD (Behavior Driven Development)
+
+| Herramienta               | Stack compatible        | Uso común                                    |
+| ------------------------- | ----------------------- | -------------------------------------------- |
+| **Cucumber**              | Java, JS, Ruby, etc.    | Gherkin (Given / When / Then), automatizable |
+| **Behave**                | Python                  | Ligero, ideal para QA técnico                |
+| **SpecFlow**              | .NET                    | Integrado con Visual Studio y Gherkin        |
+| **Playwright + Cucumber** | JavaScript / TypeScript | Ideal para pruebas E2E en lenguaje natural ✅ |
+
+➡️ Puedes integrar **Cucumber con Playwright** para tener pruebas de aceptación en lenguaje Gherkin automatizadas con pruebas funcionales reales.
+
+---
+
+## Herramientas para pruebas funcionales automatizadas
+
+| Herramienta    | Tipo de prueba       | Características clave                                       |
+| -------------- | -------------------- | ----------------------------------------------------------- |
+| **Playwright** | E2E funcional UI/API | Multi-navegador, soporte para tracing y snapshots, rápido ⚡ |
+| Cypress        | UI funcional (JS)    | Rápido, buen DX, ideal para SPAs                            |
+| Selenium       | UI tradicional       | Compatibilidad amplia, pero más lento                       |
+
+➡️ **Ventaja de Playwright:**
+
+* Automatización robusta desde consola, CI o local.
+* Compatible con pruebas **funcionales, visuales y API**.
+* Generación de trazas y grabaciones (`trace.zip`) para debugging Shift Left.
+* Soporte nativo para **testing en paralelo y pruebas aisladas por contexto** (muy útil en CI).
+
+### Ejemplo de Playwright con test de flujo funcional:
+
+```ts
+test('el usuario puede cancelar una cita', async ({ page }) => {
+  await page.goto('/login');
+  await page.fill('#usuario', 'paciente01');
+  await page.fill('#clave', '123456');
+  await page.click('text=Ingresar');
+  await page.click('text=Mis Citas');
+  await page.click('text=Cancelar');
+  await expect(page.locator('.mensaje')).toContainText('Cita cancelada');
+});
+```
+
+---
+
+## Análisis estático y cobertura
+
+| Herramienta                  | Propósito                                     | Integración recomendada                                      |
+| ---------------------------- | --------------------------------------------- | ------------------------------------------------------------ |
+| **SonarQube**                | Análisis estático + cobertura + deuda técnica | Jenkins, GitHub Actions, GitLab CI                           |
+| **CodeClimate**              | Calidad de código, duplicación                | GitHub, Travis CI, CircleCI                                  |
+| **Istanbul / nyc**           | Cobertura de pruebas JS/TS                    | Compatible con Jest y Playwright via config                  |
+| **Playwright Test Coverage** | JS/TS apps instrumentadas                     | Usa `v8` o `istanbul` para apps instrumentadas (ej: React) ✅ |
+
+➡️ En apps modernas puedes **medir cobertura de las pruebas Playwright en UI instrumentada**, útil para saber qué tan completo es el testing funcional.
+
+---
+
+## Integración recomendada de Playwright en CI/CD
+
+> **Commit > PR > Run Linter + Tests (Jest + Playwright) > Build > Deploy**
+
+| Etapa      | Herramientas involucradas                    |
+| ---------- | -------------------------------------------- |
+| Desarrollo | Jest + ESLint + Prettier                     |
+| QA         | Playwright para flujos funcionales y E2E     |
+| CI/CD      | GitHub Actions, GitLab CI, Jenkins + Tracing |
+
+💡 Puedes agregar una fase en tu pipeline para:
+
+* Ejecutar tests Playwright en headless mode.
+* Subir `trace.zip` o capturas si algún test falla.
+* Reportar resultados a Slack, Teams o correo.
+
+---
+
+## Buenas prácticas específicas con Playwright
+
+| Práctica                           | Beneficio                             |
+| ---------------------------------- | ------------------------------------- |
+| Usar `beforeEach` para aislamiento | Evita efectos secundarios entre tests |
+| Ejecutar en paralelo (`--workers`) | Ahorra tiempo en pipelines            |
+| Captura de trazas con `--trace on` | Debug visual de fallas en entornos CI |
+| Separar suites UI vs API           | Mejora la mantenibilidad y velocidad  |
+
+---

@@ -1,0 +1,17 @@
+---
+title: Hipervisor vs contenedores
+full: false
+---
+
+
+Existen similitudes y diferencias entre la forma cómo estas dos tecnologías facilitan el proceso de virtualización de aplicaciones, razón por la cual es más conveniente una u otra dependiendo del contexto articular y las necesidades establecidas por la organización.
+
+En ambos casos se requiere de una máquina host que contendrá la infraestructura física con todos los dispositivos y recursos necesarios, sobre los cuales se monta un sistema operativo que puede ser de cualquier tipo y luego sobre este sistema operativo se monta un software que en el caso del esquema de máquinas virtuales tradicionales será un hypervisor y en el esquema de contenedores será un gestor de contenedores.
+
+En las máquinas virtuales para poder ejecutar una aplicación específica se requiere de librerías y códigos binarios de los cuales dependa y adicionalmente requiere el montaje de un sistema operativo invitado. Así, por ejemplo, si la aplicación a ejecutar en la máquina virtual fue construida con Visual Studio .Net es necesario también montar en la máquina virtual el sistema operativo Windows, si la aplicación a ejecutar en la máquina virtual fue construida en Swift requiere entonces la instalación del sistema operativo MacOS y así sucesivamente en todas las máquinas virtuales se debe correr el sistema operativo completo de acuerdo con las App a utilizar.
+
+En el caso de las tecnologías de contenedores, los contenedores solo se construyen exclusivamente con las aplicaciones, librerías y archivos binarios a ser utilizados, y compartirá recursos con el sistema operativo anfitrión o máquina host.
+
+**En la figura 1 se muestra un resumen de la arquitectura general de las tecnologías comentadas anteriormente.**
+
+![Figura 1. Arquitectura tecnologías de hipervisores y contenedores](/images/contenedores/001.svg)

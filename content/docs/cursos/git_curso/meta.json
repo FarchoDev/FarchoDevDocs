@@ -1,0 +1,15 @@
+{
+  "title": "Git Curso",
+  "root": true,
+  "pages": [
+    "index",
+    "---Módulo 1. Introducción a Git---",
+    "1.1_que_es_git",
+    "1.2_ventajas_de_usar_git",
+    "1.3_conceptos_basicos",
+    "---Módulo 2. Instalación y Configuración---",
+    "2.1_instalacion_de_git",
+    "2.2_configuracion_inicial_de_git",
+    "---Módulo 3. Primeros Pasos---"
+  ]
+}

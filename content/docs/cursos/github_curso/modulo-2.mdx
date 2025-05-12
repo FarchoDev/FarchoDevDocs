@@ -1,0 +1,868 @@
+---
+title: Módulo 2. Fundamentos de Git
+---
+
+## 2.1. Revisión de Conceptos Básicos de Git
+
+Git es una herramienta esencial para el control de versiones en el desarrollo de software. Comprender los conceptos básicos de Git es crucial para gestionar el código de manera eficiente, colaborar con otros desarrolladores y mantener un historial claro de los cambios. A continuación, se explican en detalle los conceptos fundamentales de Git.
+
+### Qué es Git?
+
+Git es un sistema de control de versiones distribuido creado por Linus Torvalds en 2005. Permite a los desarrolladores rastrear cambios en los archivos, coordinar el trabajo en equipo y gestionar el historial de un proyecto de software. Algunas de sus características clave incluyen:
+
+- **Distribuido:** Cada desarrollador tiene una copia completa del historial del proyecto, lo que permite trabajar sin conexión y realizar copias de seguridad automáticas.
+- **Rápido y Eficiente:** Git está diseñado para manejar proyectos grandes con rapidez y eficiencia.
+- **Integridad de los Datos:** Git asegura la integridad de los datos mediante el uso de SHA-1 (algoritmo de hashing criptográfico).
+
+### Conceptos Clave en Git
+
+**Repositorio (Repository):**
+- Un repositorio es un contenedor de tu proyecto que incluye todos los archivos y la historia de cambios del proyecto. Los repositorios pueden ser locales (en tu máquina) o remotos (en servidores como GitHub, GitLab, etc.).
+
+**Commit:**
+- Un commit es una instantánea de los cambios en tu proyecto. Cada commit tiene un identificador único (SHA-1 hash), un mensaje descriptivo y metadatos sobre el autor y la fecha. Los commits permiten regresar a versiones anteriores del proyecto.
+
+**Rama (Branch):**
+- Una rama es una línea independiente de desarrollo que permite trabajar en nuevas características, correcciones de errores o experimentos sin afectar la rama principal (main o master). Cada rama tiene su propio historial de commits.
+
+**Merge:**
+- La acción de fusionar cambios de una rama a otra. El merge integra los cambios de diferentes ramas, permitiendo combinar esfuerzos de varios desarrolladores.
+
+**Clone:**
+- Clonar un repositorio significa crear una copia exacta del repositorio remoto en tu máquina local. Esto incluye todos los archivos, ramas y commits del repositorio original.
+
+**Pull:**
+- Actualizar tu copia local de un repositorio con los cambios del repositorio remoto. Combina las acciones de `fetch` (descargar los cambios) y `merge` (fusionar los cambios).
+
+**Push:**
+- Enviar tus cambios locales al repositorio remoto. Esto actualiza el repositorio remoto con tus commits más recientes.
+
+**Fetch:**
+- Descarga los cambios del repositorio remoto sin fusionarlos automáticamente con tu copia local. Esto permite revisar los cambios antes de aplicarlos.
+
+**Pull Request:**
+- Una solicitud para fusionar tus cambios con la rama principal del proyecto en un repositorio remoto. Los pull requests son utilizados en plataformas como GitHub para revisión y discusión de los cambios antes de fusionarlos.
+
+**Staging Area (Área de Preparación):**
+- Una zona intermedia donde se colocan los cambios antes de hacer un commit. Permite agrupar cambios relacionados en un solo commit.
+
+**Index:**
+- También conocido como el "staging area", es un archivo en el que Git almacena la información sobre los cambios que serán incluidos en el próximo commit.
+
+### Flujo de Trabajo Básico en Git
+
+El flujo de trabajo básico en Git sigue estos pasos:
+
+1. **Inicializar un Repositorio:**
+   - Crear un nuevo repositorio en el directorio actual.
+
+     ```sh
+     git init
+     ```
+
+2. **Clonar un Repositorio:**
+   - Crear una copia local de un repositorio remoto.
+
+     ```sh
+     git clone https://github.com/usuario/repositorio.git
+     ```
+
+3. **Ver el Estado del Repositorio:**
+   - Ver los cambios que han sido preparados (staged), los que no han sido preparados y los archivos no seguidos.
+
+     ```sh
+     git status
+     ```
+
+4. **Añadir Cambios al Área de Preparación:**
+   - Preparar archivos para el próximo commit.
+
+     ```sh
+     git add archivo.txt
+     git add .
+     ```
+
+5. **Hacer un Commit:**
+   - Guardar los cambios en el historial del repositorio con un mensaje descriptivo.
+
+     ```sh
+     git commit -m "Añadir nueva característica"
+     ```
+
+6. **Ver el Historial de Commits:**
+   - Ver los commits realizados en el repositorio.
+
+     ```sh
+     git log
+     ```
+
+7. **Crear una Nueva Rama:**
+   - Crear una rama para desarrollar una nueva característica.
+
+     ```sh
+     git checkout -b nueva-rama
+     ```
+
+8. **Fusionar Ramas:**
+   - Fusionar los cambios de una rama a otra.
+
+     ```sh
+     git checkout main
+     git merge nueva-rama
+     ```
+
+9. **Actualizar el Repositorio Local:**
+   - Descargar los cambios del repositorio remoto y fusionarlos con la rama actual.
+
+     ```sh
+     git pull
+     ```
+
+10. **Enviar Cambios al Repositorio Remoto:**
+    - Subir tus cambios locales al repositorio remoto.
+
+     ```sh
+     git push origin main
+     ```
+
+### Ejemplos Prácticos
+
+**Inicializar un Nuevo Repositorio:**
+
+```sh
+mkdir mi-proyecto
+cd mi-proyecto
+git init
+```
+
+**Añadir y Commitear Archivos:**
+
+```sh
+echo "# Mi Proyecto" > README.md
+git add README.md
+git commit -m "Añadir archivo README inicial"
+```
+
+**Clonar un Repositorio Existente:**
+
+```sh
+git clone https://github.com/usuario/repositorio.git
+```
+
+**Crear y Fusionar una Nueva Rama:**
+
+```sh
+git checkout -b feature/nueva-caracteristica
+# Realiza cambios en los archivos
+git add .
+git commit -m "Añadir nueva característica"
+git checkout main
+git merge feature/nueva-caracteristica
+```
+
+## 2.2. Configuración Inicial de Git
+
+Configurar Git correctamente en tu máquina es el primer paso para comenzar a gestionar tus proyectos de software de manera efectiva. A continuación, te guiaré a través de los pasos esenciales para la configuración inicial de Git, que incluyen la instalación, la configuración de tus credenciales y la verificación de la configuración.
+
+### Instalación de Git
+
+Antes de poder usar Git, debes instalarlo en tu sistema. Aquí están las instrucciones para instalar Git en diferentes sistemas operativos:
+
+**En Windows:**
+
+1. Visita [git-scm.com](https://git-scm.com/) y descarga el instalador de Git para Windows.
+2. Ejecuta el instalador descargado y sigue las instrucciones. La instalación predeterminada es adecuada para la mayoría de los usuarios.
+3. Durante la instalación, asegúrate de seleccionar la opción para agregar Git a tu PATH, lo que te permitirá usar Git desde la línea de comandos.
+
+**En macOS:**
+
+1. Abre la Terminal.
+2. Instala Git usando Homebrew (si no tienes Homebrew, primero [instálalo](https://brew.sh/)):
+
+   ```sh
+   brew install git
+   ```
+
+3. Alternativamente, puedes descargar el instalador para macOS desde [git-scm.com](https://git-scm.com/) y seguir las instrucciones.
+
+**En Linux:**
+
+1. Abre una terminal.
+2. Instala Git usando el gestor de paquetes de tu distribución:
+
+   - **Debian/Ubuntu:**
+
+     ```sh
+     sudo apt update
+     sudo apt install git
+     ```
+
+   - **Fedora:**
+
+     ```sh
+     sudo dnf install git
+     ```
+
+   - **Arch Linux:**
+
+     ```sh
+     sudo pacman -S git
+     ```
+
+### Configuración de Credenciales
+
+Una vez que hayas instalado Git, debes configurar tus credenciales globales (nombre de usuario y correo electrónico). Estas credenciales se utilizarán en todos tus commits. Aquí están los pasos para configurar tus credenciales:
+
+1. **Abre una terminal o símbolo del sistema.**
+2. **Configura tu nombre de usuario:**
+
+   ```sh
+   git config --global user.name "Tu Nombre"
+   ```
+
+3. **Configura tu correo electrónico:**
+
+   ```sh
+   git config --global user.email "tu.email@ejemplo.com"
+   ```
+
+Estos comandos configuran tus credenciales a nivel global, lo que significa que se aplicarán a todos los repositorios en tu máquina. Si deseas configurar credenciales específicas para un repositorio, omite la opción `--global` y ejecuta los comandos dentro del directorio del repositorio.
+
+### Configuración de Parámetros Opcionales
+
+Git ofrece varios parámetros adicionales que puedes configurar para personalizar tu entorno de trabajo. Aquí hay algunos ejemplos:
+
+**Editar el editor de texto predeterminado:**
+
+Por defecto, Git utiliza Vim como editor de texto. Puedes cambiarlo a tu editor preferido (por ejemplo, Visual Studio Code):
+
+```sh
+git config --global core.editor "code --wait"
+```
+
+**Configurar el estilo de fin de línea (EOL):**
+
+Para manejar los diferentes estilos de fin de línea entre Windows (CRLF) y Unix/Linux (LF):
+
+```sh
+git config --global core.autocrlf true   # Para Windows
+git config --global core.autocrlf input  # Para macOS y Linux
+```
+
+**Habilitar colores en la salida de Git:**
+
+Para una mejor legibilidad, puedes habilitar colores en los comandos de Git:
+
+```sh
+git config --global color.ui auto
+```
+
+### Verificación de la Configuración
+
+Para verificar que Git está configurado correctamente, puedes utilizar el siguiente comando:
+
+```sh
+git config --list
+```
+
+Este comando muestra todas las configuraciones actuales de Git. Deberías ver tu nombre de usuario y correo electrónico, así como cualquier otro parámetro que hayas configurado.
+
+### Generación y Configuración de Claves SSH
+
+Para una comunicación segura con los repositorios remotos, especialmente en GitHub, es recomendable usar claves SSH en lugar de HTTPS. Aquí están los pasos para generar y configurar una clave SSH:
+
+1. **Generar una nueva clave SSH:**
+
+   ```sh
+   ssh-keygen -t ed25519 -C "tu.email@ejemplo.com"
+   ```
+
+   Presiona Enter para aceptar la ubicación predeterminada del archivo y establece una frase de contraseña segura si lo deseas.
+
+2. **Añadir la clave SSH al agente SSH:**
+
+   ```sh
+   eval "$(ssh-agent -s)"
+   ssh-add ~/.ssh/id_ed25519
+   ```
+
+3. **Añadir la clave SSH a tu cuenta de GitHub:**
+
+   - Copia el contenido de tu clave pública:
+
+     ```sh
+     cat ~/.ssh/id_ed25519.pub
+     ```
+
+   - Ve a [SSH and GPG keys](https://github.com/settings/keys) en tu perfil de GitHub.
+   - Haz clic en "New SSH key" (Nueva clave SSH), pega la clave pública copiada y guarda.
+
+### Prueba de la Configuración
+
+Para asegurarte de que todo está configurado correctamente, realiza una prueba rápida:
+
+1. **Clona un repositorio de prueba:**
+
+   ```sh
+   git clone git@github.com:usuario/repositorio-prueba.git
+   ```
+
+2. **Haz un pequeño cambio en el repositorio clonado:**
+
+   ```sh
+   cd repositorio-prueba
+   echo "Prueba de configuración" > prueba.txt
+   git add prueba.txt
+   git commit -m "Añadir archivo de prueba"
+   git push origin main
+   ```
+
+Este flujo de trabajo verifica que puedes clonar, hacer cambios y subirlos a un repositorio remoto usando tu configuración de Git.
+
+Con estos pasos, habrás configurado Git adecuadamente en tu máquina, listo para comenzar a gestionar tus proyectos y colaborar con otros desarrolladores de manera eficiente.
+
+## 2.3. Comandos Esenciales de Git
+
+Dominar los comandos esenciales de Git es fundamental para gestionar tus proyectos de software de manera efectiva. A continuación, se presenta una descripción detallada de los comandos más importantes: `init`, `clone`, `add`, `commit`, `status`, y `log`, junto con ejemplos prácticos para cada uno.
+
+### `git init`
+
+El comando `git init` se utiliza para crear un nuevo repositorio de Git. Este comando inicializa un nuevo repositorio en el directorio actual, configurando Git para rastrear los cambios en los archivos de ese directorio.
+
+**Sintaxis:**
+
+```sh
+git init
+```
+
+**Ejemplo:**
+
+```sh
+mkdir mi-proyecto
+cd mi-proyecto
+git init
+```
+
+Este comando crea un nuevo directorio llamado `mi-proyecto`, cambia a ese directorio y luego inicializa un repositorio de Git en él.
+
+### `git clone`
+
+El comando `git clone` se utiliza para crear una copia exacta de un repositorio remoto en tu máquina local. Este comando es útil para obtener una copia de trabajo de un proyecto existente.
+
+**Sintaxis:**
+
+```sh
+git clone <url-del-repositorio>
+```
+
+**Ejemplo:**
+
+```sh
+git clone https://github.com/usuario/mi-proyecto.git
+```
+
+Este comando clona el repositorio remoto ubicado en la URL proporcionada en un nuevo directorio llamado `mi-proyecto`.
+
+### `git add`
+
+El comando `git add` se utiliza para agregar cambios en los archivos al área de preparación (staging area). Esto prepara los cambios para el próximo commit.
+
+**Sintaxis:**
+
+```sh
+git add <archivo>
+git add .
+```
+
+**Ejemplo:**
+
+```sh
+echo "Hola, mundo" > hola.txt
+git add hola.txt
+```
+
+Este comando crea un nuevo archivo llamado `hola.txt`, agrega el contenido "Hola, mundo" y luego prepara el archivo para el próximo commit.
+
+### `git commit`
+
+El comando `git commit` se utiliza para guardar los cambios preparados en el historial del repositorio. Cada commit tiene un mensaje descriptivo que explica los cambios realizados.
+
+**Sintaxis:**
+
+```sh
+git commit -m "Mensaje descriptivo"
+```
+
+**Ejemplo:**
+
+```sh
+git commit -m "Añadir archivo hola.txt con un mensaje de saludo"
+```
+
+Este comando crea un commit que guarda los cambios preparados en el historial del repositorio con el mensaje "Añadir archivo hola.txt con un mensaje de saludo".
+
+### `git status`
+
+El comando `git status` se utiliza para mostrar el estado actual del repositorio. Este comando muestra los archivos que han cambiado, los que están en el área de preparación y los que no están siendo rastreados por Git.
+
+**Sintaxis:**
+
+```sh
+git status
+```
+
+**Ejemplo:**
+
+```sh
+git status
+```
+
+Este comando muestra una lista de archivos que han cambiado desde el último commit y los que están en el área de preparación.
+
+### `git log`
+
+El comando `git log` se utiliza para mostrar el historial de commits del repositorio. Este comando es útil para ver los cambios realizados en el proyecto a lo largo del tiempo.
+
+**Sintaxis:**
+
+```sh
+git log
+```
+
+**Ejemplo:**
+
+```sh
+git log
+```
+
+Este comando muestra una lista de commits, con detalles como el identificador único del commit (SHA-1 hash), el autor, la fecha y el mensaje del commit.
+
+### Ejemplos Prácticos
+
+### Crear un Nuevo Proyecto y Realizar Commits
+
+1. **Inicializar un Nuevo Repositorio:**
+
+```sh
+mkdir ejemplo-git
+cd ejemplo-git
+git init
+```
+
+2. **Crear un Nuevo Archivo y Añadirlo al Área de Preparación:**
+
+```sh
+echo "Este es mi primer archivo en Git" > archivo1.txt
+git add archivo1.txt
+```
+
+3. **Hacer un Commit del Cambio:**
+
+```sh
+git commit -m "Añadir archivo1.txt con contenido inicial"
+```
+
+4. **Ver el Estado del Repositorio:**
+
+```sh
+git status
+```
+
+5. **Ver el Historial de Commits:**
+
+```sh
+git log
+```
+
+### Clonar un Repositorio y Realizar Cambios
+
+1. **Clonar un Repositorio Remoto:**
+
+```sh
+git clone https://github.com/usuario/ejemplo-remoto.git
+cd ejemplo-remoto
+```
+
+2. **Crear un Nuevo Archivo y Añadirlo al Área de Preparación:**
+
+```sh
+echo "Este es un archivo nuevo en el repositorio clonado" > archivo-nuevo.txt
+git add archivo-nuevo.txt
+```
+
+3. **Hacer un Commit del Cambio:**
+
+```sh
+git commit -m "Añadir archivo-nuevo.txt al repositorio clonado"
+```
+
+4. **Ver el Estado del Repositorio:**
+
+```sh
+git status
+```
+
+5. **Ver el Historial de Commits:**
+
+```sh
+git log
+```
+
+## 2.4. Configuración de SSH y HTTPS para Repositorios
+
+Conectar y autenticar con repositorios remotos es una de las funcionalidades principales de Git, y se puede hacer a través de dos protocolos principales: SSH y HTTPS. Cada uno tiene sus ventajas y desventajas, y es importante entender cómo configurar ambos para trabajar de manera eficiente con repositorios remotos como GitHub.
+
+### HTTPS
+
+El protocolo HTTPS es sencillo de configurar y usar. Se basa en el uso de una URL con autenticación basada en el nombre de usuario y la contraseña o tokens de acceso personal.
+
+#### Ventajas de HTTPS
+- Fácil de configurar y utilizar.
+- No requiere configuración adicional en la mayoría de los sistemas.
+- Funciona en cualquier red que permita tráfico HTTPS.
+
+#### Desventajas de HTTPS
+- Necesita ingresar el nombre de usuario y la contraseña con cada operación que interactúa con el repositorio remoto, a menos que se use un gestor de credenciales.
+- Menos seguro que SSH si no se utiliza un gestor de credenciales o tokens de acceso personal.
+
+#### Configuración de HTTPS
+
+1. **Clonar un Repositorio Usando HTTPS:**
+
+```sh
+git clone https://github.com/usuario/repositorio.git
+```
+
+2. **Cambiar la URL Remota a HTTPS:**
+
+Si ya tienes un repositorio configurado y deseas cambiar a HTTPS:
+
+```sh
+git remote set-url origin https://github.com/usuario/repositorio.git
+```
+
+3. **Usar un Gestor de Credenciales:**
+
+Para evitar ingresar las credenciales cada vez, puedes configurar un gestor de credenciales. En sistemas Windows, Git for Windows incluye un gestor de credenciales integrado. En macOS, puedes usar el gestor de credenciales de macOS.
+
+**En Windows:**
+
+```sh
+git config --global credential.helper manager
+```
+
+**En macOS:**
+
+```sh
+git config --global credential.helper osxkeychain
+```
+
+**En Linux:**
+
+```sh
+git config --global credential.helper store
+```
+
+### SSH
+
+El protocolo SSH es más seguro y es el preferido para la mayoría de los desarrolladores que trabajan con repositorios remotos frecuentemente. Utiliza claves SSH para la autenticación, eliminando la necesidad de ingresar contraseñas repetidamente.
+
+##### Ventajas de SSH
+- Mayor seguridad al usar autenticación basada en claves.
+- No requiere ingresar el nombre de usuario y la contraseña para cada operación.
+
+##### Desventajas de SSH:
+- Requiere una configuración inicial.
+- Puede ser bloqueado por algunas redes empresariales.
+
+##### Configuración de SSH
+
+1. **Generar una Clave SSH:**
+
+Si aún no tienes una clave SSH, puedes generarla con el siguiente comando:
+
+```sh
+ssh-keygen -t ed25519 -C "tu.email@ejemplo.com"
+```
+
+Presiona Enter para aceptar la ubicación predeterminada del archivo (`~/.ssh/id_ed25519`). Puedes establecer una frase de contraseña para mayor seguridad.
+
+2. **Añadir la Clave SSH al Agente SSH:**
+
+```sh
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_ed25519
+```
+
+3. **Copiar la Clave SSH Pública:**
+
+```sh
+cat ~/.ssh/id_ed25519.pub
+```
+
+4. **Añadir la Clave SSH a tu Cuenta de GitHub:**
+
+- Ve a [SSH and GPG keys](https://github.com/settings/keys) en tu perfil de GitHub.
+- Haz clic en "New SSH key" (Nueva clave SSH).
+- Pega la clave pública copiada y guarda.
+
+5. **Clonar un Repositorio Usando SSH:**
+
+```sh
+git clone git@github.com:usuario/repositorio.git
+```
+
+6. **Cambiar la URL Remota a SSH:**
+
+Si ya tienes un repositorio configurado y deseas cambiar a SSH:
+
+```sh
+git remote set-url origin git@github.com:usuario/repositorio.git
+```
+
+### Comparación de HTTPS y SSH
+
+A continuación, una tabla comparativa para resaltar las diferencias entre HTTPS y SSH:
+
+| Característica       | HTTPS                                             | SSH                                          |
+|----------------------|----------------------------------------------------|----------------------------------------------|
+| **Seguridad**        | Menos seguro sin gestor de credenciales            | Más seguro con autenticación basada en claves|
+| **Configuración**    | Fácil, sin configuración adicional                 | Requiere configuración inicial               |
+| **Usabilidad**       | Necesita credenciales en cada operación sin gestor | No necesita ingresar credenciales repetidamente|
+| **Compatibilidad**   | Funciona en cualquier red que permita HTTPS        | Puede ser bloqueado por algunas redes        |
+
+### Recomendaciones
+
+Para la mayoría de los desarrolladores, se recomienda utilizar SSH debido a su seguridad y conveniencia. Sin embargo, si estás en un entorno donde la configuración de SSH es complicada o no posible, HTTPS sigue siendo una opción viable, especialmente si se combina con un gestor de credenciales o tokens de acceso personal.
+
+### Recursos Adicionales
+
+- **Documentación Oficial de GitHub sobre SSH:** [Connecting to GitHub with SSH](https://docs.github.com/en/authentication/connecting-to-github-with-ssh)
+- **Documentación Oficial de GitHub sobre HTTPS:** [Connecting to GitHub with HTTPS](https://docs.github.com/en/get-started/getting-started-with-git/about-remote-repositories)
+
+## 2.5. Manejo de .gitignore y .gitattributes
+
+El archivo `.gitignore` y el archivo `.gitattributes` son herramientas esenciales para gestionar cómo Git rastrea y maneja los archivos en tu repositorio. Aquí vamos a profundizar en su configuración, uso y mejores prácticas.
+
+### .gitignore
+
+El archivo `.gitignore` se utiliza para indicar a Git qué archivos o directorios deben ser ignorados. Estos archivos no serán rastreados ni añadidos al repositorio. Es útil para excluir archivos temporales, archivos de configuración local, compilaciones de código, entre otros.
+
+##### ¿Por qué usar .gitignore?
+
+- **Mantener el repositorio limpio**: Evita que archivos innecesarios y específicos del entorno de desarrollo sean rastreados.
+- **Seguridad**: Protege información sensible o configuraciones específicas del entorno local.
+- **Eficiencia**: Reduce el tamaño del repositorio al excluir archivos temporales o generados automáticamente.
+
+##### Sintaxis de .gitignore
+
+La sintaxis de un archivo `.gitignore` es simple:
+
+- Cada línea contiene un patrón que Git usará para ignorar archivos o directorios.
+- Los comentarios se indican con `#`.
+- Las líneas en blanco son ignoradas.
+
+**Ejemplos de patrones comunes:**
+
+```gitignore
+# Ignorar todos los archivos .log
+*.log
+
+# Ignorar el directorio build/
+build/
+
+# Ignorar archivos específicos
+secret-config.yml
+
+# Ignorar todos los archivos en una subcarpeta específica
+subdir/*.tmp
+```
+
+##### Ejemplos Prácticos de .gitignore
+
+1. **Proyecto Node.js:**
+
+```gitignore
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Dependencias
+node_modules/
+
+# Directorios de construcción
+dist/
+build/
+
+# Configuración de entorno
+.env
+```
+
+2. **Proyecto Python:**
+
+```gitignore
+# Archivos de entorno virtual
+venv/
+__pycache__/
+
+# Archivos de compilación
+*.pyc
+
+# Configuración de entorno
+.env
+
+# Directorios de construcción
+build/
+dist/
+```
+
+3. **Proyecto Java:**
+
+```gitignore
+# Archivos de compilación
+*.class
+
+# Directorios de compilación
+target/
+out/
+
+# Archivos de configuración de IDEs
+.idea/
+*.iml
+*.ipr
+*.iws
+```
+
+### .gitattributes
+
+El archivo `.gitattributes` se utiliza para definir atributos específicos para los archivos en tu repositorio. Estos atributos pueden influir en cómo Git maneja los archivos en diferentes contextos, como la normalización de finales de línea, el tratamiento de archivos binarios, y la definición de filtros personalizados.
+
+##### ¿Por qué usar .gitattributes?
+
+- **Controlar finales de línea**: Asegura consistencia en los finales de línea (CRLF/LF) entre diferentes sistemas operativos.
+- **Gestionar archivos binarios**: Evita el tratamiento innecesario de archivos binarios en las fusiones y diffs.
+- **Filtros personalizados**: Aplica filtros de texto personalizados durante el check-in/check-out de archivos.
+
+##### Sintaxis de .gitattributes
+
+La sintaxis de un archivo `.gitattributes` es sencilla:
+
+- Cada línea contiene un patrón seguido de uno o más atributos.
+- Los comentarios se indican con `#`.
+- Las líneas en blanco son ignoradas.
+
+**Ejemplos de atributos comunes:**
+
+```gitattributes
+# Normalizar finales de línea a LF
+*.txt text eol=lf
+
+# Tratar archivos de imagen como binarios
+*.jpg binary
+*.png binary
+
+# Forzar chequeo de atributos específicos
+*.sh text eol=lf
+```
+
+##### Ejemplos Prácticos de .gitattributes
+
+1. **Proyecto Multiplataforma:**
+
+```gitattributes
+# Normalizar todos los archivos de texto a LF
+* text=auto
+
+# Tratar archivos de imagen como binarios
+*.jpg binary
+*.png binary
+*.gif binary
+
+# Normalizar archivos específicos
+*.sh text eol=lf
+*.bat text eol=crlf
+```
+
+2. **Proyecto con Filtros Personalizados:**
+
+```gitattributes
+# Aplicar filtro personalizado a archivos JSON
+*.json filter=json-pretty
+
+# Definir el filtro en el archivo de configuración de Git
+# .git/config o ~/.gitconfig
+[filter "json-pretty"]
+    clean = jq . -c
+    smudge = cat
+```
+
+3. **Proyecto de Documentación:**
+
+```gitattributes
+# Normalizar archivos de texto
+*.md text eol=lf
+*.txt text eol=lf
+
+# Tratar archivos de diagramas como binarios
+*.drawio binary
+```
+
+### Creación y Configuración de .gitignore y .gitattributes
+
+#### Crear un Archivo .gitignore
+
+1. **En la raíz del proyecto, crea un archivo llamado `.gitignore`:**
+
+```sh
+touch .gitignore
+```
+
+2. **Abre el archivo en tu editor de texto favorito y añade los patrones relevantes:**
+
+```gitignore
+# Ignorar directorio de node_modules
+node_modules/
+
+# Ignorar archivos de configuración local
+.env
+```
+
+3. **Guarda los cambios y añade el archivo al repositorio:**
+
+```sh
+git add .gitignore
+git commit -m "Añadir archivo .gitignore"
+```
+
+#### Crear un Archivo .gitattributes
+
+1. **En la raíz del proyecto, crea un archivo llamado `.gitattributes`:**
+
+```sh
+touch .gitattributes
+```
+
+2. **Abre el archivo en tu editor de texto favorito y define los atributos necesarios:**
+
+```gitattributes
+# Normalizar todos los archivos de texto a LF
+* text=auto
+
+# Tratar archivos de imagen como binarios
+*.jpg binary
+*.png binary
+```
+
+3. **Guarda los cambios y añade el archivo al repositorio:**
+
+```sh
+git add .gitattributes
+git commit -m "Añadir archivo .gitattributes"
+```
+
+### Recursos Adicionales
+
+- **Documentación Oficial de Git sobre .gitignore:** [Git - gitignore Documentation](https://git-scm.com/docs/gitignore)
+- **Documentación Oficial de Git sobre .gitattributes:** [Git - gitattributes Documentation](https://git-scm.com/docs/gitattributes)
+- **Generador de .gitignore:** [gitignore.io](https://www.toptal.com/developers/gitignore)

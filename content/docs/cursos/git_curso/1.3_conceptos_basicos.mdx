@@ -1,0 +1,61 @@
+---
+title: 1.3. Conceptos básicos
+---
+
+Para comprender Git, es importante familiarizarse con algunos conceptos fundamentales
+
+## 1.3.1. Repositorio
+
+En Git, un repositorio es más que simplemente un directorio; es la base fundamental para gestionar el código fuente de un proyecto de software. Dentro de un repositorio Git, se almacenan todos los archivos y carpetas que componen el proyecto, junto con un registro detallado de cada modificación realizada en esos archivos a lo largo del tiempo.
+
+ La esencia del repositorio Git reside en su capacidad para registrar y mantener un historial completo de cambios. Cada vez que se realiza una modificación en un archivo dentro del repositorio, Git registra esa modificación como un "commit" o confirmación. Estos commits no solo contienen los cambios realizados en los archivos, sino también información relevante como el autor del cambio, la fecha y hora en que se realizó, y un mensaje descriptivo que resume los cambios efectuados.
+
+Los repositorios Git pueden ser locales o remotos. Los repositorios locales residen en la máquina de cada desarrollador y contienen una copia completa del historial de cambios del proyecto. Esto permite a los desarrolladores trabajar de manera independiente en sus propias copias del proyecto y realizar commits de forma local sin necesidad de estar conectados a Internet. Por otro lado, los repositorios remotos se encuentran alojados en un servidor en línea, como GitHub, GitLab o Bitbucket. Estos servidores actúan como puntos centrales de colaboración, donde los desarrolladores pueden compartir sus cambios, colaborar en el código y mantener una copia centralizada y respaldada del proyecto.
+
+## 1.3.2. Commit
+
+En Git, un commit es una instantánea de un conjunto de cambios realizados en los archivos del repositorio en un momento específico. Cada commit representa una versión particular del código en el historial de cambios del proyecto. Estos commits no solo almacenan los cambios realizados en los archivos, sino también información contextual valiosa, como el autor del cambio, la fecha y hora en que se realizó, y un mensaje descriptivo que resume los cambios efectuados.
+
+Los commits son la unidad básica de trabajo en Git y juegan un papel fundamental en el seguimiento y gestión de cambios en un proyecto. Cada vez que un desarrollador realiza una modificación en los archivos del repositorio y está satisfecho con esos cambios, puede agruparlos en un commit. Este proceso de confirmación captura el estado actual de los archivos en el repositorio en un punto específico en el tiempo, lo que facilita la referencia y el seguimiento de los cambios realizados en el proyecto a lo largo del desarrollo.
+
+Los commits proporcionan varios beneficios clave en el flujo de trabajo de desarrollo de software. En primer lugar, permiten a los desarrolladores rastrear y revertir cambios en el código de manera eficiente. Si surge un problema o se necesita retroceder a una versión anterior del proyecto, los commits proporcionan un historial detallado que permite a los desarrolladores identificar exactamente qué cambios se realizaron y cuándo. Además, los commits facilitan la colaboración entre miembros del equipo, ya que cada commit incluye información sobre quién realizó el cambio y un mensaje que describe los cambios realizados, lo que ayuda a mantener un contexto claro y a comunicar la intención detrás de cada modificación.
+
+En resumen, los commits son una parte fundamental del flujo de trabajo de Git, ya que representan la forma en que se registran y gestionan los cambios en un repositorio. Proporcionan un historial detallado de los cambios realizados en el código a lo largo del tiempo, lo que facilita la colaboración, la resolución de problemas y la gestión efectiva de versiones en el desarrollo de software.
+
+## 1.3.3. Branch
+
+En Git, una rama (branch) es una línea de desarrollo independiente que se deriva del historial principal del repositorio, comúnmente conocido como la rama principal (generalmente denominada "master" o "main"). Las ramas permiten a los desarrolladores trabajar en nuevas características o solucionar problemas de forma separada y sin interferir con el trabajo en otras áreas del proyecto.
+
+El concepto de ramificación es esencial en Git, ya que ofrece una manera flexible y segura de gestionar el desarrollo de software. Cuando un desarrollador crea una nueva rama en el repositorio, Git crea una copia virtual del estado actual del proyecto en ese momento. Desde este punto, el desarrollador puede realizar cambios en los archivos del proyecto de manera independiente, sin preocuparse por afectar el código en otras ramas o en la rama principal.
+
+Las ramas son particularmente útiles cuando se trabaja en nuevas características o experimentos, ya que permiten a los desarrolladores trabajar de forma aislada hasta que la funcionalidad esté completamente desarrollada y probada. Del mismo modo, las ramas se utilizan para abordar problemas o errores sin afectar el trabajo en curso en otras partes del proyecto.
+
+Una vez que se completa una nueva característica o se resuelve un problema en una rama, se puede fusionar de nuevo en la rama principal mediante un proceso conocido como merge. Durante el merge, Git combina los cambios realizados en la rama con los cambios en la rama principal, creando una única línea de desarrollo que incluye todas las modificaciones realizadas en ambas ramas.
+
+En resumen, las ramas en Git son una herramienta poderosa que permite a los desarrolladores trabajar de manera independiente en diferentes partes del proyecto. Facilitan el desarrollo paralelo, la experimentación y la resolución de problemas, al tiempo que garantizan la integridad del código en el repositorio principal. Las ramas son una característica fundamental de Git que contribuye a su popularidad y eficacia en el desarrollo de software.
+
+## 1.3.4. Merge
+
+En Git, hacer un merge significa combinar los cambios de una rama en otra. Este proceso se utiliza para integrar el trabajo realizado en una rama (por ejemplo, una nueva característica o una corrección de errores) en la rama principal del repositorio. Git administra automáticamente los cambios durante el proceso de fusión y resuelve cualquier conflicto que pueda surgir si se han realizado cambios en las mismas líneas de código en ambas ramas.
+
+El merge es una operación fundamental en Git que permite mantener un historial de cambios coherente y actualizado en el proyecto. Cuando se completa el trabajo en una rama y se desea incorporar esos cambios en la rama principal (también conocida como "master" o "main"), se realiza un merge. Durante este proceso, Git analiza las diferencias entre las dos ramas y fusiona los cambios de la rama secundaria en la rama principal.
+
+Es importante destacar que Git gestiona automáticamente los cambios durante el merge y resuelve los conflictos que puedan surgir. Los conflictos ocurren cuando se realizan cambios en las mismas líneas de código en ambas ramas y Git no puede determinar automáticamente cómo combinar los cambios. En estos casos, Git pausa el proceso de merge y solicita al usuario que resuelva manualmente los conflictos antes de continuar con la fusión.
+
+Una vez completado el merge y resueltos los conflictos, los cambios de la rama secundaria se incorporan correctamente en la rama principal. Esto garantiza que el proyecto principal tenga acceso a las nuevas características o correcciones de errores desarrolladas en la rama secundaria, manteniendo la coherencia y la integridad del código en todo momento.
+
+En resumen, el merge en Git es una operación esencial que permite integrar el trabajo realizado en diferentes ramas en el repositorio principal. Facilita la colaboración entre los miembros del equipo y garantiza que los cambios se incorporen de manera efectiva y sin problemas en el proyecto principal. La capacidad de Git para gestionar el proceso de merge de forma automática y resolver conflictos de manera eficiente lo convierte en una herramienta invaluable en el desarrollo de software colaborativo.
+
+## 1.3.5. Remote
+
+En Git, un remoto (remote) es una versión del repositorio que se encuentra en un servidor en línea, como GitHub, Bitbucket o GitLab. Los repositorios remotos son fundamentales para la colaboración en equipos de desarrollo, ya que permiten a los miembros del equipo trabajar en proyectos compartidos y mantener un historial centralizado de cambios.
+
+Los usuarios pueden clonar un repositorio remoto en sus máquinas locales para trabajar en él. Este proceso crea una copia local del repositorio remoto en la máquina del usuario, lo que le permite realizar modificaciones, crear nuevas ramas y realizar commits de manera independiente. Una vez que se han realizado los cambios locales, los usuarios pueden enviar esos cambios de vuelta al repositorio remoto utilizando comandos como `git push`.
+
+El comando `git push` se utiliza para enviar los commits realizados en la copia local del repositorio de vuelta al repositorio remoto. Esto actualiza el historial de cambios en el repositorio remoto con los cambios realizados localmente. Los usuarios pueden especificar la rama local que desean enviar al repositorio remoto, así como la rama remota a la que desean enviar los cambios.
+
+Del mismo modo, los usuarios pueden utilizar el comando `git pull` para recuperar los cambios realizados en el repositorio remoto y fusionarlos con la copia local del repositorio. Esto garantiza que la copia local del repositorio esté sincronizada con la versión más reciente del repositorio remoto.
+
+En resumen, los repositorios remotos en Git son esenciales para la colaboración en equipos de desarrollo, ya que proporcionan un medio centralizado para compartir y mantener un historial de cambios en proyectos compartidos. Los usuarios pueden clonar, enviar cambios y sincronizar repositorios remotos utilizando comandos simples de Git, lo que facilita la colaboración y el trabajo en equipo en proyectos de desarrollo de software.
+
+Estos conceptos básicos son fundamentales para comprender cómo funciona Git y cómo se utiliza en el desarrollo de software colaborativo.

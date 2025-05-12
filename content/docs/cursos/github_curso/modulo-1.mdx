@@ -1,0 +1,380 @@
+---
+title: Módulo 1. Introducción a GitHub
+---
+
+## 1.1. Historia y Filosofía de GitHub
+
+### Historia de GitHub
+
+**Fundación y Crecimiento:**
+- **2008:** GitHub fue fundado por Tom Preston-Werner, Chris Wanstrath, PJ Hyett y Scott Chacon. Su objetivo era crear una plataforma que facilitara la colaboración en proyectos de software utilizando Git, un sistema de control de versiones creado por Linus Torvalds en 2005.
+- **Evolución:** GitHub se lanzó inicialmente como un proyecto beta en abril de 2008 y rápidamente ganó popularidad entre los desarrolladores. En menos de un año, GitHub ya contaba con más de 46,000 repositorios. En 2010, la plataforma alcanzó los 1 millón de repositorios.
+- **Innovaciones:** GitHub no solo permitió a los desarrolladores almacenar y compartir su código, sino que también introdujo características como Issues, Pull Requests, y GitHub Pages, que facilitan la gestión de proyectos y la creación de páginas web directamente desde los repositorios.
+
+**Adquisición por Microsoft:**
+- **2018:** En junio de 2018, Microsoft adquirió GitHub por 7.5 mil millones de dólares. Esta adquisición generó preocupaciones entre algunos desarrolladores sobre la independencia y el futuro de la plataforma, pero Microsoft ha mantenido su compromiso con el código abierto y ha continuado invirtiendo en el desarrollo de GitHub.
+
+**Impacto en la Comunidad:**
+- **Crecimiento continuo:** Desde su adquisición, GitHub ha seguido creciendo y añadiendo nuevas características. Actualmente, alberga millones de proyectos de código abierto y privado, y es una herramienta esencial para desarrolladores de todo el mundo.
+- **Colaboración global:** GitHub ha facilitado la colaboración en proyectos a nivel global, permitiendo a los desarrolladores trabajar juntos de manera efectiva sin importar su ubicación geográfica.
+
+**Contribución al Open Source:**
+- **Proyectos destacados:** Algunos de los proyectos de código abierto más importantes y utilizados del mundo, como Linux, Node.js, y TensorFlow, están alojados en GitHub.
+- **Eventos y programas:** GitHub organiza eventos como GitHub Universe y programas como GitHub Sponsors, que apoyan a los desarrolladores y promueven el desarrollo de software de código abierto.
+
+### Filosofía de GitHub
+
+**Colaboración:**
+- **Equipo y comunidad:** GitHub se centra en facilitar la colaboración tanto dentro de equipos de desarrollo como en la comunidad de código abierto en general. Herramientas como Pull Requests e Issues permiten a los desarrolladores trabajar juntos de manera efectiva.
+
+**Open Source:**
+- **Promoción del código abierto:** GitHub ha sido un catalizador para el crecimiento del movimiento de código abierto. Al proporcionar una plataforma donde los desarrolladores pueden compartir y contribuir a proyectos de código abierto, GitHub ha ayudado a democratizar el desarrollo de software.
+
+**Control de versiones:**
+- **Gestión de cambios:** Basado en Git, GitHub permite a los desarrolladores rastrear cambios en el código, revertir a versiones anteriores, y colaborar en ramas separadas antes de fusionar el trabajo en el proyecto principal.
+
+**Automatización e integración:**
+- **CI/CD y DevOps:** GitHub Actions permite a los desarrolladores automatizar flujos de trabajo, integrando pruebas, despliegues y otras tareas directamente en la plataforma.
+
+**Facilidad de uso:**
+- **Interfaz intuitiva:** La interfaz de GitHub está diseñada para ser intuitiva y accesible, permitiendo tanto a principiantes como a desarrolladores experimentados aprovechar al máximo las herramientas disponibles.
+
+Estos elementos han sido fundamentales para el éxito de GitHub y su adopción generalizada en la industria del software. GitHub continúa evolucionando, ofreciendo nuevas funcionalidades y mejorando la experiencia del usuario para facilitar el desarrollo colaborativo de software.
+
+## 1.2. Diferencias entre Git y GitHub
+
+Para entender mejor las diferencias entre Git y GitHub, vamos a profundizar en sus características y funcionalidades principales. A continuación, se presenta un cuadro comparativo que destaca las diferencias clave entre ambos:
+
+| Característica | Git | GitHub |
+|---|---|---|
+| **Definición** | Sistema de control de versiones distribuido. | Plataforma de desarrollo colaborativo basada en Git. |
+| **Uso** | Usado localmente en el ordenador del desarrollador para rastrear cambios en el código. | Usado en la nube para alojar repositorios Git, facilitando la colaboración remota. |
+| **Instalación** | Requiere instalación local en el sistema del desarrollador. | No requiere instalación; se accede a través de un navegador web. |
+| **Control de versiones** | Permite crear, fusionar y revertir cambios en el código fuente. | Proporciona control de versiones a través de Git, con una interfaz web amigable. |
+| **Interfaz** | Línea de comandos (CLI) y algunas interfaces gráficas disponibles. | Interfaz web, CLI (a través de GitHub CLI), y aplicaciones de escritorio. |
+| **Colaboración** | Soporte limitado para la colaboración (principalmente a través de ramas y merges). | Amplio soporte para la colaboración, incluyendo Pull Requests, Issues, y Wikis. |
+| **Gestión de proyectos** | Enfocado únicamente en el control de versiones del código. | Incluye herramientas de gestión de proyectos como Issues, Projects, y Milestones. |
+| **Almacenamiento de código** | Local en el sistema de archivos del desarrollador. | Basado en la nube, facilitando el acceso y la colaboración remota. |
+| **Integración continua (CI)** | No proporciona integración continua por sí mismo. | Ofrece GitHub Actions para automatizar flujos de trabajo de CI/CD. |
+| **Documentación y Wikis** | No incluye soporte nativo para documentación o wikis. | Soporte integrado para Wikis y archivos de documentación en los repositorios. |
+| **Autenticación y permisos** | Manejo local de permisos. | Autenticación basada en cuentas de usuario, con opciones avanzadas de permisos. |
+| **Repositorios públicos/privados** | No aplica, ya que el repositorio está localmente en el ordenador del usuario. | Opción de crear repositorios públicos y privados. |
+| **Comunidad y redes sociales** | No tiene características de red social. | Incluye características de red social como seguidores, estrellas y forking de repos. |
+
+### Git
+
+- **Definición y Funcionalidad:** Git es un sistema de control de versiones distribuido que permite a los desarrolladores rastrear cambios en el código fuente y coordinar el trabajo entre múltiples personas. Git fue creado por Linus Torvalds en 2005 para el desarrollo del kernel de Linux.
+- **Uso Local:** Git se instala y se utiliza localmente en el ordenador del desarrollador. Los repositorios de Git están almacenados en el sistema de archivos local del desarrollador.
+- **Control de Versiones:** Git proporciona herramientas robustas para el control de versiones, incluyendo la capacidad de crear ramas (branches), realizar fusiones (merges) y revertir cambios. Los desarrolladores pueden trabajar en ramas independientes y luego fusionar los cambios en la rama principal.
+- **Interfaz de Usuario:** La mayoría de las interacciones con Git se realizan a través de la línea de comandos (CLI), aunque también existen varias interfaces gráficas disponibles (como GitKraken, SourceTree, y las interfaces integradas en IDEs).
+
+### GitHub
+
+- **Definición y Funcionalidad:** GitHub es una plataforma de desarrollo colaborativo basada en Git. Además de las funcionalidades de Git, GitHub proporciona una interfaz web amigable y una serie de herramientas adicionales para facilitar la colaboración y la gestión de proyectos.
+- **Uso en la Nube:** GitHub está basado en la nube, lo que permite a los desarrolladores almacenar sus repositorios de código de forma remota y colaborar con otros desarrolladores de manera efectiva. Los repositorios pueden ser públicos o privados.
+- **Herramientas de Colaboración:** GitHub ofrece herramientas como Pull Requests, Issues, y Wikis que facilitan la colaboración en proyectos. Los desarrolladores pueden revisar y comentar cambios de código, reportar y rastrear errores, y mantener documentación del proyecto.
+- **Gestión de Proyectos:** GitHub incluye características de gestión de proyectos como GitHub Projects, que permite a los equipos organizar y planificar su trabajo utilizando tableros Kanban. También proporciona herramientas para gestionar milestones y asignar tareas a los miembros del equipo.
+- **Integración Continua:** GitHub Actions permite a los desarrolladores automatizar flujos de trabajo, incluyendo pruebas, despliegues y otras tareas de integración continua (CI) y entrega continua (CD).
+- **Características de Red Social:** GitHub incluye características de red social como seguidores, estrellas (para marcar repositorios favoritos), y forking (para copiar y modificar repositorios). Esto facilita la creación de comunidades en torno a proyectos de código abierto.
+
+Esta diferenciación entre Git y GitHub muestra cómo ambos se complementan para proporcionar una solución completa para el control de versiones y la colaboración en el desarrollo de software.
+
+## 1.3. Creación de una Cuenta en GitHub
+
+Crear una cuenta en GitHub es un proceso sencillo y directo. A continuación, te guío paso a paso:
+
+### Pasos para crear una cuenta en GitHub
+
+1. **Visitar el sitio web de GitHub:**
+   - Abre tu navegador web y dirígete a [github.com](https://github.com/).
+
+2. **Ingreso de correo electrónico:**
+   - Escribe la direcciónde correo con la que quieras vincular tu cuenta de GitHub en la barra inferior de la página principal y haz clic en el botón "Sign up for GitHub" (Registrarse en GitHub).
+
+   ![GitHub Sign Up](/images/github_curso/modulo-1/GitHub-Sign-Up.png)
+
+3. **Confirmar dirección de correo electrónico:**
+   - Confirma la dirección de correo electrónico ingresada para asegurarte de que es correcta.
+
+      ![Confirmar Correo](/images/github_curso/modulo-1/Confirm-Mail.png)
+
+4. **Escribir la contraseña:**
+   - Crea una contraseña segura para tu cuenta de GitHub. GitHub te indicará si la contraseña es fuerte o débil.
+
+      ![Crear contraseña](/images/github_curso/modulo-1/Create-a-Password.png)
+
+5. **Escribir el nombre de usuario:**
+   - Elige un nombre de usuario único. Este será tu nombre de usuario público y aparecerá en la URL de tu perfil (por ejemplo, github.com/tu_nombre_de_usuario).
+
+      ![Nombre de usuario](/images/github_curso/modulo-1/Username.png)
+
+6. **Preferencias de información:**
+   - Indica si quieres recibir información sobre actualizaciones y nuevos productos de GitHub marcando la casilla correspondiente.
+
+      ![Preferencias de usuario](/images/github_curso/modulo-1/Information-Preferences.png)
+
+7. **Verificación CAPTCHA:**
+   - Verifica que eres una persona resolviendo un sencillo "rompecabezas" tipo CAPTCHA.
+
+      ![Verificar Captcha](/images/github_curso/modulo-1/Captcha.png)
+
+8. **Crear la cuenta:**
+   - Haz clic en "Create account" (Crear cuenta) para proceder.
+
+      ![Crear cuenta](/images/github_curso/modulo-1/Create-account.png)
+
+9. **Verificación de correo electrónico:**
+   - GitHub enviará un código de verificación a tu cuenta de correo. Abre tu bandeja de entrada, encuentra el correo de GitHub y escribe el código recibido en el campo correspondiente en la página de registro.
+
+      ![Verificar correo](/images/github_curso/modulo-1/check-email.png)
+
+10. **Configuración inicial de la cuenta:**
+    - Para ayudar a la configuración inicial de la cuenta, responde algunas preguntas que te hará GitHub.
+    - **Tamaño del equipo:** Indica el número de individuos con los que vas a trabajar en GitHub.
+    - **Rol:** Indica si eres estudiante, profesor, desarrollador o tienes otro rol.
+
+        ![Configuración inicial](/images/github_curso/modulo-1/questions.png)
+
+11. **Funcionalidades adicionales:**
+    - Indica si vas a utilizar determinadas funcionalidades de GitHub, como GitHub Actions, GitHub Packages, entre otras.
+
+        ![Funcionalidades adicionales](/images/github_curso/modulo-1/Additional-features.png)
+
+12. **Funcionalidades para profesores:**
+    - Si eres profesor, puedes solicitar las funcionalidades puestas a disposición de educadores.
+
+       ![Funcionalidades para profesores](/images/github_curso/modulo-1/Features-for-teachers.png)
+
+    - Inmediatamente se mostrará su panel de usuario de GitHub.
+
+       ![Panel de Usuario](/images/github_curso/modulo-1/user-panel.png)
+
+13. **Salir de GitHub:**
+    - Para salir de GitHub, haz clic en el icono superior derecho y elige la opción "Sign out" (Cerrar sesión).
+
+       ![Salir de GitHub](/images/github_curso/modulo-1/Sign-out-of-GitHub.png)
+
+### Consejos adicionales
+
+- **Configuración de notificaciones:** Ve a **Settings** (Configuración) y ajusta tus preferencias de notificaciones para recibir actualizaciones sobre actividades importantes en tus repositorios.
+- **Autenticación en dos pasos:** Para mayor seguridad, habilita la autenticación en dos pasos (2FA). Esto añade una capa adicional de seguridad a tu cuenta.
+- **Conectando con otros:** Busca y sigue a otros desarrolladores o proyectos que te interesen para mantenerte al día con sus actividades y contribuciones.
+
+### Recursos útiles
+
+- **Guía oficial de GitHub para principiantes:** [Comenzando con GitHub](https://docs.github.com/en/get-started/quickstart/hello-world)
+- **GitHub Learning Lab:** [Tutoriales interactivos](https://lab.github.com/)
+
+Estos pasos te ayudarán a crear y configurar tu cuenta en GitHub de manera rápida y sencilla. ¡Ahora estás listo para empezar a colaborar en proyectos y explorar el mundo del desarrollo de software en GitHub!
+
+## 1.4. Navegación por la Interfaz de GitHub
+
+GitHub tiene una interfaz rica en funciones diseñada para facilitar la colaboración y el manejo de proyectos de software. A continuación, se detallan las principales áreas y funcionalidades de la interfaz de GitHub:
+
+### Página de Inicio (Dashboard)
+
+Cuando inicias sesión en GitHub, la primera pantalla que verás es tu página de inicio o dashboard. Aquí se presentan diversas secciones:
+
+1. **Actividades Recientes:**
+   - Muestra las actividades recientes en los repositorios que sigues, como commits, pull requests y discusiones.
+
+2. **Explorar Repositorios:**
+   - GitHub te sugiere repositorios populares o relacionados con tus intereses y actividades previas.
+
+3. **Tus Repositorios:**
+   - Una lista rápida de tus repositorios, permitiéndote acceder fácilmente a ellos.
+
+4. **Tareas Pendientes:**
+   - GitHub muestra notificaciones sobre las tareas que requieren tu atención, como revisiones de pull requests y comentarios.
+
+### Barra de Navegación Superior
+
+La barra de navegación superior está siempre presente y proporciona acceso rápido a las principales funcionalidades de GitHub:
+
+1. **GitHub Logo:**
+   - Te lleva a la página de inicio (dashboard) desde cualquier lugar en GitHub.
+
+2. **Search (Buscar):**
+   - Un campo de búsqueda potente para buscar repositorios, usuarios, y código dentro de los repositorios.
+
+3. **Pull Requests:**
+   - Acceso rápido a tus pull requests abiertas y las que has revisado o creado.
+
+4. **Issues:**
+   - Acceso a las issues abiertas, donde puedes ver, crear y gestionar problemas y tareas.
+
+5. **Marketplace:**
+   - Tienda de aplicaciones y herramientas que se integran con GitHub para mejorar tu flujo de trabajo.
+
+6. **Explore:**
+   - Explora proyectos populares, repositorios y usuarios destacados en GitHub.
+
+7. **Profile and Settings (Perfil y Configuración):**
+   - Icono de tu perfil que despliega un menú con enlaces a tu perfil, tus repositorios, configuraciones de la cuenta, y la opción de cerrar sesión.
+
+### Navegación en un Repositorio
+
+Cuando entras a un repositorio específico, verás varias pestañas y secciones clave:
+
+1. **Code:**
+   - Muestra el contenido del repositorio, incluyendo archivos y directorios. Aquí puedes navegar por el código, ver el historial de commits y gestionar ramas (branches).
+
+2. **Issues:**
+   - Lista y gestión de issues, que son utilizados para reportar errores, proponer mejoras, y gestionar tareas.
+
+3. **Pull Requests:**
+   - Muestra las pull requests abiertas y cerradas. Aquí puedes crear nuevas pull requests, revisarlas y fusionarlas (merge).
+
+4. **Actions:**
+   - Configuración y gestión de flujos de trabajo automatizados usando GitHub Actions.
+
+5. **Projects:**
+   - Herramienta de gestión de proyectos integrada que te permite organizar tareas y proyectos utilizando tableros estilo Kanban.
+
+6. **Wiki:**
+   - Un espacio para documentar tu proyecto directamente dentro del repositorio.
+
+7. **Security:**
+   - Herramientas y configuraciones de seguridad, incluyendo revisiones de dependencias y alertas de seguridad.
+
+8. **Insights:**
+   - Análisis y métricas del repositorio, incluyendo contribuciones, tráfico y más.
+
+### Barra Lateral en un Repositorio
+
+La barra lateral en un repositorio proporciona accesos rápidos a funcionalidades adicionales:
+
+1. **Branches (Ramas):**
+   - Muestra la lista de ramas del repositorio y te permite cambiar entre ellas.
+
+2. **Tags:**
+   - Lista de tags utilizados para marcar versiones o hitos importantes en el desarrollo.
+
+3. **Releases:**
+   - Gestión y descarga de versiones oficiales del software.
+
+4. **Contributors (Contribuyentes):**
+   - Muestra una lista de los colaboradores que han contribuido al repositorio.
+
+5. **About (Acerca de):**
+   - Descripción del repositorio, incluyendo el propósito, enlaces relevantes y licencias.
+
+### Personalización y Configuración
+
+1. **Settings (Configuración):**
+   - Configuración detallada del repositorio, incluyendo permisos de colaboración, integraciones, webhooks, y más.
+
+2. **Notifications (Notificaciones):**
+   - Configuración de notificaciones para recibir actualizaciones sobre actividades importantes.
+
+### Recursos Útiles
+
+- **Documentación Oficial de GitHub:** [Explorando GitHub](https://docs.github.com/en/github/getting-started-with-github/quickstart/exploring-github)
+- **GitHub Learning Lab:** [Tutoriales interactivos](https://lab.github.com/)
+- **Videos Tutoriales:** [GitHub YouTube Channel](https://www.youtube.com/github)
+
+Esta guía detallada te ayudará a navegar y utilizar la interfaz de GitHub eficientemente, permitiéndote gestionar tus proyectos y colaborar con otros desarrolladores de manera efectiva.
+
+## 1.5. Primer Repositorio: Creación y Configuración Inicial
+
+Crear tu primer repositorio en GitHub es un paso crucial para empezar a gestionar tus proyectos de software de manera eficiente. A continuación, se detallan los pasos necesarios para crear y configurar tu primer repositorio, con ejemplos claros y detallados.
+
+### Pasos para Crear un Nuevo Repositorio
+
+1. **Inicia sesión en GitHub:**
+   - Asegúrate de haber iniciado sesión en tu cuenta de GitHub.
+
+2. **Acceder a la creación de repositorios:**
+   - En la esquina superior derecha de cualquier página, haz clic en el icono "+" y selecciona "New repository" (Nuevo repositorio) en el menú desplegable.
+
+3. **Configuración inicial del repositorio:**
+   - Completa el formulario para crear un nuevo repositorio:
+     - **Owner (Propietario):** Selecciona el propietario del repositorio (puede ser tu cuenta personal o una organización a la que pertenezcas).
+     - **Repository name (Nombre del repositorio):** Escribe un nombre para tu repositorio. Asegúrate de que el nombre sea descriptivo y único.
+     - **Description (Descripción):** Opcionalmente, puedes añadir una breve descripción de tu proyecto.
+     
+4. **Visibilidad del repositorio:**
+   - Elige la visibilidad del repositorio:
+     - **Public (Público):** El repositorio será visible para cualquier persona en GitHub. Ideal para proyectos de código abierto.
+     - **Private (Privado):** Solo tú y las personas que invites podrán ver el repositorio. Adecuado para proyectos privados o de empresa.
+
+5. **Inicializar el repositorio:**
+   - Opcionalmente, puedes seleccionar algunas opciones para inicializar tu repositorio:
+     - **Add a README file (Añadir un archivo README):** Marca esta casilla para crear un archivo README.md. Este archivo suele contener información sobre tu proyecto, como propósito, cómo configurarlo y cómo contribuir.
+     - **Add .gitignore (Añadir .gitignore):** Selecciona una plantilla de .gitignore adecuada para tu proyecto. Este archivo especifica qué archivos o directorios deben ignorarse en tu repositorio.
+     - **Choose a license (Elegir una licencia):** Selecciona una licencia para tu proyecto. Las licencias determinan cómo otros pueden usar tu código.
+
+6. **Crear el repositorio:**
+   - Haz clic en el botón "Create repository" (Crear repositorio) para finalizar la creación.
+
+### Ejemplo Práctico: Creación de un Repositorio para un Proyecto de Blog
+
+Supongamos que estás creando un repositorio para un proyecto de blog personal:
+
+1. **Owner (Propietario):** Seleccionas tu cuenta personal.
+2. **Repository name (Nombre del repositorio):** `personal-blog`.
+3. **Description (Descripción):** "Código fuente del blog personal que incluye artículos sobre desarrollo web y programación."
+4. **Visibilidad:** Eliges **Public** para compartir tus conocimientos con la comunidad.
+5. **Inicializar el repositorio:**
+   - Añades un archivo README.md para describir el proyecto.
+   - Seleccionas una plantilla .gitignore para Node.js, ya que tu blog utiliza este entorno.
+   - Eliges la licencia MIT para permitir que otros usen tu código libremente.
+
+### Explorando y Configurando tu Nuevo Repositorio
+
+Una vez creado el repositorio, verás la página principal del mismo. Aquí hay algunas acciones importantes que puedes realizar:
+
+1. **Explorar el repositorio:**
+   - El archivo README.md se mostrará automáticamente en la página principal del repositorio. Aquí puedes proporcionar detalles sobre tu proyecto.
+
+2. **Clonar el repositorio:**
+   - Para trabajar localmente con tu repositorio, puedes clonarlo usando Git. En la página principal del repositorio, haz clic en el botón "Code" (Código) y copia la URL del repositorio.
+   - En tu terminal, ejecuta el siguiente comando:
+
+     ```sh
+     git clone [https://github.com/tu_usuario/personal-blog.git](https://github.com/tu_usuario/personal-blog.git)
+     ```
+
+3. **Crear y gestionar ramas:**
+   - Para mantener un flujo de trabajo limpio, crea ramas para diferentes características o correcciones. Puedes hacerlo en tu terminal con el siguiente comando:
+
+     ```sh
+     git checkout -b feature/nueva-caracteristica
+     ```
+
+4. **Añadir archivos y hacer commits:**
+   - Puedes añadir nuevos archivos y hacer commits con los siguientes comandos:
+
+     ```sh
+     git add .
+     git commit -m "Añadir nuevo artículo sobre Node.js"
+     ```
+
+5. **Empujar cambios a GitHub:**
+   - Sube tus cambios a GitHub con el siguiente comando:
+
+     ```sh
+     git push origin feature/nueva-caracteristica
+     ```
+
+6. **Crear Pull Requests:**
+   - Una vez que has terminado de trabajar en una rama, puedes crear una Pull Request en GitHub para fusionar tus cambios con la rama principal. En la página de tu repositorio, ve a la pestaña "Pull requests" y sigue las instrucciones para crear una nueva Pull Request.
+
+### Configuración Avanzada del Repositorio
+
+1. **Configuración del repositorio:**
+   - En la página del repositorio, haz clic en la pestaña "Settings" (Configuración) para acceder a más opciones, como gestionar colaboradores, habilitar GitHub Pages, configurar webhooks, y más.
+
+2. **Seguridad y revisiones:**
+   - Configura herramientas de seguridad como Dependabot para revisar las dependencias de tu proyecto y recibir alertas de seguridad.
+
+3. **Automatización con GitHub Actions:**
+   - Usa GitHub Actions para crear flujos de trabajo automatizados que se ejecuten en respuesta a eventos en tu repositorio, como realizar pruebas automáticas o desplegar tu aplicación.
+
+### Recursos Útiles
+
+- **Documentación Oficial de GitHub:** [Creación de un nuevo repositorio](https://docs.github.com/en/github/getting-started-with-github/create-a-repo)
+- **GitHub Learning Lab:** [Tutoriales interactivos](https://lab.github.com/)
+- **Videos Tutoriales:** [GitHub YouTube Channel](https://www.youtube.com/github)
+
+Estos pasos te ayudarán a crear y configurar tu primer repositorio en GitHub de manera efectiva. Con esta guía, podrás gestionar tu proyecto, colaborar con otros y aprovechar al máximo las funcionalidades que ofrece GitHub.

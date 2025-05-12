@@ -1,0 +1,89 @@
+---
+title: 2.2. Prácticas recomendadas para aplicar Shift Left Testing
+---
+
+Adoptar Shift Left Testing no es solo cuestión de herramientas, sino de disciplina, acuerdos de equipo y consistencia en el proceso de desarrollo. Estas son prácticas fundamentales que deberías incorporar desde el inicio de cada iteración:
+
+---
+
+## Definición de “Definition of Ready” (DoR) con foco en pruebas
+
+**¿Qué es?**
+Es una checklist que toda historia de usuario debe cumplir antes de ser tomada en desarrollo.
+
+## Buenas prácticas para una DoR efectiva
+
+* Criterios de aceptación claros y testeables.
+* Historias desglosadas lo suficiente para poder estimar y probar.
+* Riesgos conocidos identificados.
+* QA ha revisado la historia y aprobado su claridad.
+* Mocks o datos de prueba listos (si aplica).
+
+## Ejemplo de ítems DoR
+
+* [x] ¿Está claramente definida la validación que debe realizarse?
+* [x] ¿Tiene criterios de aceptación tipo Given / When / Then?
+* [x] ¿Se considera el impacto en funcionalidades existentes?
+
+➡️ Esto evita que se comiencen tareas “a ciegas” y se reduce el retrabajo por malentendidos.
+
+---
+
+## Escribir pruebas unitarias como parte del desarrollo (no después)
+
+**Clásico error:** “Termino el feature, y si tengo tiempo, agrego las pruebas”.
+
+🔄 **Práctica recomendada:**
+
+* El desarrollo **debe incluir** sus pruebas desde el primer commit.
+* Incluso mejor: usar TDD (Test Driven Development).
+
+### Beneficios
+
+* Código más desacoplado y mantenible.
+* Mayor confianza para refactorizar.
+* Prevención de bugs en lugar de corrección.
+
+### Ejemplo en Jest (TypeScript)
+
+```ts
+describe("Cancelar cita", () => {
+  it("debe fallar si faltan menos de 2 horas", () => {
+    const resultado = cancelarCita("2025-05-08T08:00", "2025-05-08T07:00");
+    expect(resultado).toEqual({ exito: false, mensaje: "Tiempo insuficiente" });
+  });
+});
+```
+
+---
+
+## Integrar linters y analizadores estáticos en cada PR
+
+**¿Por qué?**
+Porque es más barato evitar errores comunes y problemas de calidad desde el análisis del código fuente que detectarlos luego en pruebas o producción.
+
+### Herramientas recomendadas
+
+| Lenguaje      | Linter / Analizador            |
+| ------------- | ------------------------------ |
+| JavaScript/TS | ESLint, TypeScript             |
+| Python        | Flake8, pylint, mypy           |
+| Java          | Checkstyle, PMD                |
+| Multilenguaje | SonarQube, CodeClimate |
+
+### Práctica efectiva
+
+* Ejecutar linters y análisis estático automáticamente en cada Pull Request.
+* Bloquear merges si hay violaciones críticas.
+
+---
+
+## Resumen práctico
+
+| Práctica                       | Resultado esperado                              |
+| ------------------------------ | ----------------------------------------------- |
+| ✅ DoR con foco en calidad      | Historias listas para probar desde el inicio    |
+| ✅ Pruebas unitarias integradas | Código testeado y confiable                     |
+| ✅ Linting + análisis estático  | Menos errores tontos, mayor calidad estructural |
+
+---

@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="570" height="300" viewBox="0 0 570 300">
+  <g id="t2-i3" transform="translate(333.315 -952.271)">
+    <rect id="Rectángulo_5238" data-name="Rectángulo 5238" width="570" height="300" transform="translate(-333.315 952.271)" fill="none"/>
+    <g id="Group_59126" data-name="Group 59126">
+      <rect id="Rectangle_7615" data-name="Rectangle 7615" width="149.807" height="24.518" transform="translate(-261.138 978.104)" fill="#ed1c24"/>
+      <path id="Rectangle_7615_-_Outline" data-name="Rectangle 7615 - Outline" d="M-.5-.5H150.307V25.018H-.5ZM149.307.5H.5V24.018H149.307Z" transform="translate(-261.138 978.104)" fill="#891c24"/>
+      <rect id="Rectangle_7616" data-name="Rectangle 7616" width="478.184" height="40.268" transform="translate(217.046 1226.438) rotate(180)" fill="#58edf9"/>
+      <path id="Rectangle_7616_-_Outline" data-name="Rectangle 7616 - Outline" d="M-.5-.5H478.684V40.768H-.5ZM477.684.5H.5V39.768H477.684Z" transform="translate(217.046 1226.438) rotate(180)" fill="#039be5"/>
+      <rect id="Rectangle_7617" data-name="Rectangle 7617" width="478.184" height="40.268" transform="translate(217.046 1175.01) rotate(180)" fill="#ffca28"/>
+      <path id="Rectangle_7617_-_Outline" data-name="Rectangle 7617 - Outline" d="M-.5-.5H478.684V40.768H-.5ZM477.684.5H.5V39.768H477.684Z" transform="translate(217.046 1175.01) rotate(180)" fill="#ffa726"/>
+      <rect id="Rectangle_7618" data-name="Rectangle 7618" width="478.184" height="40.268" transform="translate(217.046 1123.581) rotate(180)" fill="#e2f8fa"/>
+      <path id="Rectangle_7618_-_Outline" data-name="Rectangle 7618 - Outline" d="M0-.75H478.184a.75.75,0,0,1,.75.75V40.268a.75.75,0,0,1-.75.75H0a.75.75,0,0,1-.75-.75V0A.75.75,0,0,1,0-.75ZM477.434.75H.75V39.518H477.434Z" transform="translate(217.046 1123.581) rotate(180)" fill="#4dd0e1"/>
+      <text id="App_A" data-name="App A" transform="translate(-207.629 995.038)" fill="#fff" font-size="16" font-family="Roboto-Regular, Roboto"><tspan x="0" y="0">App A</tspan></text>
+      <text id="Hipervisor" transform="translate(-59.354 1108.123)" fill="#12263f" font-size="16" font-family="Roboto-Bold, Roboto" font-weight="700"><tspan x="0" y="0">Hipervisor</tspan></text>
+      <text id="Sistema_Operativo_Host" data-name="Sistema Operativo Host" transform="translate(-107.19 1159.552)" fill="#12263f" font-size="16" font-family="Roboto-Bold, Roboto" font-weight="700"><tspan x="0" y="0">Sistema Operativo Host</tspan></text>
+      <text id="Hardware" transform="translate(-56.675 1210.98)" fill="#12263f" font-size="16" font-family="Roboto-Bold, Roboto" font-weight="700"><tspan x="0" y="0">Hardware</tspan></text>
+      <text id="VM" transform="translate(-313.677 1025.253)" fill="#ed1c24" font-size="16" font-family="Roboto-Bold, Roboto" font-weight="700"><tspan x="0" y="0">VM</tspan></text>
+      <rect id="Rectangle_7619" data-name="Rectangle 7619" width="149.807" height="24.518" transform="translate(-261.138 1008.318)" fill="#ed1c24"/>
+      <path id="Rectangle_7619_-_Outline" data-name="Rectangle 7619 - Outline" d="M-.5-.5H150.307V25.018H-.5ZM149.307.5H.5V24.018H149.307Z" transform="translate(-261.138 1008.318)" fill="#891c24"/>
+      <text id="Binarios_Librerías" data-name="Binarios Librerías" transform="translate(-248.004 1025.252)" fill="#fff" font-size="16" font-family="Roboto-Regular, Roboto"><tspan x="0" y="0">Binarios Librerías</tspan></text>
+      <rect id="Rectangle_7620" data-name="Rectangle 7620" width="149.807" height="24.518" transform="translate(-261.138 1038.532)" fill="#ed1c24"/>
+      <path id="Rectangle_7620_-_Outline" data-name="Rectangle 7620 - Outline" d="M-.5-.5H150.307V25.018H-.5ZM149.307.5H.5V24.018H149.307Z" transform="translate(-261.138 1038.532)" fill="#891c24"/>
+      <text id="S.O_Invitado" data-name="S.O Invitado" transform="translate(-229.012 1055.467)" fill="#fff" font-size="16" font-family="Roboto-Regular, Roboto"><tspan x="0" y="0">S.O Invitado</tspan></text>
+      <rect id="Rectangle_7621" data-name="Rectangle 7621" width="149.807" height="24.518" transform="translate(-96.949 978.104)" fill="#ed1c24"/>
+      <path id="Rectangle_7621_-_Outline" data-name="Rectangle 7621 - Outline" d="M-.5-.5H150.307V25.018H-.5ZM149.307.5H.5V24.018H149.307Z" transform="translate(-96.949 978.104)" fill="#891c24"/>
+      <text id="App_A-2" data-name="App A" transform="translate(-43.441 995.038)" fill="#fff" font-size="16" font-family="Roboto-Regular, Roboto"><tspan x="0" y="0">App A</tspan></text>
+      <rect id="Rectangle_7622" data-name="Rectangle 7622" width="149.807" height="24.518" transform="translate(-96.949 1008.318)" fill="#ed1c24"/>
+      <path id="Rectangle_7622_-_Outline" data-name="Rectangle 7622 - Outline" d="M-.5-.5H150.307V25.018H-.5ZM149.307.5H.5V24.018H149.307Z" transform="translate(-96.949 1008.318)" fill="#891c24"/>
+      <text id="Binarios_Librerías-2" data-name="Binarios Librerías" transform="translate(-83.815 1025.252)" fill="#fff" font-size="16" font-family="Roboto-Regular, Roboto"><tspan x="0" y="0">Binarios Librerías</tspan></text>
+      <rect id="Rectangle_7623" data-name="Rectangle 7623" width="149.807" height="24.518" transform="translate(-96.949 1038.532)" fill="#ed1c24"/>
+      <path id="Rectangle_7623_-_Outline" data-name="Rectangle 7623 - Outline" d="M-.5-.5H150.307V25.018H-.5ZM149.307.5H.5V24.018H149.307Z" transform="translate(-96.949 1038.532)" fill="#891c24"/>
+      <text id="S.O_Invitado-2" data-name="S.O Invitado" transform="translate(-64.824 1055.467)" fill="#fff" font-size="16" font-family="Roboto-Regular, Roboto"><tspan x="0" y="0">S.O Invitado</tspan></text>
+      <rect id="Rectangle_7624" data-name="Rectangle 7624" width="149.807" height="24.518" transform="translate(67.239 978.104)" fill="#ed1c24"/>
+      <path id="Rectangle_7624_-_Outline" data-name="Rectangle 7624 - Outline" d="M-.5-.5H150.307V25.018H-.5ZM149.307.5H.5V24.018H149.307Z" transform="translate(67.239 978.104)" fill="#891c24"/>
+      <text id="App_A-3" data-name="App A" transform="translate(120.748 995.038)" fill="#fff" font-size="16" font-family="Roboto-Regular, Roboto"><tspan x="0" y="0">App A</tspan></text>
+      <rect id="Rectangle_7625" data-name="Rectangle 7625" width="149.807" height="24.518" transform="translate(67.239 1008.318)" fill="#ed1c24"/>
+      <path id="Rectangle_7625_-_Outline" data-name="Rectangle 7625 - Outline" d="M-.5-.5H150.307V25.018H-.5ZM149.307.5H.5V24.018H149.307Z" transform="translate(67.239 1008.318)" fill="#891c24"/>
+      <text id="Binarios_Librerías-3" data-name="Binarios Librerías" transform="translate(80.373 1025.252)" fill="#fff" font-size="16" font-family="Roboto-Regular, Roboto"><tspan x="0" y="0">Binarios Librerías</tspan></text>
+      <rect id="Rectangle_7626" data-name="Rectangle 7626" width="149.807" height="24.518" transform="translate(67.239 1038.532)" fill="#ed1c24"/>
+      <path id="Rectangle_7626_-_Outline" data-name="Rectangle 7626 - Outline" d="M-.5-.5H150.307V25.018H-.5ZM149.307.5H.5V24.018H149.307Z" transform="translate(67.239 1038.532)" fill="#891c24"/>
+      <text id="S.O_Invitado-3" data-name="S.O Invitado" transform="translate(99.365 1055.467)" fill="#fff" font-size="16" font-family="Roboto-Regular, Roboto"><tspan x="0" y="0">S.O Invitado</tspan></text>
+      <path id="Path_102195" data-name="Path 102195" d="M-266.888,1063.55h-8.759V977.6h8.759v1h-7.759v83.947h7.759Z" fill="#891c24"/>
+    </g>
+  </g>
+</svg>

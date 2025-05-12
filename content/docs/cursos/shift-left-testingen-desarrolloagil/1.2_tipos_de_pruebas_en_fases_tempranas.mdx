@@ -1,0 +1,102 @@
+---
+title: 1.2. Tipos de pruebas en fases tempranas
+---
+  
+Implementar Shift Left Testing no solo implica probar antes, sino también **elegir el tipo de prueba adecuada para cada fase temprana del ciclo de desarrollo**. Aquí te explico las principales:
+
+---
+
+## Pruebas unitarias (Unit Testing)
+
+* **¿Qué son?**
+  Verifican el comportamiento de funciones, métodos o componentes aislados.
+
+* **Objetivo:**
+  Validar la lógica interna y asegurar que cada “pieza pequeña” del sistema funciona como se espera.
+
+* **Cuándo aplicarlas:**
+  Durante o inmediatamente después de escribir el código.
+
+* **Herramientas comunes:**
+  Jest (JS/TS), JUnit (Java), NUnit (C#), Pytest (Python)
+
+* **Ejemplo real:**
+  Validar que una función `calcularPrecioConDescuento()` devuelva el monto correcto según el tipo de cliente.
+
+---
+
+## Revisión de requerimientos + pruebas de aceptación
+
+* **¿Qué son?**
+  Validación anticipada de historias de usuario antes del desarrollo, asegurando que los criterios de aceptación estén claros, completos y verificables.
+
+* **Objetivo:**
+  Detectar ambigüedades, inconsistencias o condiciones no definidas.
+
+* **Cuándo aplicarlas:**
+  En sesiones de refinamiento o planning.
+
+* **Herramientas:**
+  Documentación colaborativa (Confluence, Notion), Gherkin para BDD.
+
+* **Ejemplo real:**
+  Discutir con el PO si “enviar notificación” implica un correo o un SMS, y definir ese comportamiento con claridad antes de escribir código.
+
+---
+
+## TDD (Test-Driven Development)
+
+* **¿Qué es?**
+  Escribir primero las pruebas unitarias antes de implementar el código. Solo se escribe lo necesario para pasar el test.
+
+* **Ventaja clave:**
+  Promueve diseño más limpio y bien segmentado. Favorece confianza en refactorización.
+
+* **Cuándo usarlo:**
+  En desarrollo de lógica de negocio, validaciones, cálculos, controladores.
+
+* **Flujo típico:**
+
+  1. Escribir una prueba que falla.
+  2. Escribir el código mínimo para pasarla.
+  3. Refactorizar.
+
+---
+
+## BDD (Behavior-Driven Development)
+
+* **¿Qué es?**
+  Similar al TDD, pero enfocado en el comportamiento desde la perspectiva del usuario. Utiliza lenguaje natural (Given-When-Then) para describir escenarios.
+
+* **Objetivo:**
+  Facilitar la colaboración entre desarrolladores, testers y negocio.
+
+* **Herramientas:**
+  Cucumber, SpecFlow, Behave, Cypress + Cucumber.
+
+* **Ejemplo:**
+
+  ```gherkin
+  Scenario: Agendar una cita médica exitosa
+    Given el paciente ha iniciado sesión
+    When selecciona una especialidad y una hora disponible
+    Then el sistema muestra una confirmación de cita
+  ```
+
+---
+
+## Pruebas de integración tempranas
+
+* **¿Qué son?**
+  Validan cómo interactúan componentes entre sí (por ejemplo: frontend con backend, microservicio con base de datos, o módulo A con B).
+
+* **Objetivo:**
+  Detectar incompatibilidades o errores de contrato entre servicios.
+
+* **Cuándo aplicarlas:**
+  Después de tener componentes básicos listos, pero antes de ponerlos en ambientes completos.
+
+* **Ejemplo:**
+  Probar que al guardar una cita, se invoque correctamente el microservicio de notificaciones.
+
+---

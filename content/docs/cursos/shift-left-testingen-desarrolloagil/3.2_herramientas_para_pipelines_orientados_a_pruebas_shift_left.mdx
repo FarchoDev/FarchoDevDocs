@@ -1,0 +1,93 @@
+---
+title: 3.2. Herramientas para pipelines orientados a pruebas (Shift Left)
+---
+
+Una estrategia Shift Left efectiva requiere pipelines robustos que soporten **automatización, trazabilidad y visibilidad de la calidad**. A continuación, se presentan las herramientas más relevantes según cada propósito dentro del pipeline:
+
+---
+
+## Orquestadores de Pipelines CI/CD
+
+| Herramienta        | Características clave                                                 | Ideal para...                          |
+| ------------------ | --------------------------------------------------------------------- | -------------------------------------- |
+| **GitHub Actions** | YAML simple, integración directa con repos GitHub, marketplace amplio | Proyectos modernos con repos en GitHub |
+| **GitLab CI**      | CI/CD como parte del propio GitLab, potente para pipelines complejos  | Equipos DevOps integrados en GitLab    |
+| **Jenkins**        | Altamente configurable, integraciones extensas, plugins infinitos     | Empresas con pipelines personalizados  |
+
+💡 *Recomendación:*
+Para empezar rápido en proyectos modernos, **GitHub Actions** es muy accesible. Para entornos más corporativos, Jenkins o GitLab CI pueden ofrecer mayor control.
+
+---
+
+## Docker + Docker Compose: Ambientes controlados y reproducibles
+
+Una gran parte del éxito en las pruebas automatizadas está en **mantener consistencia entre entornos**. Docker facilita esto creando contenedores portables y aislados.
+
+| Herramienta        | Propósito                                                             |
+| ------------------ | --------------------------------------------------------------------- |
+| **Docker**         | Crear imágenes ligeras para ejecutar tests en CI                      |
+| **Docker Compose** | Orquestar múltiples servicios (app, DB, API mock, etc.) en local o CI |
+
+## Usos comunes en Shift Left
+
+* Correr base de datos de pruebas local (PostgreSQL, Mongo, etc.)
+* Lanzar mocks de servicios externos para pruebas contractuales
+* Crear entornos *idénticos* en local, CI y staging
+
+Ejemplo en `docker-compose.yml`:
+
+```yaml
+version: '3.8'
+services:
+  app:
+    build: .
+    ports:
+      - "3000:3000"
+  db:
+    image: postgres
+    environment:
+      POSTGRES_PASSWORD: secret
+  tests:
+    build: .
+    command: npm run test:e2e
+    depends_on:
+      - app
+      - db
+```
+
+---
+
+## Reportes de pruebas: Visibilidad para Dev y QA
+
+Las pruebas automatizadas **no tienen valor si los resultados no son visibles y comprensibles**. Para eso, usamos herramientas de reporting avanzadas que permiten:
+
+* Ver resultados por test/suite
+* Adjuntar trazas, capturas y métricas
+* Comparar ejecuciones entre builds
+
+| Herramienta                  | Tipo de reporte            | Integración                                     |
+| ---------------------------- | -------------------------- | ----------------------------------------------- |
+| **Allure**                   | Reporte visual completo    | Compatible con Playwright, Jest, Pytest         |
+| **ReportPortal**             | Plataforma centralizada CI | Integra con CI/CD y varios lenguajes            |
+| **Playwright HTML Reporter** | Reporte interactivo local  | Se genera automáticamente con `--reporter html` |
+
+💡 *Consejo práctico:*
+Usa **Allure** si necesitas compartir resultados fácilmente o generar dashboards históricos. Se puede integrar en CI para subir artefactos post-prueba.
+
+---
+
+## Resumen visual del ecosistema
+
+```
+[ Código ] → GitHub → GitHub Actions
+                           ↓
+                  [ Docker Compose: App + DB ]
+                           ↓
+            [ Playwright / Jest / Newman ejecutan pruebas ]
+                           ↓
+                  [ Allure genera reportes interactivos ]
+                           ↓
+                   [ Notificación a Slack / Teams ]
+```
+
+---

@@ -1,0 +1,81 @@
+---
+title: Docker
+full: false
+---
+
+Es una de las plataformas de software más ampliamente utilizadas en el mundo para la gestión de contenedores. A continuación, se dará a conocer el proceso de instalación:
+
+## Proceso de instalación de docker
+
+Para realizar el proceso de instalación de docker en el sistema operativo Windows debemos dirigirnos directamente a la página oficial de docker disponible en: https://docs.docker.com/docker-for-windows/install/
+
+En el enlace anterior podrá encontrar el enlace de acceso directo al proceso de descarga y también encontrará una descripción de los requerimientos específicos del sistema respecto a versiones de sistema operativo, memoria ram mínima, procesadores compatibles entre otros requerimientos.
+
+### Página oficial de Docker para instalar Windows.
+
+![Página oficial de Docker para instalar Windows.](/images/contenedores/002.png)
+
+> Nota. https://docs.docker.com/docker-for-windows/install/
+> Página oficial de Docker para instalar Windows.
+
+### Configuración Instalación Docker Desktop 3.4.0.
+
+![Configuración Instalación Docker Desktop 3.4.0.](/images/contenedores/003.png)
+
+Una vez terminada la descarga se debe ejecutar el instalador de docker el cual iniciará con una ventana de configuración donde se podrá seleccionar la instalación de componentes adicionales requeridos y el generar iconos de acceso desde el escritorio de la máquina.
+
+### Instalación Docker Desktop 3.4.0.
+
+![Instalación Docker Desktop 3.4.0.](/images/contenedores/004.png)
+
+Una vez se determina la configuración deseada se inicia el proceso de instalación el cual al finalizar solicitará el reinicio del sistema operativo como se muestra en la figura 3 y realizará unas actualizaciones finales mientras reinicia la máquina.
+
+### Advertencia sobre falta de elementos de instalación.
+
+![Advertencia sobre falta de elementos de instalación.](/images/contenedores/005.png)
+
+Al reiniciar el sistema Docker se ejecuta en background e informará si existe algún problema en caso de que el sistema operativo no cumpla con las dependencias requeridas. Docker le indicará la falta de los componentes que no pueda actualizar para realizar el proceso manual. En el ejemplo mostrado se requiere la instalación manual de WSL 2 Linux Kernel el cual ya no viene integrado en el instalador Docker para Windows 10 (Windows, 2021).Luego de realizar esta instalación manual deberá reiniciar nuevamente la máquina.
+
+Luego de la instalación del paquete de acuerdo con la documentación oficial debe fijar WSL2 (recién instalado) como la versión por defecto para las distribuciones de Linux. Para realizar este proceso deberá abrir una consola de powershell de windows y ejecutar el comando que se muestra en la figura 5.
+
+**Figura 5 Arquitectura tecnologías de hipervisores y contenedores**
+
+![Arquitectura tecnologías de hipervisores y contenedores](/images/contenedores/006.png)
+
+Una vez finalizados los pasos anteriores, Docker debe poder ejecutarse sin ningún tipo de error o advertencia.
+
+**Figura 6 Información sobre pasos a seguir**
+
+![Información sobre pasos a seguir](/images/contenedores/007.png)
+
+
+## Clonación de un Respositorio
+
+Adicionalmente, una vez finaliza exitosamente la instalación, el sistema ofrece un pequeño tutorial para el uso de la herramienta entre las que se encuentran las acciones más comunes a realizar como lo son las actividades de clonación de un repositorio, la construcción de una imagen a partir de esta clonación y su ejecución como contenedor de Docker. Se recomienda ejecutar el tutorial completo para así determinar que su instalación y configuración está bien definida:
+
+### Acción de clonar repositorio.
+
+![Información sobre pasos a seguir](/images/contenedores/defectiveImage.png)
+
+> Fuente. Tutorial Docker Desktop 3.4.0
+> Acción de clonar contenedor en Docker Hub
+
+### Acción de construir imagen desde repositorio.
+
+![Acción de construir imagen desde repositorio](/images/contenedores/009.png)
+
+> Fuente. Tutorial Docker Desktop 3.4.0
+> Acción de construir imagen desde repositorio.
+
+### Acción de construir contenedor desde imagen.
+
+![Acción de construir contenedor desde imagen](/images/contenedores/010.png)
+
+> Fuente. Tutorial Docker Desktop 3.4.0
+> Acción de construir contenedor desde imagen
+
+### Acción de compartir contenedor en Docker Hub
+
+![Acción de compartir contenedor en Docker Hub](/images/contenedores/011.png)
+
+

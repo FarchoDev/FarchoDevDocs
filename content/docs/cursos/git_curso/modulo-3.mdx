@@ -1,0 +1,3641 @@
+---
+title: Módulo 3. Uso básico de Git
+---
+
+En este módulo, exploraremos los conceptos fundamentales de Git y aprenderemos cómo realizar las operaciones básicas para gestionar un repositorio local.
+
+## 3.1. Iniciar y clonar repositorios
+
+Cuando trabajamos con Git, a menudo necesitamos comenzar desde cero con un nuevo repositorio o clonar uno existente para colaborar en un proyecto. En esta sección, exploraremos cómo iniciar un repositorio desde el principio y cómo clonar repositorios existentes.
+
+### git init: Crear un Nuevo Repositorio Git
+
+El comando `git init` se utiliza para crear un nuevo repositorio Git en un directorio existente. Esto es útil cuando deseas empezar a gestionar tu proyecto con Git, pero ya tienes algunos archivos y directorios en tu proyecto.
+
+### ¿Qué Hace git init?
+
+Cuando ejecutas git init, Git realiza las siguientes acciones:
+
+- **Crea un Subdirectorio .git:** Este subdirectorio contiene todos los archivos necesarios para el repositorio. Es donde Git guarda la base de datos del repositorio, la configuración, las referencias a las ramas, entre otros.
+- **Configura el Repositorio:** Git inicializa el repositorio con la configuración predeterminada. Si has configurado opciones globales (como tu nombre y correo electrónico), estas configuraciones se aplicarán al nuevo repositorio.
+- **No Afecta tus Archivos:** Los archivos y directorios existentes en tu proyecto no se ven afectados por git init. Simplemente agrega la capacidad de gestionar esos archivos con Git.
+
+### Cómo Usar git init
+
+1. **Navegar al Directorio del Proyecto**
+
+Abre tu terminal y navega al directorio donde deseas crear el repositorio. Por ejemplo:
+
+```bash
+cd /ruta/a/tu/proyecto
+
+```
+
+1. **Ejecutar git init**
+
+Una vez que estés en el directorio correcto, ejecuta:
+
+```bash
+git init
+```
+
+Este comando inicializa el repositorio Git en el directorio actual.
+
+### **Verificar la Inicialización**
+
+Después de ejecutar git init, puedes verificar que el repositorio se ha creado correctamente:
+
+1. **Comprobar la Existencia del Directorio .git**
+
+Usa el comando `ls -la` para listar todos los archivos y directorios, incluyendo los ocultos:
+
+```bash
+ls -la
+```
+
+Deberías ver un directorio .git en la lista de archivos:
+
+```bash
+drwxr-xr-x  8 usuarioñp  grupo  256 Jun 25 10:00 .
+drwxr-xr-x  5 usuario  grupo  160 Jun 25 10:00 ..
+drwxr-xr-x  9 usuario  grupo  288 Jun 25 10:00 .git
+```
+
+1. **Comprobar el Estado del Repositorio**
+
+Usa `git status` para ver el estado del repositorio. Si no tienes archivos en el área de preparación, verás algo como esto:
+
+```bash
+git status
+
+En la rama principal
+No hay commits todavía
+Archivos sin seguimiento:  (usa "git add <archivo>..." para incluir en lo que se será confirmado)
+  README.md
+nada añadido al commit pero hay archivos sin seguimiento presentes (usa "git add" para añadirlos)
+```
+
+## git clone: Clonar un Repositorio Git
+
+El comando `git clone` se utiliza para crear una copia idéntica de un repositorio remoto en tu máquina local. Este comando no solo copia los archivos y directorios del proyecto, sino que también clona todo el historial de commits, ramas y etiquetas.
+
+### ¿Qué Hace git clone?
+
+Cuando ejecutas git clone, Git realiza las siguientes acciones:
+
+- **Crea un Directorio Local:** Git crea un nuevo directorio con el mismo nombre que el repositorio remoto (a menos que especifiques un nombre diferente).
+- **Descarga el Repositorio Remoto:** Git descarga todos los archivos, directorios y el historial de commits del repositorio remoto en el nuevo directorio local.
+- **Configura el Repositorio Local:** Git configura el repositorio local para que apunte al remoto, permitiendo que realices operaciones como git pull y git push para sincronizar cambios.
+
+### Cómo Usar git clone
+
+1. **Obtener la URL del Repositorio Remoto**
+
+Primero, necesitas la URL del repositorio remoto que deseas clonar. Esta URL puede ser HTTPS, SSH o Git.
+
+Ejemplos de URLs:HTTPS: 
+
+- **https:** //github.com/usuario/proyecto.git
+- **SSH:** git@github.com:usuario/proyecto.git
+- **Git:** git://github.com/usuario/proyecto.git
+1. **Ejecutar git clone En tu terminal**
+
+En tu terminal, navega al directorio donde deseas clonar el repositorio y ejecuta el comando git clone seguido de la URL del repositorio remoto.
+
+```bash
+git clone URL_DEL_REPOSITORIO
+
+```
+
+Ejemplo:
+
+```bash
+git clone https://github.com/usuario/proyecto.git
+
+```
+
+1. **Clonar en un Directorio Específico**
+
+Si deseas clonar el repositorio en un directorio con un nombre diferente al predeterminado, puedes especificar el nombre del directorio como un argumento adicional:
+
+```bash
+git clone URL_DEL_REPOSITORIO NOMBRE_DEL_DIRECTORIO
+```
+
+Ejemplo: 
+
+```bash
+git clone https://github.com/usuario/proyecto.git mi_proyecto
+```
+
+### Verificar la Clonación
+
+Después de clonar el repositorio, puedes verificar que todo se haya copiado correctamente:
+
+1. **Navegar al Directorio Clonado**
+
+```bash
+cd nombre_del_repositorio
+```
+
+1. **Comprobar el Estado del Repositorio**
+
+Usa git status para ver el estado del repositorio clonado:
+
+```bash
+git status
+```
+
+1. **Listar los Remotos**
+
+Para ver a qué remoto está conectado tu repositorio local, usa:
+
+```bash
+git remote -v
+```
+
+Ejemplo Completo:
+
+```bash
+# Clonar el repositorio remoto
+git clone https://github.com/usuario/proyecto.git
+
+# Navegar al directorio clonado
+cd proyecto
+
+# Comprobar el estado del repositorio
+git status
+
+# Listar los remotos
+git remote -v
+```
+
+El comando git clone es una herramienta poderosa que te permite crear una copia completa de un repositorio remoto en tu máquina local, incluyendo todos los archivos, historial de commits, ramas y etiquetas. Esto es fundamental para colaborar en proyectos y gestionar código de manera eficiente.
+
+## 3.2. Gestión básica de cambios y archivos
+
+En esta sección, exploraremos algunos de los comandos fundamentales de Git para la gestión básica de cambios y archivos en nuestro repositorio.
+
+## git add: Añadir Archivos al Área de Preparación
+
+El comando `git add` se utiliza para añadir cambios en el directorio de trabajo al área de preparación (staging area). Este es el primer paso en el flujo de trabajo de Git, permitiendo que los cambios sean incluidos en el siguiente commit.
+
+### ¿Qué Hace git add?
+
+Cuando ejecutas git add, Git realiza las siguientes acciones:
+
+- **Actualiza el Área de Preparación:** Git toma una instantánea de los archivos especificados y los coloca en el área de preparación. Esto significa que los cambios en estos archivos serán incluidos en el siguiente commit.
+- **Permite Controlar Qué Cambios Incluir:** Puedes añadir solo ciertos archivos o partes específicas de un archivo al área de preparación, permitiéndote un control granular sobre lo que se incluye en cada commit.
+
+### Cómo Usar git add
+
+1. **Añadir Archivos Específicos**
+
+Para añadir un archivo específico al área de preparación, usa:
+
+```bash
+git add archivo
+```
+
+Ejemplo:
+
+```bash
+git add README.md
+```
+
+1. **Añadir Todos los Archivos Nuevos y Modificados**
+
+Para añadir todos los archivos nuevos y modificados al área de preparación, usa:
+
+```bash
+git add .
+```
+
+Esto es útil cuando tienes muchos cambios y quieres añadirlos todos de una vez.
+
+1. **Añadir un Directorio Completo**
+
+Para añadir todos los archivos dentro de un directorio, usa:
+
+```bash
+git add nombre_directorio
+```
+
+Ejemplo:
+
+```bash
+
+git add src/
+```
+
+1. **Añadir Cambios en Partes de un Archivo**
+
+Para añadir solo ciertas partes de un archivo al área de preparación, usa la opción interactiva -p:
+
+```bash
+git add -p archivo
+
+```
+
+Esto te permitirá revisar y seleccionar cambios específicos en el archivo.
+
+### Verificar los Archivos Añadidos
+
+Para ver qué archivos están en el área de preparación, usa:
+
+```bash
+git status
+```
+
+Esto mostrará los archivos que están listos para ser comprometidos (staged).
+
+Ejemplo Completo:
+
+```bash
+# Crear o modificar un archivo
+echo "print('Hola, mundo!')" > hola.py
+
+# Añadir un archivo específico al área de preparación
+git add hola.py
+
+# Verificar el estado del repositorio
+git status
+```
+
+Esto mostrará algo como:
+
+```bash
+En la rama main
+Cambios para ser confirmados:  
+(usa "git restore --staged <archivo>..." 
+para deshacer la preparación)  
+nuevo archivo:   hola.py
+```
+
+### **Resumen de Comandos Utilizados**
+
+```bash
+# Añadir un archivo específico
+git add archivo
+
+# Añadir todos los archivos nuevos y modificados
+git add .
+
+# Añadir un directorio completo
+git add nombre_directorio
+
+# Añadir cambios en partes de un archivo
+git add -p archivo
+```
+
+El comando `git add`es esencial para preparar los cambios que deseas incluir en tu próximo commit. Permite un control detallado sobre qué modificaciones se añaden al repositorio, facilitando un flujo de trabajo organizado y preciso.
+
+## git commit: Confirmar Cambios en el Repositorio
+
+El comando `git commit` se utiliza para confirmar los cambios que están en el área de preparación y guardarlos en el repositorio Git como un nuevo commit. Este comando captura una instantánea de los cambios preparados y permite asociar un mensaje descriptivo que explica los cambios realizados.
+
+### ¿Qué Hace git commit?
+
+Cuando ejecutas `git commit`, Git realiza las siguientes acciones:
+
+- **Crea un Nuevo Commit**: Crea un punto en la historia del repositorio que incluye los cambios confirmados desde el área de preparación.
+- **Guarda Metadatos**: Guarda metadatos como el autor del commit, la fecha y la hora, y el mensaje asociado.
+- **Proporciona un Registro de Cambios**: Cada commit representa un conjunto de cambios coherente y puede revertirse o revisarse en el futuro.
+
+### Cómo Usar git commit
+
+Para realizar un commit, sigue estos pasos:
+
+1. **Asegúrate de que los Cambios Estén en el Área de Preparación**:
+    - Utiliza `git add` para añadir los archivos o cambios que deseas incluir en el próximo commit al área de preparación.
+2. **Ejecuta git commit**:
+    
+    ```bash
+    git commit
+    
+    ```
+    
+    Esto abrirá un editor de texto para que escribas un mensaje descriptivo del commit. Alternativamente, puedes usar `-m` para incluir el mensaje en línea:
+    
+    ```bash
+    git commit -m "Mensaje del commit aquí"
+    
+    ```
+    
+    - Es recomendable que los mensajes de commit sean descriptivos y concisos, explicando qué cambios se realizan y, opcionalmente, por qué se realizaron.
+3. **Verificar el Estado del Repositorio**:
+    - Después de hacer un commit, puedes usar `git status` para ver que no hay cambios pendientes en el directorio de trabajo y que el commit se realizó correctamente.
+
+**Ejemplo Completo**
+
+Aquí tienes un ejemplo de cómo usar `git commit` después de añadir cambios al área de preparación:
+
+```bash
+# Añadir cambios al área de preparación
+git add archivo_modificado.txt
+
+# Realizar el commit
+git commit -m "Agregado archivo_modificado.txt con nuevas funciones"
+
+# Verificar el estado después del commit
+git status
+
+```
+
+Esto asegura que los cambios se capturen de manera adecuada en la historia del repositorio.
+
+### **Resumen de Comandos Utilizados**
+
+```bash
+# Realizar un Commit
+git commit
+
+# Incluir un Mensaje en Línea 
+git commit -m "Mensaje del commit"
+
+#Editar el Mensaje del Último Commit 
+git commit --amend
+```
+
+El comando `git commit` es fundamental para guardar cambios de manera permanente en Git. Permite mantener un registro claro de los cambios realizados en el proyecto y facilita la colaboración al proporcionar contexto sobre los cambios introducidos en cada commit.
+
+## git status: Verificar el Estado del Repositorio
+
+El comando `git status` se utiliza para mostrar el estado del árbol de trabajo. Este comando proporciona información sobre los archivos que están en el área de preparación, los archivos que no están siendo rastreados y los cambios que han sido realizados pero no están listos para ser comprometidos.
+
+### ¿Qué Hace git status?
+
+Cuando ejecutas `git status`, Git realiza las siguientes acciones:
+
+- **Muestra los Cambios en el Directorio de Trabajo:** Indica qué archivos han sido modificados en el directorio de trabajo pero no están en el área de preparación.
+- **Muestra los Archivos en el Área de Preparación:** Indica qué archivos están en el área de preparación y listos para ser comprometidos.
+- **Muestra los Archivos No Rastreado:** Indica qué archivos no están siendo rastreados por Git.
+- **Indica la Rama Actual:** Muestra en qué rama te encuentras actualmente.
+
+### Cómo Usar git status
+
+1. **Ejecutar `git status`**
+
+Para ver el estado del repositorio, simplemente navega al directorio de tu repositorio y ejecuta:
+
+```bash
+git status
+
+```
+
+Ejemplo:
+
+```bash
+cd mi_proyecto
+git status
+
+```
+
+### Interpretar la Salida de git status
+
+La salida de `git status` típicamente incluye:
+
+- **Rama Actual:** En qué rama te encuentras actualmente.
+- **Cambios en el Área de Preparación:** Archivos que están listos para ser comprometidos.
+- **Cambios en el Directorio de Trabajo:** Archivos que han sido modificados pero no están en el área de preparación.
+- **Archivos No Rastreado:** Archivos nuevos que no están siendo rastreados por Git.
+
+Ejemplo de Salida:
+
+```
+En la rama main
+Cambios para ser confirmados:
+  (usa "git restore --staged <archivo>..." para deshacer la preparación)
+  nuevo archivo:   hola.py
+
+Cambios no actualizados para el commit:
+  (usa "git add <archivo>..." para actualizar lo que se confirmará)
+  (usa "git restore <archivo>..." para descartar los cambios en el directorio de trabajo)
+  modificado:      README.md
+
+Archivos sin seguimiento:
+  (usa "git add <archivo>..." para incluir en lo que se será confirmado)
+  nuevo archivo:   nuevo_archivo.txt
+
+```
+
+### Ejemplo Completo
+
+Aquí tienes un ejemplo completo de cómo utilizar `git status`:
+
+```bash
+# Navegar al directorio del repositorio
+cd mi_proyecto
+
+# Verificar el estado del repositorio
+git status
+
+```
+
+Esto mostrará información detallada sobre el estado actual del repositorio, incluyendo cualquier cambio en el directorio de trabajo, cambios en el área de preparación y archivos no rastreados.
+
+### Resumen de Comandos Utilizados
+
+```bash
+# **Verificar el estado del repositorio:**
+git status
+
+```
+
+El comando `git status` es una herramienta fundamental para obtener una visión clara del estado actual de tu repositorio. Proporciona información detallada sobre los cambios realizados, los archivos que están listos para ser comprometidos y los archivos que aún no están siendo rastreados.
+
+## git diff: Verificar las Diferencias entre Cambios
+
+El comando `git diff` se utiliza para mostrar las diferencias entre varios estados del repositorio. Este comando es esencial para ver qué cambios se han realizado en los archivos antes de añadirlos al área de preparación o de realizar un commit.
+
+### ¿Qué Hace git diff?
+
+Cuando ejecutas `git diff`, Git realiza las siguientes acciones:
+
+- **Muestra las Diferencias en el Directorio de Trabajo:** Indica qué cambios se han realizado en los archivos del directorio de trabajo que no están en el área de preparación.
+- **Muestra las Diferencias en el Área de Preparación:** Indica qué cambios se han realizado en los archivos del área de preparación que aún no han sido comprometidos.
+- **Comparar Diferencias entre Commits:** Permite comparar diferencias entre dos commits específicos, ramas o etiquetas.
+
+### Cómo Usar git diff
+
+1. **Ver las Diferencias en el Directorio de Trabajo**
+
+Para ver los cambios realizados en los archivos del directorio de trabajo que no están en el área de preparación, usa:
+
+```bash
+git diff
+
+```
+
+1. **Ver las Diferencias en el Área de Preparación**
+
+Para ver los cambios que están en el área de preparación en comparación con el último commit, usa:
+
+```bash
+git diff --staged
+
+```
+
+1. **Comparar Diferencias entre Commits**
+
+Para comparar las diferencias entre dos commits específicos, usa:
+
+```bash
+git diff commit1 commit2
+
+```
+
+Ejemplo:
+
+```bash
+git diff HEAD~1 HEAD
+
+```
+
+1. **Comparar Diferencias entre Ramas**
+
+Para comparar las diferencias entre dos ramas, usa:
+
+```bash
+git diff rama1 rama2
+
+```
+
+Ejemplo:
+
+```bash
+git diff main develop
+
+```
+
+### Interpretar la Salida de git diff
+
+La salida de `git diff` típicamente incluye:
+
+- **Añadidos:** Líneas añadidas están prefijadas con un `+`.
+- **Eliminados:** Líneas eliminadas están prefijadas con un ``.
+- **Contexto:** Líneas sin cambios que proporcionan contexto están sin prefijo.
+
+Ejemplo de Salida:
+
+```
+diff --git a/hola.py b/hola.py
+index e69de29..b6fc4b2 100644
+--- a/hola.py
++++ b/hola.py
+@@ -0,0 +1 @@
++print('Hola, mundo!')
+
+```
+
+### Ejemplo Completo
+
+Aquí tienes un ejemplo completo de cómo utilizar `git diff`:
+
+```bash
+# Crear o modificar un archivo
+echo "print('Hola, Git!')" > hola.py
+
+# Ver las diferencias en el directorio de trabajo
+git diff
+
+# Añadir el archivo al área de preparación
+git add hola.py
+
+# Ver las diferencias en el área de preparación
+git diff --staged
+
+```
+
+### Resumen de Comandos Utilizados
+
+```bash
+# **Ver las diferencias en el directorio de trabajo**
+git diff
+
+# **Ver las diferencias en el área de preparación**
+git diff --staged
+
+# **Comparar diferencias entre dos commits**
+git diff commit1 commit2
+
+# **Comparar diferencias entre dos ramas**
+git diff rama1 rama2
+
+```
+
+El comando `git diff` es una herramienta fundamental para revisar y entender los cambios realizados en tu código. Permite identificar qué modificaciones se han hecho, facilitando un control detallado antes de proceder a añadirlos al área de preparación o realizar un commit.
+
+## git reset: Deshacer Cambios y Modificar el Historial
+
+El comando `git reset` se utiliza para deshacer cambios y mover la punta de la rama actual a un commit especificado. Este comando es poderoso y puede afectar tanto el área de preparación (staging area) como el directorio de trabajo, dependiendo de las opciones que se utilicen.
+
+### ¿Qué Hace git reset?
+
+Cuando ejecutas `git reset`, Git realiza las siguientes acciones según las opciones especificadas:
+
+- **Modifica la Punta de la Rama Actual:** Mueve la referencia de la rama actual a un commit específico.
+- **Ajusta el Área de Preparación:** Opcionalmente, puede ajustar el área de preparación para que coincida con el estado del commit especificado.
+- **Ajusta el Directorio de Trabajo:** Opcionalmente, puede ajustar los archivos en el directorio de trabajo para que coincidan con el estado del commit especificado.
+
+### Cómo Usar git reset
+
+1. **Restablecer Solo el Área de Preparación (`-soft`)**
+
+Para mover la punta de la rama actual a un commit específico y ajustar el área de preparación, pero dejar los archivos en el directorio de trabajo sin cambios, usa:
+
+```bash
+git reset --soft <commit>
+
+```
+
+Ejemplo:
+
+```bash
+git reset --soft HEAD~1
+
+```
+
+1. **Restablecer el Área de Preparación y el Directorio de Trabajo (`-mixed`)**
+
+Para mover la punta de la rama actual a un commit específico y ajustar tanto el área de preparación como el directorio de trabajo, usa:
+
+```bash
+git reset --mixed <commit>
+
+```
+
+Este es el comportamiento predeterminado si no se especifica una opción.
+
+Ejemplo:
+
+```bash
+git reset --mixed HEAD~1
+
+```
+
+1. **Restablecer el Área de Preparación y el Directorio de Trabajo Descartando Cambios (`-hard`)**
+
+Para mover la punta de la rama actual a un commit específico y ajustar tanto el área de preparación como el directorio de trabajo, descartando todos los cambios, usa:
+
+```bash
+git reset --hard <commit>
+
+```
+
+Ejemplo:
+
+```bash
+git reset --hard HEAD~1
+
+```
+
+### Opciones Comunes de git reset
+
+- `-soft`: Mantiene los cambios en el directorio de trabajo y en el área de preparación.
+- `-mixed`: Mantiene los cambios en el directorio de trabajo pero restablece el área de preparación.
+- `-hard`: Descartar todos los cambios en el directorio de trabajo y el área de preparación.
+
+### Ejemplo Completo
+
+Aquí tienes un ejemplo completo de cómo utilizar `git reset`:
+
+```bash
+# Crear o modificar un archivo
+echo "print('Hola, mundo!')" > hola.py
+
+# Añadir el archivo al área de preparación
+git add hola.py
+
+# Realizar un commit
+git commit -m "Añadir hola.py"
+
+# Realizar cambios adicionales
+echo "print('Adiós, mundo!')" >> hola.py
+
+# Verificar el estado del repositorio
+git status
+
+# Restablecer el último commit, manteniendo los cambios en el directorio de trabajo
+git reset --soft HEAD~1
+
+# Restablecer el último commit, restableciendo el área de preparación
+git reset --mixed HEAD~1
+
+# Restablecer el último commit, descartando todos los cambios
+git reset --hard HEAD~1
+
+```
+
+### Resumen de Comandos Utilizados
+
+```bash
+# **Restablecer solo el área de preparación**
+git reset --soft <commit>
+
+# **Restablecer el área de preparación y el directorio de trabajo**
+git reset --mixed <commit>
+
+# **Restablecer el área de preparación y el directorio de trabajo descartando cambios**
+git reset --hard <commit>
+
+```
+
+El comando `git reset` es una herramienta poderosa para deshacer cambios y modificar el historial del repositorio. Dependiendo de las opciones que uses, puedes ajustar el área de preparación, el directorio de trabajo o ambos, permitiendo un control preciso sobre el estado de tu repositorio.
+
+## mkdir: Crear Directorios
+
+El comando `mkdir` se utiliza para crear nuevos directorios en el sistema de archivos. Este comando es fundamental para organizar archivos y carpetas en una estructura jerárquica, facilitando la gestión y acceso a los datos.
+
+### ¿Qué Hace mkdir?
+
+Cuando ejecutas `mkdir`, el sistema realiza las siguientes acciones:
+
+- **Crea un Nuevo Directorio:** Crea un directorio con el nombre especificado en la ubicación indicada.
+- **Opcionalmente, Crea Directorios Padre:** Con la opción `p`, `mkdir` también puede crear cualquier directorio padre que no exista, creando toda la estructura de directorios necesaria.
+
+### Cómo Usar mkdir
+
+1. **Crear un Directorio Simple**
+
+Para crear un directorio en la ubicación actual, usa:
+
+```bash
+mkdir nombre_directorio
+
+```
+
+Ejemplo:
+
+```bash
+mkdir mi_directorio
+
+```
+
+1. **Crear Múltiples Directorios**
+
+Puedes crear varios directorios a la vez especificando sus nombres separados por espacios:
+
+```bash
+mkdir dir1 dir2 dir3
+
+```
+
+Ejemplo:
+
+```bash
+mkdir proyecto1 proyecto2 proyecto3
+
+```
+
+1. **Crear una Estructura de Directorios**
+
+Para crear una estructura de directorios completa, usa la opción `-p`:
+
+```bash
+mkdir -p padre/hijo/nieto
+
+```
+
+Esto creará los directorios `padre`, `hijo` dentro de `padre` y `nieto` dentro de `hijo`, incluso si no existen previamente.
+
+1. **Verificar la Creación del Directorio**
+
+Para verificar que el directorio se ha creado, puedes listar el contenido del directorio padre usando `ls`:
+
+```bash
+ls
+
+```
+
+### Ejemplo Completo
+
+Aquí tienes un ejemplo completo de cómo utilizar `mkdir`:
+
+```bash
+# Crear un directorio simple
+mkdir proyectos
+
+# Navegar al nuevo directorio
+cd proyectos
+
+# Crear múltiples directorios dentro del directorio actual
+mkdir proyecto1 proyecto2 proyecto3
+
+# Crear una estructura de directorios completa
+mkdir -p proyecto4/modulo1/submodulo1
+
+# Verificar la creación de directorios
+ls
+
+```
+
+Esto mostrará algo como:
+
+```
+proyecto1  proyecto2  proyecto3  proyecto4
+
+```
+
+### Resumen de Comandos Utilizados
+
+```bash
+# **Crear un directorio simple**
+mkdir nombre_directorio
+
+# **Crear múltiples directorios**
+mkdir dir1 dir2 dir3
+
+# **Crear una estructura de directorios completa**
+mkdir -p padre/hijo/nieto
+
+```
+
+El comando `mkdir` es esencial para gestionar y organizar archivos en el sistema de archivos. Permite crear nuevos directorios de manera eficiente, facilitando la estructuración y el acceso a los datos almacenados.
+
+## touch: Crear y Modificar Tiempos de Archivos
+
+El comando `touch` se utiliza principalmente para crear archivos vacíos o para actualizar las marcas de tiempo de acceso y modificación de archivos existentes. Es una herramienta simple pero poderosa para gestionar archivos en el sistema.
+
+### ¿Qué Hace touch?
+
+Cuando ejecutas `touch`, el sistema realiza las siguientes acciones:
+
+- **Crear Archivos Vacíos:** Si el archivo especificado no existe, `touch` creará un archivo vacío con el nombre dado.
+- **Actualizar Marcas de Tiempo:** Si el archivo ya existe, `touch` actualizará las marcas de tiempo de acceso y modificación a la hora y fecha actuales.
+
+### Cómo Usar touch
+
+1. **Crear un Archivo Vacío**
+
+Para crear un archivo vacío en la ubicación actual, usa:
+
+```bash
+touch nombre_archivo
+
+```
+
+Ejemplo:
+
+```bash
+touch archivo.txt
+
+```
+
+1. **Crear Múltiples Archivos**
+
+Puedes crear varios archivos a la vez especificando sus nombres separados por espacios:
+
+```bash
+touch archivo1.txt archivo2.txt archivo3.txt
+
+```
+
+Ejemplo:
+
+```bash
+touch documento1.txt documento2.txt documento3.txt
+
+```
+
+1. **Actualizar la Marca de Tiempo de un Archivo Existente**
+
+Para actualizar las marcas de tiempo de acceso y modificación de un archivo existente a la hora y fecha actuales, simplemente usa `touch` con el nombre del archivo:
+
+```bash
+touch nombre_archivo
+
+```
+
+1. **Especificar una Fecha y Hora Personalizadas**
+
+Para establecer una fecha y hora específicas, usa la opción `-t` seguida de la fecha y hora en el formato `[[CC]YY]MMDDhhmm[.ss]`:
+
+```bash
+touch -t 202301011200.00 nombre_archivo
+
+```
+
+Ejemplo:
+
+```bash
+touch -t 202406251230.00 informe.txt
+
+```
+
+### Verificar la Creación y Modificación de Archivos
+
+Para verificar que el archivo se ha creado o modificado correctamente, puedes listar el contenido del directorio con `ls -l`:
+
+```bash
+ls -l
+
+```
+
+Esto mostrará los detalles de los archivos, incluyendo sus marcas de tiempo.
+
+### Ejemplo Completo
+
+Aquí tienes un ejemplo completo de cómo utilizar `touch`:
+
+```bash
+# Crear un archivo vacío
+touch nuevo_archivo.txt
+
+# Crear múltiples archivos vacíos
+touch archivo1.txt archivo2.txt archivo3.txt
+
+# Actualizar la marca de tiempo de un archivo existente
+touch archivo1.txt
+
+# Establecer una fecha y hora específicas
+touch -t 202406251230.00 archivo3.txt
+
+# Verificar la creación y modificación de archivos
+ls -l
+
+```
+
+Esto mostrará algo como:
+
+```
+-rw-r--r--  1 usuario  grupo  0 Jun 25 12:30 archivo3.txt
+-rw-r--r--  1 usuario  grupo  0 Jun 25 12:30 archivo1.txt
+-rw-r--r--  1 usuario  grupo  0 Jun 25 12:30 archivo2.txt
+-rw-r--r--  1 usuario  grupo  0 Jun 25 12:30 nuevo_archivo.txt
+
+```
+
+### Resumen de Comandos Utilizados
+
+```bash
+# **Crear un archivo vacío**
+touch nombre_archivo
+
+# **Crear múltiples archivos vacíos**
+touch archivo1 archivo2 archivo3
+
+# **Actualizar la marca de tiempo de un archivo existente**
+touch nombre_archivo
+
+# **Establecer una fecha y hora específicas**
+touch -t [[CC]YY]MMDDhhmm[.ss] nombre_archivo
+
+```
+
+El comando `touch` es una herramienta versátil para crear archivos vacíos y actualizar las marcas de tiempo de archivos existentes, facilitando la gestión y organización de archivos en el sistema de archivos.
+
+## mv: Mover y Renombrar Archivos o Directorios
+
+El comando `mv` se utiliza para mover archivos o directorios de una ubicación a otra y para renombrar archivos o directorios. Este comando es fundamental para la gestión y organización de archivos en el sistema.
+
+### ¿Qué Hace mv?
+
+Cuando ejecutas `mv`, el sistema realiza las siguientes acciones:
+
+- **Mover Archivos o Directorios:** Cambia la ubicación de uno o varios archivos o directorios.
+- **Renombrar Archivos o Directorios:** Cambia el nombre de un archivo o directorio.
+
+### Cómo Usar mv
+
+1. **Mover un Archivo**
+
+Para mover un archivo de una ubicación a otra, usa:
+
+```bash
+mv archivo_origen ruta_destino
+
+```
+
+Ejemplo:
+
+```bash
+mv documento.txt /home/usuario/documentos/
+
+```
+
+1. **Mover y Renombrar un Archivo**
+
+Para mover un archivo a una nueva ubicación y cambiar su nombre, usa:
+
+```bash
+mv archivo_origen ruta_destino/nuevo_nombre
+
+```
+
+Ejemplo:
+
+```bash
+mv documento.txt /home/usuario/documentos/nuevo_documento.txt
+
+```
+
+1. **Mover un Directorio**
+
+Para mover un directorio de una ubicación a otra, usa:
+
+```bash
+mv directorio_origen ruta_destino
+
+```
+
+Ejemplo:
+
+```bash
+mv mi_carpeta /home/usuario/documentos/
+
+```
+
+1. **Renombrar un Archivo**
+
+Para cambiar el nombre de un archivo en la misma ubicación, usa:
+
+```bash
+mv nombre_antiguo nuevo_nombre
+
+```
+
+Ejemplo:
+
+```bash
+mv viejo_nombre.txt nuevo_nombre.txt
+
+```
+
+1. **Mover Múltiples Archivos a una Ubicación**
+
+Para mover varios archivos a una nueva ubicación, usa:
+
+```bash
+mv archivo1 archivo2 archivo3 ruta_destino
+
+```
+
+Ejemplo:
+
+```bash
+mv documento1.txt documento2.txt /home/usuario/documentos/
+
+```
+
+### Opciones Comunes de mv
+
+- `i` (interactive): Solicita confirmación antes de sobrescribir un archivo existente.
+- `n` (no-clobber): No sobrescribe un archivo existente.
+- `v` (verbose): Muestra los archivos que están siendo movidos o renombrados.
+
+### Ejemplo Completo
+
+Aquí tienes un ejemplo completo de cómo utilizar `mv`:
+
+```bash
+# Crear archivos de ejemplo
+touch archivo1.txt archivo2.txt archivo3.txt
+
+# Crear un directorio de destino
+mkdir destino
+
+# Mover un archivo a un nuevo directorio
+mv archivo1.txt destino/
+
+# Mover y renombrar un archivo
+mv archivo2.txt destino/nuevo_archivo2.txt
+
+# Mover un directorio a otro directorio
+mv destino /home/usuario/
+
+# Renombrar un archivo en la misma ubicación
+mv archivo3.txt archivo_renombrado.txt
+
+# Mover múltiples archivos a una nueva ubicación
+mkdir otros_archivos
+mv archivo_renombrado.txt /home/usuario/destino/
+
+```
+
+### Resumen de Comandos Utilizados
+
+```bash
+# Mover un archivo
+mv archivo_origen ruta_destino
+
+# Mover y renombrar un archivo
+mv archivo_origen ruta_destino/nuevo_nombre
+
+# Mover un directorio
+mv directorio_origen ruta_destino
+
+# Renombrar un archivo
+mv nombre_antiguo nuevo_nombre
+
+# Mover múltiples archivos a una ubicación
+mv archivo1 archivo2 archivo3 ruta_destino
+```
+
+El comando `mv` es una herramienta esencial para gestionar y organizar archivos y directorios en el sistema de archivos, permitiendo mover y renombrar archivos de manera eficiente y flexible.
+
+## rm: Eliminar Archivos y Directorios
+
+El comando `rm` se utiliza para eliminar archivos y directorios en el sistema de archivos. Es una herramienta poderosa y potencialmente peligrosa, ya que los archivos eliminados con `rm` no se pueden recuperar fácilmente.
+
+### **¿Qué Hace rm?**
+
+Cuando ejecutas `rm`, el sistema realiza las siguientes acciones:
+
+- **Elimina Archivos:** Borra uno o varios archivos especificados.
+- **Elimina Directorios:** Con opciones adicionales, `rm` puede borrar directorios y sus contenidos recursivamente.
+
+### Cómo Usar rm
+
+1. **Eliminar un Archivo**
+
+Para eliminar un archivo en la ubicación actual, usa:
+
+```bash
+rm nombre_archivo
+
+```
+
+Ejemplo:
+
+```bash
+rm documento.txt
+
+```
+
+1. **Eliminar Múltiples Archivos**
+
+Puedes eliminar varios archivos a la vez especificando sus nombres separados por espacios:
+
+```bash
+rm archivo1 archivo2 archivo3
+
+```
+
+Ejemplo:
+
+```bash
+rm documento1.txt documento2.txt documento3.txt
+
+```
+
+1. **Eliminar un Directorio Vacío**
+
+Para eliminar un directorio vacío, usa la opción `-d`:
+
+```bash
+rm -d nombre_directorio
+
+```
+
+Ejemplo:
+
+```bash
+rm -d mi_carpeta_vacia
+
+```
+
+1. **Eliminar un Directorio y su Contenido Recursivamente**
+
+Para eliminar un directorio y todos sus contenidos (archivos y subdirectorios), usa la opción `-r`:
+
+```bash
+rm -r nombre_directorio
+
+```
+
+Ejemplo:
+
+```bash
+rm -r mi_carpeta
+
+```
+
+### Opciones Comunes de `rm`
+
+- `i` (interactive): Solicita confirmación antes de eliminar cada archivo.
+- `f` (force): Fuerza la eliminación de archivos sin solicitar confirmación.
+- `r` (recursive): Elimina directorios y su contenido de forma recursiva.
+- `d` (directory): Elimina un directorio vacío.
+
+### Ejemplo Completo
+
+Aquí tienes un ejemplo completo de cómo utilizar `rm`:
+
+```bash
+# Crear archivos y directorios de ejemplo
+touch archivo1.txt archivo2.txt archivo3.txt
+mkdir -p directorio/subdirectorio
+
+# Eliminar un archivo
+rm archivo1.txt
+
+# Eliminar múltiples archivos
+rm archivo2.txt archivo3.txt
+
+# Eliminar un directorio vacío
+mkdir carpeta_vacia
+rm -d carpeta_vacia
+
+# Eliminar un directorio y su contenido recursivamente
+rm -r directorio
+
+```
+
+### Precauciones al Usar rm
+
+- **Cuidado con `r` y `f`:** Estas opciones pueden causar la eliminación de grandes cantidades de datos sin posibilidad de recuperación.
+- **Verificación previa:** Considera usar `rm -i` para una capa adicional de seguridad antes de eliminar archivos importantes.
+- **Copias de seguridad:** Siempre ten una copia de seguridad de tus datos importantes antes de usar `rm`.
+
+El comando `rm` es una herramienta poderosa para eliminar archivos y directorios, pero debe usarse con precaución para evitar la pérdida accidental de datos importantes.
+
+### Resumen de Comandos Utilizados
+
+```bash
+# Eliminar un archivo
+rm nombre_archivo
+
+# Eliminar múltiples archivos
+rm archivo1 archivo2 archivo3
+
+# Eliminar un directorio vacío
+rm -d nombre_directorio
+
+# Eliminar un directorio y su contenido recursivamente
+rm -r nombre_directorio
+```
+
+## 3.3. Exploración del historial y navegación
+
+En esta sección, nos adentraremos en las herramientas que Git nos ofrece para explorar el historial de nuestro repositorio y navegar entre diferentes estados de nuestro proyecto.
+
+## git log: Ver el Historial de Commits
+
+El comando git log se utiliza para ver el historial de commits en un repositorio Git. Proporciona una lista detallada de los commits realizados, incluyendo información como el autor, la fecha, el mensaje del commit, y el hash del commit.
+
+### ¿Qué Hace git log?
+
+Cuando ejecutas git log, Git realiza las siguientes acciones:
+
+- **Muestra una Lista de Commits:** Presenta una lista de todos los commits en el historial del repositorio.
+- **Proporciona Detalles del Commit:** Incluye información sobre el autor del commit, la fecha del commit, el mensaje del commit, y el hash SHA-1 del commit.
+
+### Cómo Usar git log
+
+1. **Ver el Historial de Commits Básico**
+
+Para ver el historial de commits, simplemente usa:
+
+```bash
+git log
+```
+
+Esto mostrará una lista de commits con el formato predeterminado.
+
+1. **Limitar el Número de Commits Mostrados**
+
+Para mostrar un número específico de commits, usa la opción -n:
+
+```bash
+git log -n <número>
+```
+
+Ejemplo:
+
+```bash
+git log -n 5
+```
+
+1. **Mostrar Commits con Formato Resumido**
+
+Para ver un historial más resumido, usa la opción --oneline:
+
+```bash
+git log --oneline
+```
+
+1. **Mostrar Commits con Gráfico de Ramas**
+
+Para ver un gráfico de ramas junto con el historial de commits, usa la opción --graph:
+
+```bash
+git log --graph
+```
+
+1. **Mostrar Commits con Detalles de Archivos Modificados**
+
+Para ver los archivos modificados en cada commit, usa la opción --stat:
+
+```bash
+git log --stat
+```
+
+1. **Filtrar Commits por Autor**
+
+Para ver solo los commits de un autor específico, usa la opción --author:
+
+```bash
+git log --author="nombre_autor"
+```
+
+Ejemplo:
+
+```bash
+git log --author="Juan Pérez”
+```
+
+### Opciones Comunes de git log
+
+- `--oneline`: Muestra cada commit en una sola línea.
+- `--graph`: Muestra un gráfico ASCII de las ramas.
+- `--stat`: Muestra estadísticas de los cambios realizados en cada commit.
+- `--author`: Filtra los commits por autor.
+- -`-since` y `--until`: Filtra los commits por un rango de fechas.
+- `--grep`: Filtra los commits por un patrón de búsqueda en el mensaje del commit.
+
+**Ejemplo Completo**
+
+```bash
+# Ver el historial de commits básico
+git log
+
+# Limitar el número de commits mostrados
+git log -n 5
+
+# Mostrar commits con formato resumido
+git log --oneline
+
+# Mostrar commits con gráfico de ramas
+git log --graph
+
+# Mostrar commits con detalles de archivos modificados
+git log --stat
+
+# Filtrar commits por autor
+git log --author="Juan Pérez"
+
+# Filtrar commits por fecha
+git log --since="2023-01-01" --until="2023-12-31"
+
+# Filtrar commits por patrón en el mensaje
+git log --grep="bug fix"
+```
+
+### Resumen de Comandos Utilizados
+
+```bash
+# Ver el historial de commits básico
+git log
+
+# Limitar el número de commits mostrados
+git log -n <número>
+
+# Mostrar commits con formato resumido
+git log --oneline
+
+# Mostrar commits con gráfico de ramas
+git log --graph
+
+# Mostrar commits con detalles de archivos modificados
+git log --stat
+
+# Filtrar commits por autor
+git log --author="nombre_autor"
+
+# Filtrar commits por fecha
+git log --since="YYYY-MM-DD" --until="YYYY-MM-DD"
+
+# Filtrar commits por patrón en el mensaje
+git log --grep="patrón"
+```
+
+El comando git log es una herramienta fundamental para revisar el historial de cambios en un repositorio Git, proporcionando una visión detallada de los commits y permitiendo filtrar y formatear la información según sea necesario.
+
+## git checkout: Cambiar de Rama o Restaurar Archivos
+
+El comando `git checkout` se utiliza para cambiar entre ramas en un repositorio Git o para restaurar archivos y directorios en el estado del commit especificado. Es una herramienta poderosa para gestionar el estado del repositorio y navegar entre diferentes puntos en el historial de commits.
+
+### ¿Qué Hace git checkout?
+
+Cuando ejecutas `git checkout`, Git realiza las siguientes acciones:
+
+- **Cambiar de Rama:** Cambia el HEAD a una rama diferente, actualizando el directorio de trabajo y el índice.
+- **Restaurar Archivos:** Restaura archivos o directorios a un estado específico del historial de commits.
+- **Crear y Cambiar a una Nueva Rama:** Con la opción -b, crea una nueva rama y cambia a ella.
+
+### Cómo Usar git checkout
+
+1. **Cambiar a una Rama Existente**
+
+Para cambiar a una rama existente en el repositorio, usa:
+
+```bash
+git checkout nombre_rama
+```
+
+Ejemplo:
+
+```bash
+git checkout develop
+```
+
+1. **Crear y Cambiar a una Nueva Rama** 
+
+Para crear una nueva rama y cambiar a ella, usa la opción -b:
+
+```bash
+git checkout -b nombre_nueva_rama
+```
+
+Ejemplo:
+
+```bash
+git checkout -b feature/nueva_funcionalidad
+```
+
+1. **Restaurar un Archivo a un Estado Específico**
+
+Para restaurar un archivo al estado de un commit específico, usa:
+
+```bash
+git checkout commit_hash -- nombre_archivo
+```
+
+Ejemplo:
+
+```bash
+git checkout 1a2b3c4d -- archivo.txt
+```
+
+1. **Restaurar un Archivo desde Otra Rama**
+
+Para restaurar un archivo desde otra rama, usa:
+
+```bash
+git checkout nombre_rama -- nombre_archivo
+```
+
+Ejemplo:
+
+```bash
+git checkout develop -- archivo.txt
+```
+
+### Opciones Comunes de git checkout
+
+- `-b`: Crea una nueva rama y cambia a ella
+- `--`: Separa el nombre del commit o rama del nombre del archivo para evitar confusiones.
+
+**Ejemplo Completo:**
+
+Aquí tienes un ejemplo completo de cómo utilizar git checkout:
+
+```bash
+# Ver las ramas disponibles
+git branch
+
+# Cambiar a una rama existente
+git checkout develop
+
+# Crear y cambiar a una nueva rama
+git checkout -b feature/nueva_funcionalidad
+
+# Restaurar un archivo al estado de un commit específico
+git checkout 1a2b3c4d -- archivo.txt
+
+# Restaurar un archivo desde otra rama
+git checkout master -- archivo.tx
+
+# Cambiar de vuelta a la rama principal
+git checkout main
+```
+
+### Resumen de Comandos Utilizados
+
+```bash
+# Cambiar a una rama existente
+git checkout nombre_rama
+
+# Crear y cambiar a una nueva rama
+git checkout -b nombre_nueva_rama
+
+# Restaurar un archivo a un estado específico
+git checkout commit_hash -- nombre_archivo
+
+# Restaurar un archivo desde otra rama
+git checkout nombre_rama -- nombre_archivo
+```
+
+El comando `git checkout` es una herramienta fundamental para la gestión de ramas y la restauración de archivos en un repositorio Git. Permite cambiar entre diferentes ramas, crear nuevas ramas, y restaurar archivos a estados específicos del historial de commits, proporcionando flexibilidad y control sobre el desarrollo del proyecto.
+
+## git branch: Gestionar Ramas en Git
+
+El comando `git branch` se utiliza para gestionar las ramas en un repositorio Git. Con él, puedes listar, crear, renombrar y eliminar ramas, así como ver la rama en la que estás trabajando actualmente.
+
+### ¿Qué Hace git branch?
+
+Cuando ejecutas `git branch`, Git realiza las siguientes acciones dependiendo de las opciones que utilices:
+
+- **Listar Ramas:** Muestra todas las ramas locales en el repositorio.
+- **Crear una Nueva Rama:** Crea una nueva rama basada en el commit actual.
+- **Renombrar una Rama:** Cambia el nombre de una rama existente.
+- **Eliminar una Rama:** Elimina una rama especificada.
+- **Ver la Rama Actual:** Muestra la rama en la que estás trabajando actualmente.
+
+### Cómo Usar git branch
+
+1. **Listar Todas las Ramas**
+
+Para ver todas las ramas locales en tu repositorio, usa:
+
+```bash
+git branch
+
+```
+
+1. **Crear una Nueva Rama**
+
+Para crear una nueva rama, usa:
+
+```bash
+git branch nombre_nueva_rama
+
+```
+
+Ejemplo:
+
+```bash
+git branch feature/nueva_funcionalidad
+
+```
+
+1. **Renombrar una Rama**
+
+Para renombrar una rama, usa:
+
+```bash
+git branch -m nombre_antiguo nombre_nuevo
+
+```
+
+Ejemplo:
+
+```bash
+git branch -m feature/nueva_funcionalidad feature/funcionalidad_actualizada
+
+```
+
+1. **Eliminar una Rama**
+
+Para eliminar una rama, usa:
+
+```bash
+git branch -d nombre_rama
+
+```
+
+Ejemplo:
+
+```bash
+git branch -d feature/nueva_funcionalidad
+
+```
+
+Si la rama no ha sido fusionada y deseas forzar su eliminación, usa:
+
+```bash
+git branch -D nombre_rama
+
+```
+
+1. **Ver la Rama Actual**
+
+Para ver la rama en la que estás trabajando actualmente, simplemente usa `git branch` y verás un asterisco (*) al lado de la rama activa.
+
+### Opciones Comunes de git branch
+
+- `m`: Renombrar una rama.
+- `d`: Eliminar una rama.
+- `D`: Forzar la eliminación de una rama.
+- `a`: Listar todas las ramas, incluidas las remotas.
+- `r`: Listar solo las ramas remotas.
+
+**Ejemplo Completo:** 
+
+Aquí tienes un ejemplo completo de cómo utilizar `git branch`:
+
+```bash
+# Ver las ramas disponibles
+git branch
+
+# Crear una nueva rama
+git branch feature/nueva_funcionalidad
+
+# Cambiar a la nueva rama
+git checkout feature/nueva_funcionalidad
+
+# Renombrar una rama
+git branch -m feature/nueva_funcionalidad feature/funcionalidad_actualizada
+
+# Volver a la rama principal
+git checkout main
+
+# Eliminar una rama
+git branch -d feature/funcionalidad_actualizada
+
+# Forzar la eliminación de una rama
+git branch -D feature/funcionalidad_no_fusionada
+
+# Listar todas las ramas, incluidas las remotas
+git branch -a
+
+```
+
+### Resumen de Comandos Utilizados
+
+```bash
+# **Listar todas las ramas locales**
+git branch
+
+# **Crear una nueva rama**
+git branch nombre_nueva_rama
+
+# **Renombrar una rama**
+git branch -m nombre_antiguo nombre_nuevo
+
+# **Eliminar una rama**
+git branch -d nombre_rama
+
+# **Forzar la eliminación de una rama**
+git branch -D nombre_rama
+
+# **Listar todas las ramas, incluidas las remotas**
+git branch -a
+```
+
+El comando `git branch` es esencial para gestionar el flujo de trabajo en un repositorio Git, permitiendo crear, renombrar, eliminar y listar ramas, lo que facilita la organización y el desarrollo de proyectos de manera eficiente.
+
+## git merge: Fusionar Ramas en Git
+
+El comando `git merge` se utiliza para fusionar cambios de una rama en otra. Es una herramienta fundamental en Git para integrar el trabajo de diferentes ramas y colaborar en el desarrollo de software.
+
+### ¿Qué Hace git merge?
+
+Cuando ejecutas `git merge`, Git realiza las siguientes acciones:
+
+- **Combina Cambios:** Integra los cambios de la rama especificada en la rama actual.
+- **Crea un Nuevo Commit de Fusión:** Si es necesario, Git crea un commit de fusión que registra la combinación de los cambios.
+- **Resuelve Conflictos:** Si hay cambios conflictivos entre las ramas, Git marca los archivos en conflicto para que puedas resolverlos manualmente.
+
+### Cómo Usar git merge
+
+1. **Preparar la Rama de Destino**
+
+Asegúrate de estar en la rama en la que deseas fusionar los cambios. Por ejemplo, para fusionar cambios en la rama `main`, cambia a `main`:
+
+```bash
+git checkout main
+
+```
+
+1. **Fusionar la Rama Especificada**
+
+Usa el comando `git merge` seguido del nombre de la rama que deseas fusionar:
+
+```bash
+git merge nombre_rama
+
+```
+
+Ejemplo:
+
+```bash
+git merge feature/nueva_funcionalidad
+
+```
+
+### Opciones Comunes de git merge
+
+- `-no-ff`: Crea siempre un nuevo commit de fusión, incluso si la fusión podría ser fast-forward.
+- `-squash`: Combina los cambios de la rama especificada en la rama actual sin crear un commit de fusión automático.
+- `-abort`: Cancela una fusión en curso y revierte el estado del repositorio al estado anterior a la fusión.
+
+### Resolución de Conflictos
+
+Si Git encuentra conflictos durante la fusión, te pedirá que los resuelvas manualmente:
+
+1. **Identificar Archivos en Conflicto**
+
+Git marcará los archivos en conflicto. Puedes ver estos archivos con:
+
+```bash
+git status
+
+```
+
+1. **Editar y Resolver Conflictos**
+
+Abre los archivos en conflicto y edita las secciones marcadas por Git para resolver los conflictos. Guarda los cambios una vez que hayas resuelto los conflictos.
+
+1. **Marcar Conflictos como Resueltos**
+
+Después de resolver los conflictos, añade los archivos modificados al índice:
+
+```bash
+git add nombre_archivo
+
+```
+
+1. **Finalizar la Fusión**
+
+Finalmente, completa la fusión con:
+
+```bash
+git commit
+
+```
+
+Si usaste `--no-ff` o si la fusión requirió un commit adicional, Git lo realizará automáticamente.
+
+### Ejemplo Completo
+
+Aquí tienes un ejemplo completo de cómo utilizar `git merge`:
+
+```bash
+# Cambiar a la rama de destino
+git checkout main
+
+# Fusionar la rama especificada en la rama actual
+git merge feature/nueva_funcionalidad
+
+# Verificar el estado después de la fusión
+git status
+
+# Si hay conflictos, resolverlos manualmente
+
+# Editar los archivos en conflicto y luego
+git add nombre_archivo
+
+# Finalizar la fusión
+git commit
+
+```
+
+### Resumen de Comandos Utilizados
+
+```bash
+# **Cambiar a la rama de destino**
+git checkout nombre_rama_destino
+
+# F**usionar la rama especificada**
+git merge nombre_rama
+
+# **Cancelar una fusión en curso**
+git merge --abort
+
+# **Crear siempre un commit de fusión**
+git merge --no-ff nombre_rama
+
+# **Combinar cambios sin crear un commit automático**
+git merge --squash nombre_rama
+```
+
+El comando `git merge` es una herramienta crucial para integrar cambios de diferentes ramas en Git, permitiendo un desarrollo colaborativo y eficiente. La capacidad de resolver conflictos y manejar diferentes estrategias de fusión hace que `git merge` sea fundamental para mantener la coherencia y la integridad del proyecto.
+
+## git rebase: Reorganizar el Historial de Commits
+
+El comando `git rebase` se utiliza para reorganizar y aplicar commits de una rama sobre otra. Es una herramienta poderosa que permite mantener un historial de commits más limpio y lineal, lo que facilita la comprensión del historial de cambios.
+
+### ¿Qué Hace git rebase?
+
+Cuando ejecutas `git rebase`, Git realiza las siguientes acciones:
+
+- **Reaplica Commits:** Toma los commits de la rama actual y los aplica sobre otra rama especificada.
+- **Cambia la Base de la Rama:** Actualiza la referencia de la base de la rama actual para que apunte a la cabeza de la rama especificada.
+- **Resuelve Conflictos:** Si hay conflictos durante el proceso de rebase, Git te pedirá que los resuelvas manualmente antes de continuar.
+
+### Cómo Usar git rebase
+
+1. **Preparar la Rama de Trabajo**
+
+Asegúrate de estar en la rama que deseas rebasear. Por ejemplo, si estás trabajando en `feature/nueva_funcionalidad` y deseas rebasearla sobre `main`:
+
+```bash
+git checkout feature/nueva_funcionalidad
+
+```
+
+1. **Iniciar el Rebase**
+
+Usa el comando `git rebase` seguido del nombre de la rama sobre la que deseas rebasear:
+
+```bash
+git rebase nombre_rama_base
+
+```
+
+Ejemplo:
+
+```bash
+git rebase main
+
+```
+
+### Opciones Comunes de git rebase
+
+- `-interactive` (`i`): Inicia un rebase interactivo, permitiéndote editar, reordenar, combinar o eliminar commits.
+- `-onto`: Permite especificar una nueva base para la rama sin necesidad de estar en esa rama.
+- `-continue`: Continúa el proceso de rebase después de resolver conflictos.
+- `-abort`: Cancela el rebase en curso y restaura la rama al estado original.
+- `-skip`: Omite el commit en conflicto y continúa con el siguiente.
+
+### Rebase Interactivo
+
+El rebase interactivo es una forma avanzada de `git rebase` que permite un mayor control sobre el proceso. Para iniciar un rebase interactivo:
+
+```bash
+git rebase -i nombre_rama_base
+
+```
+
+Durante el rebase interactivo, Git abrirá un editor de texto donde puedes reordenar, combinar, editar o eliminar commits.
+
+### Resolución de Conflictos
+
+Si Git encuentra conflictos durante el rebase, te pedirá que los resuelvas manualmente:
+
+1. **Identificar Archivos en Conflicto**
+
+Git marcará los archivos en conflicto. Puedes ver estos archivos con:
+
+```bash
+git status
+
+```
+
+1. **Editar y Resolver Conflictos**
+
+Abre los archivos en conflicto y edita las secciones marcadas por Git para resolver los conflictos. Guarda los cambios una vez que hayas resuelto los conflictos.
+
+1. **Marcar Conflictos como Resueltos**
+
+Después de resolver los conflictos, añade los archivos modificados al índice:
+
+```bash
+git add nombre_archivo
+
+```
+
+1. **Continuar el Rebase**
+
+Continúa el proceso de rebase con:
+
+```bash
+git rebase --continue
+
+```
+
+Si decides que el rebase no es lo que quieres hacer, puedes abortar el proceso y revertir los cambios:
+
+```bash
+git rebase --abort
+
+```
+
+### Ejemplo Completo
+
+Aquí tienes un ejemplo completo de cómo utilizar `git rebase`:
+
+```bash
+# Cambiar a la rama de trabajo
+git checkout feature/nueva_funcionalidad
+
+# Iniciar el rebase sobre la rama main
+git rebase main
+
+# Si hay conflictos, resolverlos manualmente
+# Editar los archivos en conflicto y luego:
+git add nombre_archivo
+
+# Continuar el rebase
+git rebase --continue
+
+# Si es necesario, abortar el rebase
+git rebase --abort
+
+# Iniciar un rebase interactivo
+git rebase -i main
+
+```
+
+### Resumen de Comandos Utilizados
+
+```bash
+# **Iniciar un rebase**
+git rebase nombre_rama_base
+
+# **Rebase interactivo**
+git rebase -i nombre_rama_base
+
+# **Continuar el rebase después de resolver conflictos**
+git rebase --continue
+
+# **Abortar el rebase en curso**
+git rebase --abort
+
+# **Omitir el commit en conflicto y continuar**
+git rebase --skip 
+```
+
+El comando `git rebase` es una herramienta esencial para mantener un historial de commits limpio y organizado. Permite reaplicar commits sobre otra rama, resolver conflictos y realizar rebase interactivos para un mayor control sobre el proceso, facilitando la gestión del desarrollo de proyectos en equipo.
+
+## cd: Cambiar el Directorio de Trabajo
+
+El comando `cd` (change directory) se utiliza en la línea de comandos para cambiar el directorio de trabajo actual a otro directorio especificado. Este comando es fundamental para navegar por el sistema de archivos en tu terminal.
+
+### ¿Qué Hace cd?
+
+Cuando ejecutas `cd`, el sistema operativo realiza las siguientes acciones:
+
+- **Cambia el Directorio de Trabajo Actual:** Actualiza el directorio en el que estás trabajando a uno nuevo especificado.
+- **Resuelve Rutas Relativas y Absolutas:** Puede interpretar tanto rutas relativas (basadas en el directorio actual) como rutas absolutas (basadas en la raíz del sistema de archivos).
+
+### Cómo Usar cd
+
+1. **Cambiar a un Directorio Específico**
+
+Para cambiar a un directorio específico, proporciona la ruta del directorio después de `cd`:
+
+```bash
+cd ruta/del/directorio
+
+```
+
+Ejemplo:
+
+```bash
+cd /home/usuario/proyectos
+
+```
+
+1. **Cambiar a un Directorio Relativo**
+
+Para cambiar a un directorio relativo al directorio actual, proporciona una ruta relativa:
+
+```bash
+cd nombre_del_directorio
+
+```
+
+Ejemplo:
+
+```bash
+cd documentos
+
+```
+
+1. **Subir un Nivel en el Árbol de Directorios**
+
+Para subir un nivel en el árbol de directorios, usa `..`:
+
+```bash
+cd ..
+
+```
+
+1. **Volver al Directorio Home**
+
+Para volver al directorio home del usuario actual, simplemente usa `cd` sin argumentos o con `~`:
+
+```bash
+cd
+
+```
+
+o
+
+```bash
+cd ~
+
+```
+
+1. **Cambiar al Directorio Anterior**
+
+Para cambiar al directorio anterior en el que estabas trabajando, usa `-`:
+
+```bash
+cd -
+
+```
+
+### Opciones y Usos Comunes de `cd`
+
+- `.`: Representa el directorio actual. Generalmente se usa para ejecutar comandos dentro del directorio actual.
+- `..`: Representa el directorio padre, utilizado para moverse un nivel arriba en el árbol de directorios.
+- `~`: Representa el directorio home del usuario actual.
+
+### Ejemplo Completo
+
+Aquí tienes un ejemplo completo de cómo utilizar `cd`:
+
+```bash
+# Cambiar al directorio home
+cd
+
+# Cambiar a un directorio específico usando una ruta absoluta
+cd /home/usuario/proyectos
+
+# Cambiar a un directorio usando una ruta relativa
+cd documentos
+
+# Subir un nivel en el árbol de directorios
+cd ..
+
+# Volver al directorio anterior
+cd -
+
+# Cambiar al directorio home usando la tilde
+cd ~
+
+```
+
+### Resumen de Comandos Utilizados
+
+```bash
+# **Cambiar a un directorio específico**
+cd ruta/del/directorio
+
+# **Cambiar a un directorio relativo**
+cd nombre_del_directorio
+
+# **Subir un nivel en el árbol de directorios**
+cd ..
+
+# **Volver al directorio home**
+cd
+
+# **Volver al directorio anterior**
+cd -
+
+# **Cambiar al directorio home usando la tilde**
+cd ~
+```
+
+El comando `cd` es esencial para la navegación en la línea de comandos, permitiendo cambiar de directorio de trabajo de manera eficiente y facilitando la gestión y acceso a diferentes ubicaciones en el sistema de archivos.
+
+## ls: Listar Contenidos de un Directorio
+
+El comando `ls` se utiliza en la línea de comandos para listar los contenidos de un directorio. Este comando es esencial para ver los archivos y subdirectorios presentes en una ubicación específica del sistema de archivos.
+
+### ¿Qué Hace ls?
+
+Cuando ejecutas `ls`, el sistema operativo realiza las siguientes acciones:
+
+- **Lista Archivos y Directorios:** Muestra una lista de todos los archivos y directorios en el directorio especificado.
+- **Ordena la Salida:** Por defecto, los contenidos se ordenan alfabéticamente.
+
+### Cómo Usar ls
+
+1. **Listar Contenidos del Directorio Actual**
+
+Para listar los contenidos del directorio actual, simplemente usa `ls` sin argumentos:
+
+```bash
+ls
+
+```
+
+1. **Listar Contenidos de un Directorio Específico**
+
+Para listar los contenidos de un directorio específico, proporciona la ruta del directorio después de `ls`:
+
+```bash
+ls ruta/del/directorio
+
+```
+
+Ejemplo:
+
+```bash
+ls /home/usuario/proyectos
+
+```
+
+### Opciones Comunes de ls
+
+- **`l`:** Muestra la lista en formato largo, incluyendo detalles como permisos, número de enlaces, propietario, grupo, tamaño y fecha de modificación.
+    
+    ```bash
+    ls -l
+    
+    ```
+    
+- **`a`:** Muestra todos los archivos, incluidos los archivos ocultos (aquellos que comienzan con un punto `.`).
+    
+    ```bash
+    ls -a
+    
+    ```
+    
+- **`h`:** Muestra tamaños de archivo en formato legible para humanos (por ejemplo, KB, MB).
+    
+    ```bash
+    ls -h
+    
+    ```
+    
+- **`R`:** Lista los contenidos de los subdirectorios de forma recursiva.
+    
+    ```bash
+    ls -R
+    
+    ```
+    
+- **`t`:** Ordena los archivos por la fecha de modificación, más reciente primero.
+    
+    ```bash
+    ls -t
+    
+    ```
+    
+- **`r`:** Invierte el orden de la lista.
+    
+    ```bash
+    ls -r
+    
+    ```
+    
+- **`lh`:** Combina varias opciones, como listar en formato largo con tamaños legibles para humanos.
+    
+    ```bash
+    ls -lh
+    
+    ```
+    
+
+### Ejemplo Completo
+
+Aquí tienes un ejemplo completo de cómo utilizar `ls` con varias opciones:
+
+```bash
+# Listar contenidos del directorio actual
+ls
+
+# Listar contenidos de un directorio específico
+ls /home/usuario/proyectos
+
+# Listar en formato largo
+ls -l
+
+# Listar todos los archivos, incluidos los ocultos
+ls -a
+
+# Listar en formato largo con tamaños legibles para humanos
+ls -lh
+
+# Listar recursivamente los contenidos de los subdirectorios
+ls -R
+
+# Listar y ordenar por fecha de modificación, más reciente primero
+ls -t
+
+# Listar y ordenar en orden inverso
+ls -r
+
+```
+
+### Resumen de Comandos Utilizados Utilizados
+
+```bash
+**# Listar contenidos del directorio actual**
+ls
+
+#**Listar contenidos de un directorio específico**
+ls ruta/del/directorio
+
+# **Listar en formato largo**
+ls -l
+
+# **Listar todos los archivos, incluidos los ocultos**
+ls -a
+
+# **Listar con tamaños legibles para humanos**
+ls -h
+
+# **Listar recursivamente**
+ls -R
+
+# **Ordenar por fecha de modificación**
+ls -t
+
+# **Ordenar en orden inverso**
+ls -r
+```
+
+El comando `ls` es fundamental para la navegación y gestión de archivos en la línea de comandos, permitiendo ver los contenidos de un directorio y obtener información detallada sobre los archivos y subdirectorios presentes.
+
+## pwd: Imprimir el Directorio de Trabajo Actual
+
+El comando `pwd` (print working directory) se utiliza en la línea de comandos para mostrar la ruta completa del directorio de trabajo actual. Este comando es esencial para saber en qué ubicación del sistema de archivos estás trabajando.
+
+### ¿Qué Hace pwd?
+
+Cuando ejecutas `pwd`, el sistema operativo realiza las siguientes acciones:
+
+- **Muestra la Ruta Absoluta:** Imprime la ruta completa y absoluta del directorio actual en el que te encuentras trabajando.
+
+### Cómo Usar pwd
+
+1. **Imprimir el Directorio de Trabajo Actual**
+
+Para mostrar la ruta completa del directorio actual, simplemente ejecuta `pwd` sin argumentos:
+
+```bash
+pwd
+
+```
+
+### Ejemplo Completo
+
+Aquí tienes un ejemplo completo de cómo utilizar `pwd`:
+
+```bash
+# Cambiar al directorio home
+cd ~
+
+# Imprimir el directorio de trabajo actual
+pwd
+
+```
+
+El comando `pwd` imprimirá algo similar a:
+
+```bash
+/home/usuario
+
+```
+
+### Usos Comunes de pwd
+
+El comando `pwd` es extremadamente simple y no tiene muchas opciones. Sin embargo, es muy útil en los siguientes escenarios:
+
+- **Verificar tu Ubicación Actual:** Especialmente útil cuando te mueves entre varios directorios y necesitas confirmar tu ubicación actual en el sistema de archivos.
+- **Automatización de Scripts:** En scripts, `pwd` puede usarse para obtener y almacenar la ruta del directorio actual.
+
+### Resumen de Comandos Utilizados
+
+- **Imprimir el directorio de trabajo actual:**
+    
+    ```bash
+    pwd
+    
+    ```
+    
+
+El comando `pwd` es una herramienta básica pero esencial en la navegación por la línea de comandos, permitiéndote conocer la ubicación exacta en la que estás trabajando en el sistema de archivos.
+
+## 3.4. Trabajo con repositorios remotos
+
+En esta sección, exploraremos las herramientas que Git nos ofrece para interactuar con repositorios remotos, permitiéndonos colaborar con otros desarrolladores y mantener sincronizado nuestro trabajo con el repositorio central.
+
+## git remote add: Añadir un Repositorio Remoto
+
+El comando `git remote add` se utiliza para añadir un nuevo repositorio remoto a la configuración de tu repositorio local de Git. Esto es útil para conectar tu repositorio local con repositorios remotos que pueden estar alojados en servicios como GitHub, GitLab, Bitbucket, entre otros.
+
+### ¿Qué Hace git remote add?
+
+Cuando ejecutas `git remote add`, Git realiza las siguientes acciones:
+
+- **Añade un Nombre Remoto:** Asocia un nombre (alias) con la URL de un repositorio remoto.
+- **Guarda la URL del Remoto:** Almacena la URL del repositorio remoto en la configuración de tu repositorio local.
+- **Facilita la Sincronización:** Permite realizar operaciones de sincronización como `git fetch`, `git pull` y `git push` hacia y desde el repositorio remoto.
+
+### Cómo Usar git remote add
+
+1. **Añadir un Repositorio Remoto**
+
+Para añadir un repositorio remoto, utiliza `git remote add` seguido de un nombre para el remoto y la URL del repositorio remoto:
+
+```bash
+git remote add nombre_remoto URL_DEL_REPOSITORIO
+
+```
+
+Ejemplo:
+
+```bash
+git remote add origin <https://github.com/usuario/proyecto.git>
+
+```
+
+### Verificar los Remotos
+
+Después de añadir un remoto, puedes verificar que se haya añadido correctamente con el comando `git remote -v`:
+
+```bash
+git remote -v
+
+```
+
+Esto mostrará una lista de los remotos configurados y sus URLs asociadas.
+
+### Renombrar un Remoto
+
+Si necesitas cambiar el nombre de un remoto, puedes usar el comando `git remote rename`:
+
+```bash
+git remote rename nombre_viejo nombre_nuevo
+
+```
+
+Ejemplo:
+
+```bash
+git remote rename origin upstream
+
+```
+
+### Eliminar un Remoto
+
+Si necesitas eliminar un remoto, puedes usar el comando `git remote remove`:
+
+```bash
+git remote remove nombre_remoto
+
+```
+
+Ejemplo:
+
+```bash
+git remote remove origin
+
+```
+
+### Ejemplo Completo
+
+Aquí tienes un ejemplo completo de cómo utilizar `git remote add` y otros comandos relacionados:
+
+```bash
+# Añadir un nuevo repositorio remoto
+git remote add origin <https://github.com/usuario/proyecto.git>
+
+# Verificar los remotos
+git remote -v
+
+# Renombrar el remoto
+git remote rename origin upstream
+
+# Eliminar el remoto
+git remote remove upstream
+
+```
+
+### Resumen de Comandos
+
+- **Añadir un repositorio remoto:**
+    
+    ```bash
+    git remote add nombre_remoto URL_DEL_REPOSITORIO
+    
+    ```
+    
+- **Verificar los remotos:**
+    
+    ```bash
+    git remote -v
+    
+    ```
+    
+- **Renombrar un remoto:**
+    
+    ```bash
+    git remote rename nombre_viejo nombre_nuevo
+    
+    ```
+    
+- **Eliminar un remoto:**
+    
+    ```bash
+    git remote remove nombre_remoto
+    
+    ```
+    
+
+El comando `git remote add` es fundamental para gestionar y configurar repositorios remotos en tu proyecto de Git, permitiendo sincronizar cambios y colaborar de manera eficiente con otros desarrolladores a través de plataformas de alojamiento de código.
+
+## git remote -v: Verificar Repositorios Remotos
+
+El comando `git remote -v` se utiliza para listar todos los repositorios remotos asociados con tu repositorio local de Git y sus URLs. Este comando es útil para comprobar las configuraciones de los remotos y verificar que están correctamente asociados.
+
+### ¿Qué Hace git remote -v?
+
+Cuando ejecutas `git remote -v`, Git realiza las siguientes acciones:
+
+- **Lista los Nombres de los Remotos:** Muestra los nombres (alias) de todos los repositorios remotos configurados.
+- **Muestra las URLs de los Remotos:** Imprime las URLs asociadas a cada remoto, tanto para operaciones de `fetch` (obtener) como de `push` (enviar).
+
+### Cómo Usar git remote -v
+
+1. **Listar Todos los Remotos y sus URLs**
+
+Para listar todos los repositorios remotos y sus URLs, simplemente ejecuta `git remote -v`:
+
+```bash
+git remote -v
+
+```
+
+### Ejemplo Completo
+
+Aquí tienes un ejemplo de cómo utilizar `git remote -v` para listar los remotos y sus URLs:
+
+```bash
+# Añadir un nuevo repositorio remoto
+git remote add origin <https://github.com/usuario/proyecto.git>
+
+# Verificar los remotos
+git remote -v
+
+```
+
+La salida del comando `git remote -v` podría ser algo similar a:
+
+```
+origin  <https://github.com/usuario/proyecto.git> (fetch)
+origin  <https://github.com/usuario/proyecto.git> (push)
+
+```
+
+### Usos Comunes de git remote -v
+
+- **Verificar Configuración de Remotos:** Asegúrate de que los remotos están configurados correctamente antes de realizar operaciones de `fetch`, `pull` o `push`.
+- **Solución de Problemas:** Útil para diagnosticar problemas relacionados con la sincronización de repositorios remotos.
+- **Gestión de Remotos:** Confirmar los remotos existentes antes de añadir, renombrar o eliminar un remoto.
+
+**Ejemplo Completo con Otros Comandos Relacionados**
+
+Aquí tienes un ejemplo de cómo combinar `git remote -v` con otros comandos relacionados:
+
+```bash
+# Añadir un nuevo repositorio remoto
+git remote add origin <https://github.com/usuario/proyecto.git>
+
+# Verificar los remotos
+git remote -v
+
+# Renombrar el remoto
+git remote rename origin upstream
+
+# Verificar los remotos nuevamente
+git remote -v
+
+# Eliminar el remoto
+git remote remove upstream
+
+# Verificar los remotos una vez más
+git remote -v
+
+```
+
+### Resumen de Comandos Utilizados
+
+- **Listar todos los remotos y sus URLs:**
+    
+    ```bash
+    git remote -v
+    
+    ```
+    
+
+El comando `git remote -v` es esencial para gestionar y verificar la configuración de los repositorios remotos en tu proyecto de Git, asegurando que puedes sincronizar cambios con los remotos de manera efectiva y sin problemas.
+
+## git push: Enviar Cambios al Repositorio Remoto
+
+El comando `git push` se utiliza para enviar los cambios confirmados (commits) en tu repositorio local a un repositorio remoto. Este comando es esencial para compartir tu trabajo con otros colaboradores y para mantener los repositorios remotos actualizados.
+
+### ¿Qué Hace git push?
+
+Cuando ejecutas `git push`, Git realiza las siguientes acciones:
+
+- **Envía los Commits:** Transfiere los commits desde tu repositorio local a la rama correspondiente en el repositorio remoto.
+- **Actualiza la Referencia Remota:** Actualiza la referencia remota de la rama para que apunte a los nuevos commits enviados.
+
+### Cómo Usar git push
+
+1. **Enviar Cambios a la Rama Remota Predeterminada**
+
+Para enviar tus cambios a la rama predeterminada (generalmente `master` o `main`) en el remoto llamado `origin`:
+
+```bash
+git push origin main
+
+```
+
+1. **Enviar Cambios a una Rama Específica**
+
+Para enviar cambios a una rama específica en el repositorio remoto, proporciona el nombre del remoto y el nombre de la rama:
+
+```bash
+git push origin nombre_de_la_rama
+
+```
+
+Ejemplo:
+
+```bash
+git push origin feature/nueva-funcionalidad
+
+```
+
+### Opciones Comunes de git push
+
+- **`-force` (o `f`):** Fuerza la actualización de la rama remota, incluso si hay conflictos. Úsalo con precaución, ya que puede sobrescribir cambios en el remoto.
+    
+    ```bash
+    git push --force origin nombre_de_la_rama
+    
+    ```
+    
+- **`-set-upstream` (o `u`):** Establece la rama local para rastrear una rama remota específica, simplificando futuros `git push` y `git pull`.
+    
+    ```bash
+    git push --set-upstream origin nombre_de_la_rama
+    
+    ```
+    
+- **`-tags`:** Envía todas las etiquetas (tags) locales al remoto.
+    
+    ```bash
+    git push origin --tags
+    
+    ```
+    
+
+### Ejemplo Completo
+
+Aquí tienes un ejemplo completo de cómo utilizar `git push`:
+
+```bash
+# Añadir cambios al área de preparación
+git add .
+
+# Confirmar los cambios
+git commit -m "Añadir nueva funcionalidad"
+
+# Enviar cambios a la rama principal
+git push origin main
+
+# Enviar cambios a una rama específica
+git push origin feature/nueva-funcionalidad
+
+# Forzar la actualización de la rama remota
+git push --force origin feature/nueva-funcionalidad
+
+# Establecer la rama local para rastrear la rama remota
+git push --set-upstream origin feature/nueva-funcionalidad
+
+# Enviar todas las etiquetas locales al remoto
+git push origin --tags
+
+```
+
+### Verificar los Cambios Enviados
+
+Después de ejecutar `git push`, puedes verificar que los cambios se hayan enviado correctamente:
+
+1. **Listar Ramas Remotas**
+
+Para ver las ramas remotas y verificar que la rama se haya actualizado:
+
+```bash
+git branch -r
+
+```
+
+1. **Consultar el Historial de Commits Remotos**
+
+Para ver el historial de commits en el repositorio remoto:
+
+```bash
+git log origin/main
+
+```
+
+### Resumen de Comandos Utilizados
+
+```bash
+**#Enviar cambios a la rama remota predeterminada**
+git push origin main
+
+# **Enviar cambios a una rama específica**
+git push origin nombre_de_la_rama
+
+#**Forzar la actualización de la rama remota**
+git push --force origin nombre_de_la_rama
+
+# **Establecer la rama local para rastrear la rama remota**
+git push --set-upstream origin nombre_de_la_rama
+
+# **Enviar todas las etiquetas locales al remoto**
+git push origin --tags
+```
+
+El comando `git push` es esencial para colaborar en proyectos utilizando Git, permitiéndote compartir tus cambios con otros y mantener los repositorios remotos sincronizados.
+
+## git pull: Obtener y Fusionar Cambios desde el Repositorio Remoto
+
+El comando `git pull` se utiliza para obtener y fusionar (merge) cambios desde un repositorio remoto a tu rama local. Este comando es esencial para mantener tu repositorio local actualizado con las últimas modificaciones realizadas en el remoto por otros colaboradores.
+
+### ¿Qué Hace git pull?
+
+Cuando ejecutas `git pull`, Git realiza las siguientes acciones:
+
+1. **Obtiene los Cambios Remotos:** Usa `git fetch` para descargar los nuevos commits, archivos y ramas del repositorio remoto a tu repositorio local.
+2. **Fusiona los Cambios:** Usa `git merge` para fusionar los cambios obtenidos en tu rama local actual.
+
+### Cómo Usar git pull
+
+1. **Obtener y Fusionar Cambios desde la Rama Remota Predeterminada**
+
+Para obtener y fusionar cambios desde la rama remota predeterminada (generalmente `main` o `master`) en el remoto llamado `origin`:
+
+```bash
+git pull origin main
+
+```
+
+1. **Obtener y Fusionar Cambios desde una Rama Específica**
+
+Para obtener y fusionar cambios desde una rama específica en el repositorio remoto, proporciona el nombre del remoto y el nombre de la rama:
+
+```bash
+git pull origin nombre_de_la_rama
+
+```
+
+Ejemplo:
+
+```bash
+git pull origin feature/nueva-funcionalidad
+
+```
+
+### Opciones Comunes de git pull
+
+- **`-rebase`:** En lugar de fusionar los cambios, rebase los cambios locales en la parte superior de los cambios remotos. Esto puede mantener un historial de commits más limpio.
+    
+    ```bash
+    git pull --rebase origin main
+    
+    ```
+    
+- **`-no-commit`:** Realiza el merge, pero no crea automáticamente un commit de fusión, permitiendo revisar los cambios antes de confirmarlos.
+    
+    ```bash
+    git pull --no-commit origin main
+    
+    ```
+    
+- **`-ff-only`:** Realiza solo un fast-forward merge, abortando si no se puede hacer un merge rápido (fast-forward).
+    
+    ```bash
+    git pull --ff-only origin main
+    
+    ```
+    
+
+### Ejemplo Completo
+
+Aquí tienes un ejemplo completo de cómo utilizar `git pull`:
+
+```bash
+# Obtener y fusionar cambios desde la rama principal
+git pull origin main
+
+# Obtener y fusionar cambios desde una rama específica
+git pull origin feature/nueva-funcionalidad
+
+# Rebase en lugar de fusionar los cambios
+git pull --rebase origin main
+
+# Realizar merge sin crear automáticamente un commit de fusión
+git pull --no-commit origin main
+
+# Realizar solo un fast-forward merge
+git pull --ff-only origin main
+
+```
+
+### Verificar los Cambios Obtenidos
+
+Después de ejecutar `git pull`, puedes verificar que los cambios se hayan obtenido y fusionado correctamente:
+
+1. **Consultar el Historial de Commits**
+
+Para ver el historial de commits y verificar los nuevos commits obtenidos:
+
+```bash
+git log
+
+```
+
+1. **Comprobar el Estado del Repositorio**
+
+Para ver el estado del repositorio y cualquier cambio pendiente:
+
+```bash
+git status
+
+```
+
+### Resumen de Comandos Utilizados
+
+```bash
+# **Obtener y fusionar cambios desde la rama remota predeterminada**
+git pull origin main
+
+# **Obtener y fusionar cambios desde una rama específica**
+git pull origin nombre_de_la_rama
+
+# **Rebase en lugar de fusionar los cambios**
+git pull --rebase origin main
+
+# **Realizar merge sin crear automáticamente un commit de fusión**
+git pull --no-commit origin main
+
+# **Realizar solo un fast-forward merge**
+git pull --ff-only origin main
+```
+
+El comando `git pull` es fundamental para colaborar en proyectos utilizando Git, permitiéndote obtener y fusionar cambios desde el repositorio remoto y mantener tu repositorio local actualizado con las últimas modificaciones.
+
+## git fetch: Obtener Cambios del Repositorio Remoto
+
+El comando `git fetch` se utiliza para descargar los cambios y actualizaciones del repositorio remoto a tu repositorio local sin fusionarlos automáticamente. Esto es útil para ver qué cambios se han realizado en el remoto antes de integrarlos en tu trabajo local.
+
+### ¿Qué Hace git fetch?
+
+Cuando ejecutas `git fetch`, Git realiza las siguientes acciones:
+
+- **Obtiene Commits y Objetos:** Descarga todos los nuevos commits, archivos y referencias desde el repositorio remoto.
+- **Actualiza las Referencias Remotas:** Actualiza las referencias remotas (como `origin/main`) en tu repositorio local para reflejar el estado actual del remoto.
+- **No Fusiona Cambios:** Los cambios obtenidos no se fusionan automáticamente en tu rama de trabajo actual. Permanece inalterada hasta que decidas fusionar manualmente los cambios.
+
+### Cómo Usar git fetch
+
+1. **Obtener Cambios del Remoto Predeterminado**
+
+Para obtener todos los cambios del repositorio remoto predeterminado (generalmente `origin`):
+
+```bash
+git fetch origin
+
+```
+
+1. **Obtener Cambios de una Rama Específica**
+
+Para obtener cambios de una rama específica en el repositorio remoto:
+
+```bash
+git fetch origin nombre_de_la_rama
+
+```
+
+Ejemplo:
+
+```bash
+git fetch origin main
+
+```
+
+### Opciones Comunes de git fetch
+
+- **`-all`:** Obtiene cambios de todos los remotos configurados.
+    
+    ```bash
+    git fetch --all
+    
+    ```
+    
+- **`-prune`:** Elimina referencias remotas que ya no existen en el repositorio remoto.
+    
+    ```bash
+    git fetch --prune
+    
+    ```
+    
+- **`-tags`:** Obtiene todas las etiquetas (tags) desde el remoto.
+    
+    ```bash
+    git fetch --tags
+    
+    ```
+    
+
+### Ejemplo Completo
+
+Aquí tienes un ejemplo completo de cómo utilizar `git fetch`:
+
+```bash
+# Obtener todos los cambios del remoto predeterminado
+git fetch origin
+
+# Obtener cambios de una rama específica
+git fetch origin feature/nueva-funcionalidad
+
+# Obtener cambios de todos los remotos configurados
+git fetch --all
+
+# Obtener cambios y eliminar referencias remotas que ya no existen
+git fetch --prune
+
+# Obtener todas las etiquetas desde el remoto
+git fetch --tags
+
+```
+
+### Verificar los Cambios Obtenidos
+
+Después de ejecutar `git fetch`, puedes verificar los cambios obtenidos utilizando otros comandos:
+
+1. **Listar Ramas Remotas**
+
+Para ver las ramas remotas y verificar las actualizaciones:
+
+```bash
+git branch -r
+
+```
+
+1. **Consultar el Historial de Commits Remotos**
+
+Para ver el historial de commits en el repositorio remoto:
+
+```bash
+git log origin/main
+
+```
+
+### Integrar los Cambios Obtenidos
+
+Para integrar los cambios obtenidos en tu rama local, puedes utilizar `git merge` o `git rebase`:
+
+1. **Fusionar Cambios Obtenidos**
+
+Para fusionar los cambios obtenidos desde `origin/main` a tu rama local actual:
+
+```bash
+git merge origin/main
+
+```
+
+1. **Rebase con los Cambios Obtenidos**
+
+Para hacer un rebase de tu rama local con los cambios obtenidos desde `origin/main`:
+
+```bash
+git rebase origin/main
+
+```
+
+### Resumen de Comandos Utilizados
+
+```bash
+# **Obtener todos los cambios del remoto predeterminado**
+git fetch origin
+
+# **Obtener cambios de una rama específica**
+git fetch origin nombre_de_la_rama
+
+# **Obtener cambios de todos los remotos configurados**
+git fetch --all
+
+# **Obtener cambios y eliminar referencias remotas que ya no existen**
+git fetch --prune
+
+# **Obtener todas las etiquetas desde el remoto**
+git fetch --tags
+```
+
+El comando `git fetch` es esencial para mantener tu repositorio local sincronizado con el repositorio remoto sin afectar tu rama de trabajo actual, permitiéndote revisar los cambios antes de integrarlos.
+
+## git remote rm: Eliminar un Repositorio Remoto
+
+El comando `git remote rm` (también conocido como `git remote remove`) se utiliza para eliminar un repositorio remoto de la configuración de tu repositorio local de Git. Este comando es útil cuando ya no necesitas interactuar con un remoto específico.
+
+### ¿Qué Hace git remote rm?
+
+Cuando ejecutas `git remote rm`, Git realiza las siguientes acciones:
+
+- **Elimina el Remoto de la Configuración Local:** Borra la entrada del remoto en la configuración de tu repositorio local.
+- **Desvincula las Referencias Remotas:** Las referencias asociadas con el remoto eliminado ya no serán accesibles desde tu repositorio local.
+
+### Cómo Usar git remote rm
+
+1. **Eliminar un Remoto Específico**
+
+Para eliminar un remoto específico, utiliza `git remote rm` seguido del nombre del remoto:
+
+```bash
+git remote rm nombre_remoto
+
+```
+
+Ejemplo:
+
+```bash
+git remote rm origin
+
+```
+
+### Verificar los Remotos Eliminados
+
+Después de eliminar un remoto, puedes verificar que se haya eliminado correctamente con el comando `git remote -v`:
+
+```bash
+git remote -v
+
+```
+
+Este comando listará los remotos restantes, si hay alguno.
+
+### Ejemplo Completo
+
+Aquí tienes un ejemplo completo de cómo utilizar `git remote rm`:
+
+```bash
+# Añadir un nuevo repositorio remoto
+git remote add origin <https://github.com/usuario/proyecto.git>
+
+# Verificar los remotos
+git remote -v
+
+# Eliminar el remoto
+git remote rm origin
+
+# Verificar los remotos nuevamente
+git remote -v
+```
+
+### Resumen de Comandos Utilizados
+
+```bash
+# **Eliminar un repositorio remoto**
+git remote rm nombre_remoto
+
+# **Verificar los remotos**
+git remote -v
+```
+
+El comando `git remote rm` es esencial para gestionar y limpiar la configuración de tus repositorios remotos en tu proyecto de Git, asegurando que solo los remotos necesarios estén configurados y accesibles.
+
+## 3.5. Funcionalidades avanzadas
+
+En esta sección, exploraremos algunas funcionalidades más avanzadas de Git que nos permiten realizar tareas específicas con mayor precisión y control sobre nuestro repositorio.
+
+## git cherry-pick: Aplicar Commits Específicos a tu Rama Actual
+
+El comando `git cherry-pick` se utiliza para aplicar los cambios introducidos por un commit específico (o una serie de commits) en una rama diferente a la rama actual. Esto es útil cuando deseas incorporar ciertos cambios sin fusionar toda la rama de origen.
+
+### ¿Qué Hace git cherry-pick?
+
+Cuando ejecutas `git cherry-pick`, Git realiza las siguientes acciones:
+
+- **Aplica los Cambios de un Commit:** Transfiere los cambios introducidos por un commit específico a tu rama actual, creando un nuevo commit con esos cambios.
+- **Mantiene el Historial de Commits:** El commit original permanece en la rama de origen, pero sus cambios se aplican en la rama actual.
+
+### Cómo Usar git cherry-pick
+
+1. **Aplicar un Commit Específico**
+
+Para aplicar un commit específico a tu rama actual, necesitas el hash del commit:
+
+```bash
+git cherry-pick <hash_commit>
+
+```
+
+Ejemplo:
+
+```bash
+git cherry-pick a1b2c3d4
+
+```
+
+1. **Aplicar una Serie de Commits**
+
+Para aplicar una serie de commits, puedes especificar un rango de commits utilizando el formato `A..B`, donde `A` es el commit anterior al primer commit que deseas aplicar y `B` es el último commit que deseas aplicar:
+
+```bash
+git cherry-pick A..B
+
+```
+
+Ejemplo:
+
+```bash
+git cherry-pick a1b2c3d4..e5f6g7h8
+
+```
+
+### Opciones Comunes de git cherry-pick
+
+- **`n` o `-no-commit`:** Aplica los cambios del commit sin crear automáticamente un nuevo commit. Esto te permite revisar y hacer ajustes antes de confirmar los cambios.
+    
+    ```bash
+    git cherry-pick -n <hash_commit>
+    
+    ```
+    
+- **`x`:** Añade una nota al mensaje del commit indicando el hash del commit original. Esto es útil para rastrear el origen de los cambios.
+    
+    ```bash
+    git cherry-pick -x <hash_commit>
+    
+    ```
+    
+- **`-abort`:** Aborta el proceso de `cherry-pick` si encuentras conflictos que no deseas resolver.
+    
+    ```bash
+    git cherry-pick --abort
+    
+    ```
+    
+- **`-continue`:** Continúa con el `cherry-pick` después de resolver conflictos.
+    
+    ```bash
+    git cherry-pick --continue
+    
+    ```
+    
+
+### Ejemplo Completo
+
+Aquí tienes un ejemplo completo de cómo utilizar `git cherry-pick`:
+
+```bash
+# Navegar a la rama destino
+git checkout main
+
+# Aplicar un commit específico
+git cherry-pick a1b2c3d4
+
+# Aplicar una serie de commits
+git cherry-pick a1b2c3d4..e5f6g7h8
+
+# Aplicar un commit sin crear automáticamente un nuevo commit
+git cherry-pick -n a1b2c3d4
+
+# Añadir una nota al mensaje del commit
+git cherry-pick -x a1b2c3d4
+
+# Abortar el proceso de cherry-pick
+git cherry-pick --abort
+
+# Continuar con el cherry-pick después de resolver conflictos
+git cherry-pick --continue
+
+```
+
+### Verificar los Cambios Aplicados
+
+Después de ejecutar `git cherry-pick`, puedes verificar los cambios aplicados utilizando otros comandos:
+
+1. **Consultar el Historial de Commits**
+
+Para ver el historial de commits y verificar que los commits seleccionados se hayan aplicado:
+
+```bash
+git log
+
+```
+
+1. **Comprobar el Estado del Repositorio**
+
+Para ver el estado del repositorio y cualquier cambio pendiente:
+
+```bash
+git status
+
+```
+
+### Resumen de Comandos Utilizados
+
+```bash
+**# Aplicar un commit específico a tu rama actual**
+git cherry-pick <hash_commit>
+
+# **Aplicar una serie de commits**
+git cherry-pick A..B
+
+# **Aplicar un commit sin crear automáticamente un nuevo commit**
+git cherry-pick -n <hash_commit>
+
+# **Añadir una nota al mensaje del commit**
+git cherry-pick -x <hash_commit>
+
+# **Abortar el proceso de cherry-pick**
+git cherry-pick --abort
+
+# **Continuar con el cherry-pick después de resolver conflictos**
+git cherry-pick --continue
+```
+
+El comando `git cherry-pick` es una herramienta poderosa para aplicar cambios específicos de una rama a otra, permitiéndote integrar selectivamente los commits necesarios sin fusionar toda la rama de origen.
+
+## git revert: Deshacer Cambios de un Commit Anterior
+
+El comando `git revert` se utiliza para deshacer los cambios introducidos por un commit anterior. A diferencia de `git reset`, que modifica el historial de commits, `git revert` crea un nuevo commit que invierte los cambios de un commit específico, preservando así el historial del repositorio.
+
+### ¿Qué Hace git revert?
+
+Cuando ejecutas `git revert`, Git realiza las siguientes acciones:
+
+- **Crea un Nuevo Commit:** Genera un nuevo commit que invierte los cambios introducidos por un commit anterior.
+- **Preserva el Historial de Commits:** El commit original permanece en el historial, pero se añade un nuevo commit que deshace sus cambios.
+
+### Cómo Usar git revert
+
+1. **Revertir un Commit Específico**
+
+Para revertir un commit específico, necesitas el hash del commit:
+
+```bash
+git revert <hash_commit>
+
+```
+
+Ejemplo:
+
+```bash
+git revert a1b2c3d4
+
+```
+
+1. **Revertir una Serie de Commits**
+
+Para revertir una serie de commits, puedes especificar un rango de commits utilizando el formato `A..B`, donde `A` es el commit anterior al primer commit que deseas revertir y `B` es el último commit que deseas revertir:
+
+```bash
+git revert A..B
+
+```
+
+Ejemplo:
+
+```bash
+git revert a1b2c3d4..e5f6g7h8
+
+```
+
+### Opciones Comunes de git revert
+
+- **`-no-commit` o `n`:** Aplica los cambios de la reversión sin crear automáticamente un nuevo commit. Esto te permite revisar y hacer ajustes antes de confirmar los cambios.
+    
+    ```bash
+    git revert -n <hash_commit>
+    
+    ```
+    
+- **`m <parent-number>`:** Especifica el número de padre para reversiones de commits de merge. Esto es necesario para revertir correctamente un commit de merge, ya que tiene más de un padre.
+    
+    ```bash
+    git revert -m 1 <hash_commit>
+    
+    ```
+    
+- **`-continue`:** Continúa con la reversión después de resolver conflictos.
+    
+    ```bash
+    git revert --continue
+    
+    ```
+    
+- **`-abort`:** Aborta el proceso de reversión si encuentras conflictos que no deseas resolver.
+    
+    ```bash
+    git revert --abort
+    
+    ```
+    
+
+### Ejemplo Completo
+
+Aquí tienes un ejemplo completo de cómo utilizar `git revert`:
+
+```bash
+# Revertir un commit específico
+git revert a1b2c3d4
+
+# Revertir una serie de commits
+git revert a1b2c3d4..e5f6g7h8
+
+# Revertir un commit sin crear automáticamente un nuevo commit
+git revert -n a1b2c3d4
+
+# Revertir un commit de merge (el número de padre especifica la rama base)
+git revert -m 1 a1b2c3d4
+
+# Abortar el proceso de reversión
+git revert --abort
+
+# Continuar con la reversión después de resolver conflictos
+git revert --continue
+
+```
+
+### Verificar los Cambios Aplicados
+
+Después de ejecutar `git revert`, puedes verificar los cambios aplicados utilizando otros comandos:
+
+1. **Consultar el Historial de Commits**
+
+Para ver el historial de commits y verificar que los commits seleccionados se hayan revertido:
+
+```bash
+git log
+
+```
+
+1. **Comprobar el Estado del Repositorio**
+
+Para ver el estado del repositorio y cualquier cambio pendiente:
+
+```bash
+git status
+
+```
+
+### Resumen de Comandos Utilizados
+
+```bash
+**# Revertir un commit específico**
+git revert <hash_commit>
+
+# **Revertir una serie de commits**
+git revert A..B
+
+# **Revertir un commit sin crear automáticamente un nuevo commit**
+git revert -n <hash_commit>
+
+# **Revertir un commit de merge (especificando el número de padre)**
+git revert -m 1 <hash_commit>
+
+# **Abortar el proceso de reversión**
+git revert --abort
+
+# **Continuar con la reversión después de resolver conflictos**
+git revert --continue
+```
+
+El comando `git revert` es una herramienta poderosa para deshacer cambios específicos en tu repositorio de Git, permitiéndote revertir commits anteriores sin alterar el historial, manteniendo así un registro claro y coherente de todos los cambios realizados en el proyecto.
+
+## git stash: Guardar Cambios Temporalmente
+
+El comando `git stash` se utiliza para guardar temporalmente los cambios no confirmados en tu directorio de trabajo. Esto te permite limpiar tu directorio de trabajo y cambiar de rama sin perder tus cambios. Los cambios guardados se pueden aplicar posteriormente cuando sea necesario.
+
+### ¿Qué Hace git stash?
+
+Cuando ejecutas `git stash`, Git realiza las siguientes acciones:
+
+- **Guarda los Cambios No Confirmados:** Incluye tanto los archivos modificados como los archivos no rastreados.
+- **Limpia el Directorio de Trabajo:** Restaura tu directorio de trabajo al estado del último commit confirmado.
+- **Crea una Entrada en el Stash:** Guarda los cambios en una pila (stash) que puedes listar y aplicar posteriormente.
+
+### Cómo Usar git stash
+
+1. **Guardar Cambios No Confirmados**
+
+Para guardar todos los cambios no confirmados:
+
+```bash
+git stash
+
+```
+
+1. **Guardar Cambios y Mantener Archivos No Rastreado**
+
+Para incluir archivos no rastreados en el stash, usa la opción `-u` o `--include-untracked`:
+
+```bash
+git stash -u
+
+```
+
+1. **Guardar Cambios con un Mensaje**
+
+Para añadir una descripción a tus cambios guardados:
+
+```bash
+git stash save "mensaje_descriptivo"
+
+```
+
+### Administrar el Stash
+
+1. **Listar Cambios Guardados**
+
+Para ver todos los cambios guardados en el stash:
+
+```bash
+git stash list
+
+```
+
+1. **Aplicar Cambios Guardados**
+
+Para aplicar el stash más reciente a tu directorio de trabajo:
+
+```bash
+git stash apply
+
+```
+
+Para aplicar un stash específico (identificado por su índice o hash):
+
+```bash
+git stash apply stash@{n}
+
+```
+
+1. **Eliminar Cambios del Stash Después de Aplicarlos**
+
+Para aplicar el stash más reciente y eliminarlo de la pila:
+
+```bash
+git stash pop
+
+```
+
+Para eliminar un stash específico:
+
+```bash
+git stash drop stash@{n}
+
+```
+
+1. **Crear una Rama desde un Stash**
+
+Para crear una nueva rama con los cambios de un stash específico:
+
+```bash
+git stash branch nombre_rama stash@{n}
+
+```
+
+1. **Eliminar Todos los Stashes**
+
+Para eliminar todos los stashes guardados:
+
+```bash
+git stash clear
+
+```
+
+### Ejemplo Completo
+
+Aquí tienes un ejemplo completo de cómo utilizar `git stash`:
+
+```bash
+# Guardar cambios no confirmados
+git stash
+
+# Guardar cambios y archivos no rastreados
+git stash -u
+
+# Guardar cambios con un mensaje descriptivo
+git stash save "trabajo en progreso"
+
+# Listar todos los stashes guardados
+git stash list
+
+# Aplicar el stash más reciente
+git stash apply
+
+# Aplicar un stash específico
+git stash apply stash@{2}
+
+# Aplicar y eliminar el stash más reciente
+git stash pop
+
+# Eliminar un stash específico
+git stash drop stash@{2}
+
+# Crear una nueva rama desde un stash
+git stash branch nueva_rama stash@{1}
+
+# Eliminar todos los stashes
+git stash clear
+```
+
+### Verificar los Cambios Aplicados
+
+Después de aplicar un stash, puedes verificar los cambios aplicados utilizando otros comandos:
+
+1. **Consultar el Historial de Commits**
+
+Para ver el historial de commits y verificar el estado del repositorio:
+
+```bash
+git log
+
+```
+
+1. **Comprobar el Estado del Repositorio**
+
+Para ver el estado del repositorio y cualquier cambio pendiente:
+
+```bash
+git status
+
+```
+
+### Resumen de Comandos Utilizados
+
+```bash
+# **Guardar cambios no confirmados**
+git stash
+
+# **Guardar cambios y archivos no rastreados**
+git stash -u
+
+# **Guardar cambios con un mensaje descriptivo**
+git stash save "mensaje_descriptivo"
+
+# **Listar todos los stashes guardados**
+git stash list
+
+# **Aplicar el stash más reciente**
+git stash apply
+
+# **Aplicar un stash específico**
+git stash apply stash@{n}
+
+# **Aplicar y eliminar el stash más reciente**
+git stash pop
+
+# **Eliminar un stash específico**
+git stash drop stash@{n}
+
+# **Crear una nueva rama desde un stash**
+git stash branch nombre_rama stash@{n}
+
+# **Eliminar todos los stashes**
+git stash clear
+```
+
+El comando `git stash` es una herramienta poderosa para gestionar tus cambios no confirmados, permitiéndote guardar y restaurar fácilmente el estado de tu directorio de trabajo mientras trabajas en diferentes ramas o tareas.
+
+## git tag: Crear y Administrar Etiquetas en Git
+
+El comando `git tag` se utiliza para crear, listar y administrar etiquetas (tags) en Git. Las etiquetas son referencias estáticas a commits específicos y se utilizan comúnmente para marcar versiones importantes en el historial del proyecto, como versiones de lanzamiento.
+
+### ¿Qué Hace git tag?
+
+Cuando ejecutas `git tag`, Git realiza las siguientes acciones:
+
+- **Crear una Nueva Etiqueta:** Puedes crear etiquetas ligeras (lightweight tags) o anotadas (annotated tags) para marcar commits específicos.
+- **Listar Etiquetas Existentes:** Puedes listar todas las etiquetas en el repositorio.
+- **Eliminar Etiquetas:** Puedes eliminar etiquetas que ya no necesitas.
+
+### Cómo Usar git tag
+
+1. **Crear una Etiqueta Ligera**
+
+Una etiqueta ligera es simplemente un nombre apuntando a un commit específico:
+
+```bash
+git tag nombre_etiqueta
+
+```
+
+Ejemplo:
+
+```bash
+git tag v1.0
+
+```
+
+1. **Crear una Etiqueta Anotada**
+
+Las etiquetas anotadas se almacenan como objetos completos en la base de datos de Git y pueden contener un mensaje, nombre del etiquetador, y fecha:
+
+```bash
+git tag -a nombre_etiqueta -m "mensaje de la etiqueta"
+
+```
+
+Ejemplo:
+
+```bash
+git tag -a v1.0 -m "Versión 1.0 de lanzamiento"
+
+```
+
+1. **Crear una Etiqueta para un Commit Específico**
+
+Puedes crear una etiqueta en un commit específico proporcionando el hash del commit:
+
+```bash
+git tag nombre_etiqueta hash_commit
+
+```
+
+Ejemplo:
+
+```bash
+git tag v1.0 a1b2c3d4
+
+```
+
+1. **Listar Todas las Etiquetas**
+
+Para ver todas las etiquetas en el repositorio:
+
+```bash
+git tag
+
+```
+
+1. **Mostrar Información de una Etiqueta Anotada**
+
+Para mostrar información detallada de una etiqueta anotada:
+
+```bash
+git show nombre_etiqueta
+
+```
+
+1. **Eliminar una Etiqueta**
+
+Para eliminar una etiqueta localmente:
+
+```bash
+git tag -d nombre_etiqueta
+
+```
+
+Ejemplo:
+
+```bash
+git tag -d v1.0
+
+```
+
+1. **Compartir Etiquetas con un Repositorio Remoto**
+
+Las etiquetas no se envían automáticamente al repositorio remoto con `git push`. Debes enviarlas explícitamente:
+
+```bash
+git push origin nombre_etiqueta
+
+```
+
+Para enviar todas las etiquetas a la vez:
+
+```bash
+git push origin --tags
+
+```
+
+1. **Eliminar una Etiqueta de un Repositorio Remoto**
+
+Para eliminar una etiqueta del repositorio remoto:
+
+```bash
+git push origin --delete nombre_etiqueta
+
+```
+
+### Ejemplo Completo
+
+Aquí tienes un ejemplo completo de cómo utilizar `git tag`:
+
+```bash
+# Crear una etiqueta ligera
+git tag v1.0
+
+# Crear una etiqueta anotada con un mensaje
+git tag -a v1.0 -m "Versión 1.0 de lanzamiento"
+
+# Crear una etiqueta en un commit específico
+git tag v1.0 a1b2c3d4
+
+# Listar todas las etiquetas
+git tag
+
+# Mostrar información de una etiqueta anotada
+git show v1.0
+
+# Eliminar una etiqueta localmente
+git tag -d v1.0
+
+# Enviar una etiqueta al repositorio remoto
+git push origin v1.0
+
+# Enviar todas las etiquetas al repositorio remoto
+git push origin --tags
+
+# Eliminar una etiqueta del repositorio remoto
+git push origin --delete v1.0
+
+```
+
+### Verificar las Etiquetas
+
+Después de crear, listar o eliminar etiquetas, puedes verificar las etiquetas y el estado del repositorio utilizando otros comandos:
+
+1. **Consultar el Historial de Commits**
+
+Para ver el historial de commits y verificar que las etiquetas estén asociadas con los commits correctos:
+
+```bash
+git log --oneline --decorate
+
+```
+
+1. **Comprobar el Estado del Repositorio**
+
+Para ver el estado del repositorio y cualquier cambio pendiente:
+
+```bash
+git status
+
+```
+
+### Resumen de Comandos Utilizados
+
+```bash
+**# Crear una etiqueta ligera**
+git tag nombre_etiqueta
+
+# **Crear una etiqueta anotada**
+git tag -a nombre_etiqueta -m "mensaje de la etiqueta"
+
+# **Crear una etiqueta en un commit específico**
+git tag nombre_etiqueta hash_commit
+
+# **Listar todas las etiquetas**
+git tag
+
+# **Mostrar información de una etiqueta anotada**
+git show nombre_etiqueta
+
+# **Eliminar una etiqueta localmente**
+git tag -d nombre_etiqueta
+
+# **Enviar una etiqueta al repositorio remoto**
+git push origin nombre_etiqueta
+
+# **Enviar todas las etiquetas al repositorio remoto**
+git push origin --tags
+
+# **Eliminar una etiqueta del repositorio remoto**
+git push origin --delete nombre_etiqueta
+
+```
+
+- 
+
+El comando `git tag` es una herramienta esencial para marcar y gestionar versiones importantes en el historial de tu proyecto, facilitando la identificación y el acceso a puntos específicos del desarrollo.

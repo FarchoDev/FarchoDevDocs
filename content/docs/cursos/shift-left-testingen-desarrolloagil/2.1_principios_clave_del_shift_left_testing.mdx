@@ -1,0 +1,87 @@
+---
+title: 2.1. Principios clave del Shift Left Testing
+---
+
+Adoptar el enfoque Shift Left no se trata solo de “hacer pruebas antes”, sino de cambiar la **cultura de calidad** en todo el equipo. Aquí exploramos los principios fundamentales para aplicar correctamente esta estrategia.
+
+---
+
+## QA como parte del equipo desde el refinamiento
+
+**🔑 Principio:** La calidad no es una fase, es una responsabilidad compartida desde el inicio.
+
+**¿Qué implica?**
+
+* Incluir a testers desde las **sesiones de refinamiento** (refinement).
+* QA aporta una visión crítica para identificar:
+
+  * Requisitos ambiguos
+  * Criterios no testeables
+  * Riesgos técnicos ocultos
+
+**Ejemplo real**
+
+Durante una historia de usuario como:
+
+> “Como paciente, quiero cancelar una cita médica para liberar el espacio.”
+
+El QA puede preguntar
+
+* ¿Qué pasa si ya está en curso?
+* ¿Debe notificarse al médico?
+* ¿Se puede cancelar desde la app o solo vía call center?
+
+➡️ Estas preguntas se resuelven antes del desarrollo, evitando bugs conceptuales y retrabajo.
+
+---
+
+## Revisión y validación de requerimientos con criterios de aceptación claros
+
+**🔑 Principio:** Los bugs conceptuales se eliminan revisando lo que se va a construir, no lo que ya se construyó.
+
+**enas prácticas**
+
+* Definir **criterios de aceptación** en cada historia de usuario:
+
+  * Claros
+  * Medibles
+  * Testeables
+
+**emplo de buen criterio**
+
+> ✅ *“El sistema debe permitir cancelar una cita con al menos 2 horas de anticipación y mostrar un mensaje de confirmación.”*
+
+**rramientas que ayudan**
+
+* Jira (con campos de aceptación)
+* Notion / Confluence
+* Gherkin (BDD): Given / When / Then
+
+---
+
+## Automatización progresiva (unitarias → integración → API → UI)
+
+**🔑 Principio:** No todo debe probarse desde la UI. Automatiza desde la base.
+
+**trategia por capas**
+
+| Nivel          | Qué se prueba                          | Herramientas comunes    |
+| -------------- | -------------------------------------- | ----------------------- |
+| 🧱 Unitarias   | Funciones y métodos individuales       | Jest, Pytest, JUnit     |
+| 🔗 Integración | Módulos conectados, lógica entre capas | TestContainers, Postman |
+| 🌐 API         | Contratos y flujos entre servicios     | REST Assured, Supertest |
+| 👁️ UI         | Flujos de usuario en la interfaz       | Cypress, Playwright     |
+
+➡️ Automatizar en capas permite detectar errores cerca de su fuente y reduce el tiempo de ejecución de tests.
+
+---
+
+**En resumen**
+
+| Principio                      | Resultado esperado                         |
+| ------------------------------ | ------------------------------------------ |
+| QA involucrado desde el inicio | Historias bien definidas, menos errores    |
+| Revisión de requerimientos     | Validación temprana de lo que se construye |
+| Automatización progresiva      | Pruebas rápidas, confiables y mantenibles  |
+
+---

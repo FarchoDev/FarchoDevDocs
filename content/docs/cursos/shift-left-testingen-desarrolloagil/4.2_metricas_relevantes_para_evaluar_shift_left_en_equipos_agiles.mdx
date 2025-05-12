@@ -1,0 +1,70 @@
+---
+title: 4.2. Métricas Relevantes para Evaluar Shift Left en Equipos Ágiles
+---
+
+Para justificar el valor de Shift Left y mejorar continuamente, es vital contar con **métricas claras y accionables**. Estas métricas ayudan a identificar cuellos de botella, calidad del código desde fases tempranas y la efectividad de nuestras estrategias de prueba.
+
+---
+
+## MTTD (Mean Time to Detect – Tiempo Medio de Detección)
+
+**¿Qué es?**
+Tiempo promedio entre la introducción de un defecto y su detección.
+
+**Objetivo Shift Left:**
+Reducir este tiempo detectando errores en etapas previas (revisión de requerimientos, pruebas unitarias, análisis estático).
+
+**Ejemplo:**
+Un bug introducido en el día 2 del sprint y detectado al día 4 tiene un MTTD de 2 días.
+Al automatizar más pruebas y validar criterios desde el refinamiento, este tiempo baja.
+
+---
+
+## Cobertura de pruebas tempranas
+
+**¿Qué es?**
+Porcentaje de lógica de negocio que está cubierta por pruebas antes de llegar a staging o QA funcional.
+
+**Indicadores útiles:**
+
+* % de cobertura de pruebas unitarias (por archivo, módulo, endpoint)
+* % de ramas (branches) del código cubiertas
+
+**Herramientas:**
+
+* `Jest --coverage`, `nyc`, `SonarQube`, `Codecov`
+
+**Ejemplo objetivo:**
+“Al menos 70% de la lógica crítica debe estar cubierta por pruebas unitarias antes del merge a `main`.”
+
+---
+
+## Ratio de defectos por fase
+
+**¿Qué es?**
+Distribución de errores encontrados por fase del proceso de desarrollo.
+
+| Fase                   | Defectos detectados (%) |
+| ---------------------- | ----------------------- |
+| Requerimientos         | 10%                     |
+| Desarrollo (unitarias) | 55%                     |
+| QA funcional/staging   | 30%                     |
+| Producción             | 5%                      |
+
+**Objetivo Shift Left:**
+Aumentar los errores detectados temprano (en diseño o dev) y reducir los encontrados en QA y producción.
+
+**Cómo medirlo:**
+Clasificando defectos en tu sistema de tickets por fase de descubrimiento (Jira, Azure DevOps, etc.).
+
+---
+
+## Visualización sugerida
+
+Puedes incluir estas métricas en dashboards usando herramientas como:
+
+* Power BI o Google Data Studio
+* Allure + ReportPortal para defectos y cobertura
+* SonarQube para código y deuda técnica
+
+---

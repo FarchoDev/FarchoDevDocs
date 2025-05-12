@@ -1,0 +1,122 @@
+---
+title: 2.2. Configuración inicial de Git
+---
+
+Después de instalar Git, es importante configurarlo correctamente antes de comenzar a trabajar con repositorios.
+
+## 2.2.1. Configurar el Nombre de Usuario y el Correo Electrónico
+
+Lo primero que debes hacer después de instalar Git es configurar tu nombre de usuario y correo electrónico. Estos datos se asociarán con los commits que realices.
+
+Abre tu terminal o línea de comandos y ejecuta los siguientes comandos:
+
+```bash
+git config --global user.name "Tu Nombre"
+git config --global user.email "tu.email@example.com"
+```
+
+Ejemplo:
+
+```bash
+git config --global user.name 
+"Juan Pérez"
+git config --global user.email 
+"juan.perez@example.com"
+```
+
+**Verificar la Configuración:**
+
+Para asegurarte de que tus configuraciones se han aplicado correctamente, puedes utilizar:
+
+```bash
+git config --global --list
+```
+
+Esto debería mostrar una lista con tu nombre y correo electrónico configurados, entre otras configuraciones globales.
+
+## 2.2.2. Configuración del Editor de Texto
+
+Puedes configurar el editor de texto que deseas usar para escribir mensajes de commit. Por ejemplo, para usar Vim, puedes hacer:
+
+```bash
+git config --global core.editor "vim"
+```
+
+Si prefieres otro editor, simplemente reemplaza "vim" con el comando adecuado para tu editor (por ejemplo, "nano", "code --wait" para Visual Studio Code, etc.).
+
+## 2.2.3. Configuración del Alias de Git
+
+Git permite crear alias para comandos frecuentes, facilitando y acelerando tu flujo de trabajo. Aquí tienes algunos ejemplos útiles:
+
+```bash
+git config --global alias.st status
+git config --global alias.ci commit
+git config --global alias.co checkout
+git config --global alias.br branch
+```
+
+Con estos alias, en lugar de escribir git status, solo necesitas escribir git st.
+
+## 2.2.4. Configuración del Archivo .gitignore Global
+
+A veces, hay archivos que siempre quieres ignorar en todos tus repositorios (por ejemplo, archivos de sistema o archivos temporales). Puedes configurar un archivo .gitignore global:
+
+```bash
+git config --global core.excludesfile ~/.gitignore_global
+```
+
+Luego, crea el archivo .gitignore_global en tu directorio principal (~) y agrega las reglas para los archivos que deseas ignorar globalmente.
+
+Ejemplo de .gitignore_global:
+
+```bash
+# Archivos de sistema
+.DS_StoreThumbs
+.db
+# Archivos temporales*
+.log*
+.tmp
+```
+
+## 2.2.5. Configuración de las Credenciales de Cache
+
+Para evitar que Git te pida tus credenciales en cada operación de red (como git push o git pull), puedes habilitar la caché de credenciales:
+
+```bash
+git config --global credential.helper cache
+```
+
+Esto almacenará tus credenciales en la caché durante un corto período (por defecto, 15 minutos). Si deseas cambiar el tiempo de almacenamiento en caché, puedes especificarlo así:
+
+```bash
+git config --global credential.helper 'cache --timeout=3600'
+```
+
+Esto almacenará tus credenciales en la caché durante una hora.
+
+## 2.2.6. Configuración de las Ramas Predeterminadas
+
+Si deseas cambiar el nombre de la rama predeterminada para nuevos repositorios (por ejemplo, cambiar master a main), puedes hacer:
+
+```bash
+git config --global init.defaultBranch main
+```
+
+## 2.2.7. Resumen de Comandos Utilizados
+
+```bash
+git config --global user.name "Tu Nombre"
+git config --global user.email "tu.email@example.com"
+git config --global --list
+git config --global core.editor "vim"
+git config --global alias.st status
+git config --global alias.ci commit
+git config --global alias.co checkout
+git config --global alias.br branch
+git config --global core.excludesfile ~/.gitignore_global
+git config --global credential.helper cache
+git config --global credential.helper 'cache --timeout=3600'
+git config --global init.defaultBranch main
+```
+
+En este módulo, has aprendido cómo instalar Git en tu sistema operativo y cómo configurar correctamente tu identidad y otras opciones de configuración. Configurar Git de manera adecuada es esencial para un flujo de trabajo eficiente y para garantizar que tus contribuciones sean adecuadamente identificadas en los repositorios.

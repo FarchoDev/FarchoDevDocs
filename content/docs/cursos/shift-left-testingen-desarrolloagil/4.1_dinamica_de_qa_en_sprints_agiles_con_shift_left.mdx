@@ -1,0 +1,66 @@
+---
+title: 4.1. Dinámica de QA en Sprints Ágiles con Shift Left
+---
+
+Shift Left Testing no se trata solo de automatizar pruebas antes, sino de **integrar el pensamiento de calidad desde el primer día del sprint**. Aquí vemos cómo se aplica en la práctica.
+
+---
+
+## Ciclo Ágil Integrando Shift Left
+
+| Etapa del Sprint           | Rol de QA con enfoque Shift Left                                                                          |
+| -------------------------- | --------------------------------------------------------------------------------------------------------- |
+| **Refinamiento (Backlog)** | QA participa para validar historias, identificar ambigüedades y añadir criterios de aceptación testables. |
+| **Planning**               | Se discuten enfoques de prueba, entornos necesarios y automatización desde el día 1.                      |
+| **Desarrollo activo**      | QA colabora en pair testing, revisa PRs con enfoque de calidad, genera scripts automatizados.             |
+| **Review / Retrospectiva** | QA comparte métricas de defectos, calidad del sprint y cobertura de pruebas.                              |
+
+---
+
+## Prácticas clave
+
+### Pair Testing: QA + Dev
+
+* Colaborar para diseñar pruebas funcionales mientras se desarrolla.
+* QA puede construir escenarios mientras el Dev implementa código.
+* Fortalece la comprensión de la historia y mejora la calidad del código.
+
+### Pruebas en Ramas Feature
+
+* Cada feature branch debe contener:
+
+  * Pruebas unitarias
+  * Pruebas de integración básicas
+  * Validaciones automáticas con GitHub Actions antes de hacer PR
+* Evita acumulación de bugs para el final del sprint.
+
+### Definition of Done (DoD) centrado en calidad
+
+Un DoD con Shift Left incluye:
+
+* Criterios de aceptación validados por QA
+* Tests automatizados pasando (unitarios + integración)
+* Análisis estático y lint sin errores
+* Reportes visibles (Allure, HTML, etc.)
+
+---
+
+## Ejemplo práctico: Historia de usuario típica
+
+**Historia:**
+“Como paciente, quiero poder agendar una cita médica desde el portal para elegir la hora que más me convenga”.
+
+**Criterios de aceptación (QA define y revisa):**
+
+* El sistema permite seleccionar fecha/hora solo si hay disponibilidad.
+* Se recibe una confirmación por correo.
+* La cita queda registrada en el historial del usuario.
+
+**Acciones de QA:**
+
+* Participa desde el refinamiento para discutir edge cases (horarios no disponibles, duplicados).
+* Diseña pruebas unitarias para la función `verificarDisponibilidad()`.
+* Diseña pruebas de API para `POST /citas`.
+* Integra estos tests en el pipeline de CI.
+
+---

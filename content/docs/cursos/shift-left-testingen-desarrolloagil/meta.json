@@ -1,0 +1,22 @@
+{
+  "title": "Shift Left Testing en Desarrollo Ágil",
+  "root": true,
+  "pages": [
+    "index",
+    "---Módulo 1: Fundamentos de Shift Left Testing---",
+    "1.1_que_es_shift_left_testing",
+    "1.2_tipos_de_pruebas_en_fases_tempranas",
+    "1.3_beneficios_de_aplicar_shift_left_testing",
+    "1.4_herramientas_clave_para_implementar_shift_left_testing",
+    "---Módulo 2: Buenas Prácticas de Shift Left---",
+    "2.1_principios_clave_del_shift_left_testing",
+    "2.2_practicas_recomendadas_para_aplicar_shift_left_testing",
+    "2.3_herramientas_recomendadas_para_aplicar_shift_left_testing_(con_playwright)",
+    "---Módulo 3: Integración con CI/CD y DevOps---",
+    "3.1_flujo_ideal_de_pruebas_en_ci_cd_con_enfoque_shift_left",
+    "3.2_herramientas_para_pipelines_orientados_a_pruebas_shift_left",
+    "---Módulo 4: Aplicación Real en Proyectos Ágiles---",
+    "4.1_dinamica_de_qa_en_sprints_agiles_con_shift_left",
+    "4.2_metricas_relevantes_para_evaluar_shift_left_en_equipos_agiles"
+  ]
+}

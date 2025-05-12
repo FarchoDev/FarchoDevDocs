@@ -1,0 +1,224 @@
+---
+title: Módulo 4. Trabajo con Ramas (Branches)
+---
+
+En este módulo, nos adentraremos en el manejo de ramas en Git, lo cual es fundamental para desarrollar de manera efectiva y colaborativa en proyectos.
+
+### ¿Qué es una Rama en Git?
+
+Una rama es una línea de desarrollo independiente. Puedes pensar en las ramas como caminos paralelos que puedes tomar en el desarrollo de tu proyecto. La rama principal a menudo se llama `main` o `master`, y desde allí puedes crear otras ramas para trabajar en nuevas características o correcciones sin afectar la rama principal.
+
+### Crear una Rama
+
+La creación de ramas en Git es una práctica esencial para cualquier flujo de trabajo colaborativo. Permite a los desarrolladores trabajar en características, correcciones de errores o experimentos de forma aislada sin afectar la rama principal del proyecto. Veamos en detalle cómo se crea una rama en Git.
+
+Para crear una nueva rama, utilizamos el comando `git branch` seguido del nombre de la nueva rama.
+
+1. **Crear una Nueva Rama**
+
+```bash
+git branch nombre_rama
+```
+
+Ejemplo:
+
+```bash
+git branch nueva_caracteristica
+```
+
+Este comando crea una nueva rama llamada `nueva_caracteristica` basada en el commit actual, pero no cambia a esa rama automáticamente.
+
+### Listar Ramas
+
+Listar ramas en Git es una operación básica pero esencial para cualquier desarrollador. Te permite ver todas las ramas disponibles en tu repositorio, tanto locales como remotas, y entender en qué rama estás trabajando actualmente.
+
+Para ver todas las ramas en tu repositorio, puedes usar el comando `git branch` sin argumentos.
+
+2. **Listar Todas las Ramas**
+
+```bash
+git branch
+```
+
+Esto mostrará una lista de todas las ramas locales y marcará la rama en la que estás actualmente con un asterisco `*`.
+
+### Cambiar de Rama
+
+Cambiar de rama en Git es una operación fundamental que permite a los desarrolladores alternar entre diferentes líneas de desarrollo en un proyecto. Esto es especialmente útil cuando se trabaja en múltiples características, correcciones de errores o experimentos simultáneamente.
+
+Para cambiar a otra rama, usamos el comando `git checkout` seguido del nombre de la rama a la que queremos cambiar.
+
+3. **Cambiar a Otra Rama**
+
+```bash
+git checkout nombre_rama
+```
+
+Ejemplo:
+
+```bash
+git checkout nueva_caracteristica
+```
+
+Este comando cambia tu directorio de trabajo a la rama `nueva_caracteristica`, permitiéndote trabajar en ella.
+
+### Crear y Cambiar de Rama en un Solo Paso
+
+En Git, es común necesitar crear una nueva rama y cambiar a ella inmediatamente para comenzar a trabajar en una nueva característica o corrección de errores. Esto se puede lograr de manera eficiente con un solo comando.
+
+Para crear una nueva rama y cambiar a ella en un solo paso, puedes usar el comando `git checkout -b`.
+
+4. **Crear y Cambiar a una Nueva Rama**
+
+```bash
+git checkout -b nombre_rama
+```
+
+Ejemplo:
+
+```bash
+git checkout -b correccion_rapida
+```
+
+Este comando crea la rama `correccion_rapida` y cambia automáticamente a ella.
+
+### Fusionar Ramas
+
+Una vez que hayas terminado de trabajar en una rama y estés listo para incorporar los cambios en otra rama, puedes fusionar las ramas. Esto se hace con el comando `git merge`.
+
+5. **Fusionar una Rama**
+
+Primero, cambia a la rama en la que deseas fusionar los cambios:
+
+```bash
+git checkout main
+```
+
+Luego, fusiona la otra rama en la rama actual:
+
+```bash
+git merge nombre_rama
+```
+
+Ejemplo:
+
+```bash
+git merge nueva_caracteristica
+```
+
+Esto fusiona los cambios de la rama `nueva_caracteristica` en la rama `main`.
+
+### Resolver Conflictos de Fusión
+
+A veces, al fusionar ramas, puede haber conflictos si los mismos archivos han sido modificados en ambas ramas. Git te notificará sobre estos conflictos y tendrás que resolverlos manualmente.
+
+6. **Resolver Conflictos de Fusión**
+
+Git marcará los archivos en conflicto. Debes editar esos archivos para resolver los conflictos y luego agregar y confirmar los cambios:
+
+```bash
+git add archivo_conflictivo
+git commit -m "Resuelto conflicto de fusión"
+```
+
+### Eliminar Ramas
+
+Una vez que una rama ha sido fusionada y ya no la necesitas, puedes eliminarla.
+
+7. **Eliminar una Rama Local**
+
+```bash
+git branch -d nombre_rama
+```
+
+Ejemplo:
+
+```bash
+git branch -d nueva_caracteristica
+```
+
+Este comando elimina la rama `nueva_caracteristica` localmente si ya ha sido fusionada. Si la rama no ha sido fusionada, puedes forzar la eliminación con `-D`:
+
+```bash
+git branch -D nombre_rama
+```
+
+### Ramas Remotas
+
+Además de trabajar con ramas locales, también puedes trabajar con ramas remotas. Para ver las ramas remotas, puedes usar:
+
+8. **Listar Ramas Remotas**
+
+```bash
+git branch -r
+```
+
+Para traer una rama remota a tu repositorio local:
+
+9. **Traer una Rama Remota**
+
+```bash
+git fetch origin nombre_rama_remota
+```
+
+Para crear una rama local que rastree una rama remota:
+
+10. **Crear una Rama Local desde una Rama Remota**
+
+```bash
+git checkout -b nombre_rama_local origin/nombre_rama_remota
+```
+
+### Resumen de Comandos de Utilizados
+
+- **Crear una nueva rama:**
+  ```bash
+  git branch nombre_rama
+  ```
+
+- **Listar todas las ramas:**
+  ```bash
+  git branch
+  ```
+
+- **Cambiar a otra rama:**
+  ```bash
+  git checkout nombre_rama
+  ```
+
+- **Crear y cambiar a una nueva rama:**
+  ```bash
+  git checkout -b nombre_rama
+  ```
+
+- **Fusionar una rama:**
+  ```bash
+  git merge nombre_rama
+  ```
+
+- **Eliminar una rama local:**
+  ```bash
+  git branch -d nombre_rama
+  ```
+
+- **Forzar la eliminación de una rama local:**
+  ```bash
+  git branch -D nombre_rama
+  ```
+
+- **Listar ramas remotas:**
+  ```bash
+  git branch -r
+  ```
+
+- **Traer una rama remota:**
+  ```bash
+  git fetch origin nombre_rama_remota
+  ```
+
+- **Crear una rama local desde una rama remota:**
+  ```bash
+  git checkout -b nombre_rama_local origin/nombre_rama_remota
+  ```
+
+El trabajo con ramas es fundamental para gestionar el desarrollo en equipo y mantener un flujo de trabajo organizado y eficiente. Con estas herramientas y comandos, puedes manejar múltiples líneas de desarrollo de manera efectiva. 

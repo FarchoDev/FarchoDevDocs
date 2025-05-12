@@ -1,0 +1,223 @@
+---
+title: 2.1. Instalación de Git
+---
+
+Antes de comenzar a trabajar con Git, necesitas instalarlo en tu sistema. Git es compatible con una variedad de sistemas operativos, incluyendo Windows, Mac OS y Linux.
+
+## 2.1.1. Instalación de Git en Windows
+
+import { Step, Steps } from 'fumadocs-ui/components/steps';
+ 
+<Steps>
+<Step>
+ 
+### Descargar el instalador de Git
+
+Ve al sitio web oficial de Git para Windows: [Git for Windows](https://gitforwindows.org/).
+    
+    Haz clic en el botón de Download para obtener el instalador.
+    
+    ![Git for Windows](/images/git_curso/modulo-2/git-for-windows.jpg)
+ 
+</Step>
+ 
+<Step>
+ 
+### Ejecutar el instalador
+
+ Una vez descargado, navega hasta la ubicación donde se guardó el archivo descargado (por lo general, la carpeta “Descargas”).
+    
+    Haz doble clic en el archivo .exe descargado para iniciar el proceso de instalación.
+        
+    ![Archivo .exe](/images/git_curso/modulo-2/exe-archive.png)
+ 
+</Step>
+
+<Step>
+ 
+### Configuración de opciones
+
+    💡 Durante la instalación, se te presentarán diversas opciones. Por lo general, las opciones predeterminadas son adecuadas para la mayoría de los usuarios. Puedes seguir adelante haciendo clic en “Next” en cada paso.
+    
+    Da doble clic en el programa .exe que has descargado y sigue las indicaciones del asistente de instalación. Acepta que la aplicación pueda efectuar modificaciones en tu dispositivo al seleccionar "Sí" en la ventana de Control de Cuentas de Usuario que se mostrará.
+    
+    ![ Control de Cuentas de Usuario](/images/git_curso/modulo-2/user-account-control.jpg)
+    
+    Revisa los términos de la Licencia Pública General GNU y, cuando estés listo para proceder con la instalación, haz clic en "Continuar".
+    
+
+![Licencia Pública General GNU](/images/git_curso/modulo-2/gnu-license.png)
+
+Durante la instalación, se te solicitará elegir una ubicación para instalar el programa. Si no necesitas cambiarla, puedes dejar la opción predeterminada y seguir haciendo clic en "Siguiente".
+
+![Ubicación de destino](/images/git_curso/modulo-2/destination-location.png)
+
+Se mostrará una ventana para seleccionar los componentes. Si no es necesario cambiar la configuración predeterminada, déjala como está y continúa haciendo clic en "Siguiente".
+
+![Seleccionar los componentes](/images/git_curso/modulo-2/select-components.png)
+
+Te solicitarán que crees una carpeta de inicio. Si no necesitas modificar esta configuración, déjala como está y procede haciendo clic en "Siguiente".
+
+![Carpeta de inicio](/images/git_curso/modulo-2/start-menu-folder.png)
+
+Selecciona un editor de texto para emplear con Git. Accede al menú desplegable y elige el editor que prefieras, como Vim, Visual Studio Code u otro de tu elección, y luego haz clic en "Siguiente".
+
+![Editor de texto](/images/git_curso/modulo-2/git-default-editor.png)
+
+En el siguiente paso, tendrás la opción de cambiar el nombre de tu rama inicial. Por lo general, el nombre predeterminado es "master". A menos que tengas una razón específica para cambiarlo, se recomienda dejarlo como está y simplemente hacer clic en "Siguiente". Esto garantizará que sigas las convenciones comunes y evites confusiones para ti y para otros colaboradores en el proyecto.
+
+![Cambiar el nombre de la rama inicial](/images/git_curso/modulo-2/initial-branch-new-repositories.png)
+
+📌 En este paso, llegarás a la configuración del entorno PATH. La opción recomendada es "Git desde la línea de comandos y también desde software de terceros". Es aconsejable dejar esta selección marcada para garantizar que Git sea accesible tanto desde la línea de comandos como desde otros programas de terceros que puedan necesitar utilizarlo.
+
+Por lo tanto, simplemente haz clic en "Siguiente" después de asegurarte de que la opción recomendada esté seleccionada. Esto asegurará que Git esté correctamente configurado en tu sistema.
+
+![Entorno PATH](/images/git_curso/modulo-2/path-environment.png)
+
+📌 En la siguiente pantalla, se te pedirá que elijas el programa SSH que deseas utilizar. Git incluye su propio cliente SSH, por lo que se recomienda dejar marcada la configuración por defecto. Esto asegurará que Git utilice su propio cliente SSH incorporado.
+
+Por lo tanto, simplemente haz clic en "Siguiente" después de asegurarte de que la opción por defecto esté seleccionada. Esto garantizará una configuración coherente y evitará posibles conflictos con otros clientes SSH en tu sistema.
+
+![Elijir el programa SSH](/images/git_curso/modulo-2/ssh-executable.png)
+
+La siguiente opción se refiere a los certificados del servidor. La recomendación general es seleccionar la opción por defecto, que es "Utilizar la biblioteca OpenSSL". Esta opción es adecuada para la mayoría de los usuarios y proporciona una configuración estándar y confiable.
+
+![Certificados del servidor](/images/git_curso/modulo-2/https-transport-backend.png)
+
+En la siguiente pantalla, se aborda el tema de las conversiones de los finales de línea. Se recomienda dejarlo establecido en la opción por defecto, que es "Revisar finales de línea estilo Windows, confirmar finales de línea estilo Unix". Esta configuración es la más común y ayuda a evitar problemas de formato al trabajar con archivos en diferentes sistemas operativos.
+
+![Conversiones de los finales de línea](/images/git_curso/modulo-2/line-ending-conversions.png)
+
+A continuación, tendrás que seleccionar el emulador de terminal. Se recomienda el predeterminado MinTTY. Haz clic en Siguiente.
+
+![Emulador de terminal](/images/git_curso/modulo-2/terminal-emulator.png)
+
+En la siguiente pantalla, se te preguntará qué debe hacer el comando git pull. De nuevo, se recomienda la opción por defecto. Haz clic en Siguiente.
+
+![Comando git pull](/images/git_curso/modulo-2/git-pull-default-behavior.png)
+
+A continuación, tendrás que elegir qué ayudante de credenciales utilizar. Mantén seleccionada la opción por defecto y haz clic en Siguiente.
+
+![Ayudante de credenciales](/images/git_curso/modulo-2/credential-helper.png)
+
+Después, encontrarás algunas opciones adicionales para personalizar tu instalación. Estas incluyen la activación del almacenamiento en caché del sistema de archivos y la habilitación de los enlaces simbólicos. Una vez que hayas realizado tus selecciones, simplemente haz clic en "Siguiente". De esta manera, tu instalación de Git estará configurada según tus preferencias individuales.
+
+💡 La elección de estas opciones adicionales depende de tus necesidades específicas y del entorno en el que estés trabajando. Si no estás seguro de si necesitas activar alguna de estas características, te recomendaría dejarlas desactivadas inicialmente. Puedes investigar más adelante sobre sus funciones y activarlas si determinas que son necesarias para tu flujo de trabajo. En general, es una práctica común comenzar con la configuración predeterminada y ajustarla según sea necesario a medida que te familiarices más con Git y tus proyectos.
+
+![Opciones adicionales](/images/git_curso/modulo-2/extra-options.png)
+
+Si estás instalando una versión más reciente de Git, es posible que te permita seleccionar características experimentales, como soporte para pseudo consolas o monitor del sistema de archivos integrado. Puedes marcar las casillas según tus preferencias y luego proceder con la instalación haciendo clic en "Instalar". Es importante entender que estas características pueden no estar completamente probadas y podrían tener efectos inesperados en tu sistema.
+
+![Características experimentales](/images/git_curso/modulo-2/experimental-options.png)
+
+En la última pantalla del instalador, puedes optar por ver las Notas de la versión o Iniciar Git Bash. Marca las casillas junto a las opciones que prefieras y haz clic en Finalizar.
+
+![Finalizar](/images/git_curso/modulo-2/finish.png)
+
+ 
+</Step>
+
+<Step>
+ 
+### Verificar la instalación
+
+Abre el símbolo del sistema (cmd) o PowerShell.
+
+ Escribe el siguiente comando y presiona Enter:
+    
+    ```powershell
+    git --version
+    ```
+    
+    Deberías ver la versión de Git instalada si todo se ha configurado correctamente.
+        
+    ![Versión de Git](/images/git_curso/modulo-2/git-version.png)
+ 
+</Step>
+
+</Steps>
+
+## 2.1.2. Instalación de Git en macOS
+
+<Steps>
+<Step>
+ 
+### Instalación con Homebrew (recomendado)
+
+Abre la Terminal.
+    
+    Ejecuta el siguiente comando para instalar Homebrew si aún no lo tienes:
+    
+    ```powershell
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    ```
+    
+    Después de instalar Homebrew, ejecuta el siguiente comando para instalar Git:
+    
+    ```powershell
+    brew install git
+    ```
+ 
+</Step>
+ 
+<Step>
+ 
+### Instalación desde el paquete de instalación de Git
+
+Ve al sitio web oficial de Git para macOS: [Git para macOS](https://git-scm.com/download).
+    
+    Descarga el paquete de instalación para macOS.
+    
+    ![Git para Mac (1).png](/images/git_curso/modulo-2/git-for-mac.png)
+    
+    Después de descargar el instalador, abre el archivo .dmg y sigue las instrucciones de instalación. Se te guiará a través del proceso. En la primera pantalla, simplemente haz clic en "Continuar".
+    
+    ![Instalador de Git Mac](/images/git_curso/modulo-2/git-mac-installer.png)
+    
+    A continuación, selecciona un destino para la ubicación de Git en tu sistema. Confirma tu selección haciendo clic en Instalar. Se te pedirá que introduzcas la contraseña de tu sistema.
+    
+    Al cabo de unos instantes, la instalación se habrá completado y aparecerá la siguiente confirmación:
+    
+    ![Instalador de Git completo](/images/git_curso/modulo-2/git-mac-installer-done.png)
+ 
+</Step>
+
+<Step>
+
+### Verificar la instalación
+
+Abre la Terminal.
+    
+    Escribe `git --version` y presiona Enter. Deberías ver la versión de Git instalada si todo se ha configurado correctamente.
+
+</Step>
+</Steps>
+
+## 2.1.3. Instalación de Git en Linux (Ubuntu/Debian)
+
+<Steps>
+<Step>
+ 
+### Instalación a través de apt
+
+    Abre la Terminal.
+    
+    Ejecuta el siguiente comando para actualizar el índice de paquetes: `sudo apt update`.
+    
+    Luego, instala Git escribiendo: `sudo apt install git`.
+ 
+</Step>
+ 
+<Step>
+ 
+### Verificar la instalación
+
+Después de la instalación, escribe `git --version` en la Terminal y presiona Enter. Deberías ver la versión de Git instalada si todo se ha configurado correctamente.
+ 
+</Step>
+</Steps>
+
+    
+
+    
+    
