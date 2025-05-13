@@ -25,6 +25,6 @@
       }
     ]
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "components/grids/CourseGrid.js", "components/grids/GridContainer.js", "components/grids/ComplementaryGrid.js", "components/grids/DocumentGrid.js", "components/items/GridItem.js", "data/complementary.js", "data/courses.js", "data/documents.js"],
   "exclude": ["node_modules"]
 }
