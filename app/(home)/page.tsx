@@ -1,5 +1,7 @@
 import React from 'react';
-import { CourseGrid, DocumentGrid, ComplementaryGrid } from '../../components/CourseGrid';
+import { CourseGrid } from '@/components/grids/CourseGrid';
+import { DocumentGrid } from '@/components/grids/DocumentGrid';
+import { ComplementaryGrid } from '@/components/grids/ComplementaryGrid';
 
 export default function HomePage() {
   return (
