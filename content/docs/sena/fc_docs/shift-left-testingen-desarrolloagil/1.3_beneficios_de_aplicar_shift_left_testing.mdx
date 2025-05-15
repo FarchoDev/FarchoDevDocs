@@ -1,0 +1,97 @@
+---
+title: 1.3. Beneficios de aplicar Shift Left Testing
+---
+
+import { DocsRating } from '@/components/DocsRating'
+
+Adoptar una estrategia de **pruebas tempranas** trae múltiples beneficios a nivel técnico, económico y organizacional. Aquí se explican los más relevantes, respaldados por datos y prácticas reales.
+
+---
+
+## Reducción de costos
+
+- **Hecho clave:**  
+  Cuanto antes se detecta un error, más barato es corregirlo.
+
+- **Dato de referencia:**  
+  Según el *IBM Systems Science Institute*, el costo estimado de corregir un bug es:
+
+  - Durante desarrollo: **$1**
+  - Durante pruebas: **$10**
+  - En producción: **$100 o más** (sin contar daños reputacionales, pérdida de clientes, SLA incumplidos, etc.)
+
+> 🔍 Encontrar errores temprano no solo ahorra dinero: también evita cuellos de botella y urgencias evitables.
+
+---
+
+## Retroalimentación rápida
+
+- **Ventaja técnica:**  
+  Con pruebas automatizadas desde el primer commit (mediante pipelines de CI/CD), los errores se detectan casi en tiempo real.
+
+- **Impacto directo:**
+
+  - Se mejora la calidad desde la base del código.
+  - Se evita el efecto dominó de errores que escalan sin ser detectados.
+  - Se reduce el tiempo entre causa y corrección.
+
+> 🧪 Herramientas como Playwright, integradas en el pipeline, permiten validar funcionalidades críticas tras cada cambio.
+
+---
+
+## Menor tasa de retrabajo
+
+- **Causa:**  
+  Cuando se validan los requisitos, la lógica y las interfaces desde etapas tempranas...
+
+- **Efecto:**
+
+  - Menos malentendidos con stakeholders.
+  - Menos código que debe ser reescrito por decisiones mal fundamentadas.
+  - Mayor confianza en refactorizaciones.
+
+> 🧠 Esto libera al equipo de frustraciones y permite centrarse en agregar valor, no en apagar incendios.
+
+---
+
+## Alineación con Desarrollo Ágil y DevOps
+
+- **En Agile (Scrum, XP, Kanban):**  
+  Shift Left Testing refuerza valores como la colaboración, la calidad continua y las entregas incrementales.
+
+  - QA se involucra desde el refinamiento de historias.
+  - El equipo completo se responsabiliza por la calidad.
+
+- **En DevOps:**
+
+  Shift Left Testing encaja perfectamente con:
+
+  - **CI/CD** → Validación continua desde el commit hasta producción.
+  - **Infraestructura como código (IaC)** → Entornos reproducibles y testeables desde el inicio.
+  - **Pipelines automáticos** → Validaciones unitarias, de integración, de contratos, de interfaz, etc.
+
+> 🚀 La cultura DevOps exige feedback temprano. Shift Left Testing es la base para lograrlo.
+
+---
+
+## Mejora en la calidad del producto
+
+- **Resultados reales al aplicar Shift Left correctamente:**
+
+  - Menor cantidad de bugs en producción.
+  - Clientes más satisfechos por la estabilidad.
+  - Releases más frecuentes y confiables.
+  - Equipos más autónomos y seguros al implementar cambios.
+
+> 🔐 La calidad deja de ser un “filtro final” y se convierte en una característica intrínseca del proceso.
+
+---
+
+## Conclusión
+
+**Shift Left Testing no es solo una técnica. Es una mentalidad.**  
+Una forma de trabajo que privilegia la **prevención sobre la corrección**, la **colaboración sobre la culpa**, y la **automatización sobre la dependencia de validaciones manuales tardías**.
+
+> Implementarlo correctamente es uno de los pilares para alcanzar excelencia técnica en desarrollo de software moderno.
+
+<DocsRating />

@@ -1,0 +1,65 @@
+---
+title: 1.1. ¿Qué es Shift Left Testing?
+---
+
+import { DocsRating } from '@/components/DocsRating'
+
+## Definición
+
+**Shift Left Testing** es una estrategia que promueve la ejecución de pruebas lo más temprano posible dentro del ciclo de vida del desarrollo de software **(*SDLC, por sus siglas en inglés: Software Development Life Cycle*)**. La idea central es “mover las pruebas hacia la izquierda” en la línea temporal del proyecto. Tradicionalmente, las pruebas se realizaban al final del proceso de desarrollo, pero este enfoque reconoce que **los errores son más fáciles, rápidos y económicos de corregir cuanto antes se detecten**.
+
+## Analogía
+
+Imagina una fábrica de productos: si un defecto se detecta cuando el producto ya está empaquetado y listo para su envío, corregirlo implica rehacer múltiples etapas anteriores. En cambio, si el defecto se detecta durante la etapa de diseño o ensamblaje, el esfuerzo y costo de corrección son mucho menores.
+
+Lo mismo ocurre en el desarrollo de software: detectar errores en etapas tempranas evita retrabajos costosos y asegura una mejor calidad desde el inicio.
+
+## Visualización del cambio
+
+**Enfoque tradicional:**
+
+```
+
+Planificación → Desarrollo → Pruebas → Entrega
+↑
+Errores detectados tarde
+
+```
+
+**Enfoque Shift Left:**
+
+```
+
+[Planificación + Pruebas] → [Desarrollo + Pruebas] → Entrega
+↑                           ↑
+Revisión de requisitos        Pruebas unitarias e integración
+
+```
+
+## ¿Por qué se ha vuelto relevante?
+
+- La adopción de metodologías como **DevOps** y **Desarrollo Ágil** exige calidad continua desde el inicio.
+- El ritmo de entrega se ha acelerado; los errores en producción pueden afectar gravemente la experiencia del usuario y los costos operativos.
+- Las pruebas automatizadas y la retroalimentación rápida son clave para mantener la calidad sin frenar el desarrollo.
+
+## Comparación con enfoques tradicionales
+
+| Aspecto                        | Pruebas Tradicionales (Right) | Shift Left Testing                             |
+| ------------------------------ | ----------------------------- | ---------------------------------------------- |
+| Inicio de pruebas              | Después del desarrollo        | Durante la planificación                       |
+| Responsables                   | Solo equipo QA                | Dev, QA, PO, equipo completo                   |
+| Tipo de pruebas                | UI, aceptación                | Unitarias, revisión de requisitos, integración |
+| Tiempo de detección de errores | Tardío                        | Temprano                                       |
+| Costos de corrección           | Altos                         | Bajos                                          |
+| Impacto en calidad             | Corrección reactiva           | Mejora continua desde etapas tempranas         |
+
+> 🧠 *Dev: Desarrolladores / QA: Equipo de pruebas / PO: Product Owner o responsable del producto*
+
+## Más que una técnica: un cambio cultural
+
+Shift Left Testing no es solo una práctica técnica. También representa un cambio de mentalidad:
+
+> **La calidad es responsabilidad de todo el equipo**, no solo del área de pruebas.  
+> Involucrar a desarrolladores, testers, analistas y líderes desde el inicio crea productos más robustos y confiables.
+
+<DocsRating />
