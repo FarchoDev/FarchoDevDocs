@@ -12,7 +12,9 @@ export default function Layout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" className={inter.className} suppressHydrationWarning>
       <body className="flex flex-col min-h-screen">
-        <Banner variant="rainbow" id="hello-banner">Hello Banner</Banner>
+        <Banner variant="rainbow" id="bienvenida-aprendiz-adso">
+          ¡Hola aprendiz ADSO! Este espacio fue creado para acompañarte en tu camino como desarrollador. Descubre contenido útil, claro y práctico.
+        </Banner>
         <RootProvider>{children}</RootProvider>
       </body>
     </html>
