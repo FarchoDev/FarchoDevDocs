@@ -1,0 +1,169 @@
+---
+title: 3.1. Iniciar y clonar repositorios
+---
+
+Cuando trabajamos con Git, a menudo necesitamos comenzar desde cero con un nuevo repositorio o clonar uno existente para colaborar en un proyecto. En esta sección, exploraremos cómo iniciar un repositorio desde el principio y cómo clonar repositorios existentes.
+
+### git init: Crear un Nuevo Repositorio Git
+
+El comando `git init` se utiliza para crear un nuevo repositorio Git en un directorio existente. Esto es útil cuando deseas empezar a gestionar tu proyecto con Git, pero ya tienes algunos archivos y directorios en tu proyecto.
+
+### ¿Qué Hace git init?
+
+Cuando ejecutas git init, Git realiza las siguientes acciones:
+
+- **Crea un Subdirectorio .git:** Este subdirectorio contiene todos los archivos necesarios para el repositorio. Es donde Git guarda la base de datos del repositorio, la configuración, las referencias a las ramas, entre otros.
+- **Configura el Repositorio:** Git inicializa el repositorio con la configuración predeterminada. Si has configurado opciones globales (como tu nombre y correo electrónico), estas configuraciones se aplicarán al nuevo repositorio.
+- **No Afecta tus Archivos:** Los archivos y directorios existentes en tu proyecto no se ven afectados por git init. Simplemente agrega la capacidad de gestionar esos archivos con Git.
+
+### Cómo Usar git init
+
+1. **Navegar al Directorio del Proyecto**
+
+Abre tu terminal y navega al directorio donde deseas crear el repositorio. Por ejemplo:
+
+```bash
+cd /ruta/a/tu/proyecto
+
+```
+
+1. **Ejecutar git init**
+
+Una vez que estés en el directorio correcto, ejecuta:
+
+```bash
+git init
+```
+
+Este comando inicializa el repositorio Git en el directorio actual.
+
+### **Verificar la Inicialización**
+
+Después de ejecutar git init, puedes verificar que el repositorio se ha creado correctamente:
+
+1. **Comprobar la Existencia del Directorio .git**
+
+Usa el comando `ls -la` para listar todos los archivos y directorios, incluyendo los ocultos:
+
+```bash
+ls -la
+```
+
+Deberías ver un directorio .git en la lista de archivos:
+
+```bash
+drwxr-xr-x  8 usuarioñp  grupo  256 Jun 25 10:00 .
+drwxr-xr-x  5 usuario  grupo  160 Jun 25 10:00 ..
+drwxr-xr-x  9 usuario  grupo  288 Jun 25 10:00 .git
+```
+
+1. **Comprobar el Estado del Repositorio**
+
+Usa `git status` para ver el estado del repositorio. Si no tienes archivos en el área de preparación, verás algo como esto:
+
+```bash
+git status
+
+En la rama principal
+No hay commits todavía
+Archivos sin seguimiento:  (usa "git add <archivo>..." para incluir en lo que se será confirmado)
+  README.md
+nada añadido al commit pero hay archivos sin seguimiento presentes (usa "git add" para añadirlos)
+```
+
+## git clone: Clonar un Repositorio Git
+
+El comando `git clone` se utiliza para crear una copia idéntica de un repositorio remoto en tu máquina local. Este comando no solo copia los archivos y directorios del proyecto, sino que también clona todo el historial de commits, ramas y etiquetas.
+
+### ¿Qué Hace git clone?
+
+Cuando ejecutas git clone, Git realiza las siguientes acciones:
+
+- **Crea un Directorio Local:** Git crea un nuevo directorio con el mismo nombre que el repositorio remoto (a menos que especifiques un nombre diferente).
+- **Descarga el Repositorio Remoto:** Git descarga todos los archivos, directorios y el historial de commits del repositorio remoto en el nuevo directorio local.
+- **Configura el Repositorio Local:** Git configura el repositorio local para que apunte al remoto, permitiendo que realices operaciones como git pull y git push para sincronizar cambios.
+
+### Cómo Usar git clone
+
+1. **Obtener la URL del Repositorio Remoto**
+
+Primero, necesitas la URL del repositorio remoto que deseas clonar. Esta URL puede ser HTTPS, SSH o Git.
+
+Ejemplos de URLs:HTTPS: 
+
+- **https:** //github.com/usuario/proyecto.git
+- **SSH:** git@github.com:usuario/proyecto.git
+- **Git:** git://github.com/usuario/proyecto.git
+1. **Ejecutar git clone En tu terminal**
+
+En tu terminal, navega al directorio donde deseas clonar el repositorio y ejecuta el comando git clone seguido de la URL del repositorio remoto.
+
+```bash
+git clone URL_DEL_REPOSITORIO
+
+```
+
+Ejemplo:
+
+```bash
+git clone https://github.com/usuario/proyecto.git
+
+```
+
+1. **Clonar en un Directorio Específico**
+
+Si deseas clonar el repositorio en un directorio con un nombre diferente al predeterminado, puedes especificar el nombre del directorio como un argumento adicional:
+
+```bash
+git clone URL_DEL_REPOSITORIO NOMBRE_DEL_DIRECTORIO
+```
+
+Ejemplo: 
+
+```bash
+git clone https://github.com/usuario/proyecto.git mi_proyecto
+```
+
+### Verificar la Clonación
+
+Después de clonar el repositorio, puedes verificar que todo se haya copiado correctamente:
+
+1. **Navegar al Directorio Clonado**
+
+```bash
+cd nombre_del_repositorio
+```
+
+1. **Comprobar el Estado del Repositorio**
+
+Usa git status para ver el estado del repositorio clonado:
+
+```bash
+git status
+```
+
+1. **Listar los Remotos**
+
+Para ver a qué remoto está conectado tu repositorio local, usa:
+
+```bash
+git remote -v
+```
+
+Ejemplo Completo:
+
+```bash
+# Clonar el repositorio remoto
+git clone https://github.com/usuario/proyecto.git
+
+# Navegar al directorio clonado
+cd proyecto
+
+# Comprobar el estado del repositorio
+git status
+
+# Listar los remotos
+git remote -v
+```
+
+El comando git clone es una herramienta poderosa que te permite crear una copia completa de un repositorio remoto en tu máquina local, incluyendo todos los archivos, historial de commits, ramas y etiquetas. Esto es fundamental para colaborar en proyectos y gestionar código de manera eficiente.
