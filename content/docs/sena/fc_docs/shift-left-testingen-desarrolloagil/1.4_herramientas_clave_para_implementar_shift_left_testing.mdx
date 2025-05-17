@@ -2,80 +2,90 @@
 title: 1.4. Herramientas clave para implementar Shift Left Testing
 ---
 
-Aplicar Shift Left Testing requiere integrar herramientas que permitan automatizar, validar, analizar y colaborar **desde las primeras etapas del desarrollo**. A continuación, se clasifican por tipo y propósito:
+import { DocsRating } from '@/components/DocsRating'
+
+Implementar Shift Left Testing de forma efectiva requiere integrar herramientas que habiliten la automatización, validación y retroalimentación **desde las etapas más tempranas del desarrollo**. A continuación, se presentan las principales, clasificadas por propósito.
 
 ---
 
 ## Herramientas para pruebas unitarias
 
-Estas se integran directamente en el flujo de desarrollo del equipo:
+Estas herramientas validan funciones, métodos o componentes individuales. Son la base de una buena estrategia Shift Left.
 
-| Lenguaje              | Herramienta             | Características destacadas                        |
-| --------------------- | ----------------------- | ------------------------------------------------- |
-| JavaScript/TypeScript | **Jest**, Mocha, Vitest | Rápido, soporta mocks, cobertura integrada        |
-| Java                  | **JUnit 5**, TestNG     | Integración con Maven/Gradle, assertions potentes |
-| Python                | **Pytest**              | Sintaxis simple, muy extensible                   |
-| C#                    | **NUnit**, xUnit        | Integración con Visual Studio                     |
+| Lenguaje              | Herramientas destacadas       | Características clave                             |
+| --------------------- | ----------------------------- | ------------------------------------------------- |
+| JavaScript/TypeScript | **Jest**, Mocha, Vitest       | Rápidas, con soporte de mocks y cobertura         |
+| Java                  | **JUnit 5**, TestNG           | Amplia comunidad, integración con CI              |
+| Python                | **Pytest**                    | Sintaxis limpia, parametrización, fixtures        |
+| C#                    | **NUnit**, xUnit              | Compatible con Visual Studio y .NET pipelines     |
 
-➡️ *Recomendación:* Integrarlas en el entorno de desarrollo (IDE) y en el pipeline CI para ejecución automática.
+➡️ *Sugerencia:* Ejecutarlas automáticamente en cada push usando CI (por ejemplo, GitHub Actions o GitLab CI).
 
 ---
 
-## Herramientas para TDD/BDD
+## Herramientas para TDD y BDD
 
-Permiten escribir pruebas basadas en comportamiento y lenguaje natural:
+Ayudan a escribir pruebas desde la perspectiva del comportamiento del sistema y sus usuarios.
 
-| Herramienta            | Lenguaje / Stack               | Propósito                  |
-| ---------------------- | ------------------------------ | -------------------------- |
-| **Cucumber**           | Multilenguaje (Java, JS, etc.) | BDD con Gherkin            |
-| **SpecFlow**           | .NET                           | BDD en C#                  |
-| **Behave**             | Python                         | Gherkin + Python           |
-| **Cypress + Cucumber** | JS / Frontend                  | Pruebas end-to-end con BDD |
+| Herramienta            | Lenguaje / Stack               | Propósito                            |
+| ---------------------- | ------------------------------ | ------------------------------------ |
+| **Cucumber**           | Multilenguaje                  | BDD con sintaxis Gherkin             |
+| **SpecFlow**           | .NET                           | BDD en C#                            |
+| **Behave**             | Python                         | BDD para testers no técnicos         |
+| **Cypress + Cucumber** | JS / Frontend                  | Pruebas E2E con BDD                  |
 
-➡️ *Recomendación:* Usar en conjunto con el PO y QA para definir criterios de aceptación automatizados.
+➡️ *Sugerencia:* Utilizar Gherkin junto con el Product Owner y QA para definir criterios de aceptación verificables.
 
 ---
 
 ## Herramientas para pruebas de integración temprana
 
-Prueban cómo interactúan módulos entre sí, incluso con servicios externos o simulados (mocking):
+Permiten validar cómo interactúan distintos módulos o servicios, incluso cuando aún no están todos desarrollados.
 
-| Herramienta                   | Uso principal                         |
-| ----------------------------- | ------------------------------------- |
-| **Postman/Newman**            | Validación de APIs REST               |
-| **WireMock**                  | Simulación de servicios HTTP          |
-| **TestContainers**            | Integración con entornos dockerizados |
-| **MSW (Mock Service Worker)** | Mock de APIs en frontend JS           |
+| Herramienta                   | Propósito principal                      |
+| ----------------------------- | ---------------------------------------- |
+| **Postman / Newman**          | Validación manual/automatizada de APIs  |
+| **WireMock**                  | Simulación de servicios HTTP externos    |
+| **TestContainers**            | Integración de tests con contenedores    |
+| **MSW (Mock Service Worker)** | Mocks de APIs REST en frontend JS       |
 
-➡️ *Recomendación:* Utilizar mocks para permitir pruebas sin depender de servicios aún no desarrollados.
+➡️ *Sugerencia:* Simular dependencias externas permite avanzar sin bloqueos mientras otros equipos desarrollan sus partes.
 
 ---
 
 ## Integración con CI/CD
 
-Para lograr retroalimentación continua en entornos ágiles y DevOps:
+Shift Left Testing cobra verdadero poder cuando se automatiza con integración y entrega continua.
 
-| Herramienta CI/CD       | Integraciones de testing                 | Destacado por...               |
-| ----------------------- | ---------------------------------------- | ------------------------------ |
-| **GitHub Actions**      | Jobs con Node, Pytest, etc.              | Simplicidad, gratuito para OSS |
-| **GitLab CI**           | Integración nativa con pipelines         | Control total del flujo CI/CD  |
-| **Jenkins**             | Plugins para pruebas, cobertura, reporte | Personalizable y escalable     |
-| **CircleCI / TravisCI** | Integración cloud                        | Uso en proyectos open source   |
+| Herramienta CI/CD       | ¿Por qué usarla?                        |
+| ----------------------- | --------------------------------------- |
+| **GitHub Actions**      | Simple, potente, gratuita para OSS      |
+| **GitLab CI**           | Configuración flexible y YAML clara     |
+| **Jenkins**             | Altamente personalizable, con plugins   |
+| **CircleCI / Travis CI**| Populares en proyectos open source      |
 
-➡️ *Recomendación:* Configurar la ejecución automática de pruebas unitarias e integración en cada `push`, `PR` y `merge`.
-
----
-
-## Otras herramientas complementarias
-
-| Tipo                       | Herramientas recomendadas        | Uso                                              |
-| -------------------------- | -------------------------------- | ------------------------------------------------ |
-| **Linting & estática**     | ESLint, SonarQube, PMD           | Detección temprana de errores y deuda técnica    |
-| **Cobertura de pruebas**   | Istanbul/nyc (JS), JaCoCo (Java) | Asegura que el código probado sea significativo  |
-| **Revisión de requisitos** | Notion, Confluence, Jira + Xray  | Documentación colaborativa y validación temprana |
+➡️ *Sugerencia:* Configurar pipelines que ejecuten pruebas en cada `push`, `pull request` y `merge`.
 
 ---
 
-💡 **Consejo senior:** No se trata de usar *todas* las herramientas, sino de seleccionar un stack liviano y automatizado que el equipo pueda mantener fácilmente.
+## Herramientas complementarias
+
+Estas herramientas ayudan a mantener la calidad de forma transversal.
+
+| Categoría                | Herramientas recomendadas         | Uso clave                                       |
+| ------------------------ | --------------------------------- | ---------------------------------------------- |
+| **Análisis estático**    | ESLint, SonarQube, PMD            | Detectar errores y malas prácticas en el código |
+| **Cobertura de pruebas** | Istanbul/nyc (JS), JaCoCo (Java)  | Verificar qué partes del código están testeadas |
+| **Gestión de requisitos**| Notion, Confluence, Jira + Xray   | Validar requisitos y trazabilidad temprana      |
 
 ---
+
+## Consejo final
+
+No se trata de usar todas las herramientas posibles, sino de:
+
+- Elegir un **stack ligero, automatizable y mantenible**.
+- Asegurarse de que **todo el equipo pueda trabajar con ellas cómodamente**.
+- Favorecer la **retroalimentación continua y la colaboración temprana**.
+
+<DocsRating />
