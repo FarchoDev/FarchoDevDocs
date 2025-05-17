@@ -4,7 +4,7 @@ title: 3.5. Funcionalidades avanzadas
 
 En esta sección, exploraremos algunas funcionalidades más avanzadas de Git que nos permiten realizar tareas específicas con mayor precisión y control sobre nuestro repositorio.
 
-## git cherry-pick: Aplicar Commits Específicos a tu Rama Actual
+## git cherry-pick: Aplica un commit específico a la rama actual.
 
 El comando `git cherry-pick` se utiliza para aplicar los cambios introducidos por un commit específico (o una serie de commits) en una rama diferente a la rama actual. Esto es útil cuando deseas incorporar ciertos cambios sin fusionar toda la rama de origen.
 
@@ -154,7 +154,7 @@ git cherry-pick --continue
 
 El comando `git cherry-pick` es una herramienta poderosa para aplicar cambios específicos de una rama a otra, permitiéndote integrar selectivamente los commits necesarios sin fusionar toda la rama de origen.
 
-## git revert: Deshacer Cambios de un Commit Anterior
+## git revert: Deshace un commit específico creando un nuevo commit de reversión.
 
 El comando `git revert` se utiliza para deshacer los cambios introducidos por un commit anterior. A diferencia de `git reset`, que modifica el historial de commits, `git revert` crea un nuevo commit que invierte los cambios de un commit específico, preservando así el historial del repositorio.
 
@@ -301,7 +301,7 @@ git revert --continue
 
 El comando `git revert` es una herramienta poderosa para deshacer cambios específicos en tu repositorio de Git, permitiéndote revertir commits anteriores sin alterar el historial, manteniendo así un registro claro y coherente de todos los cambios realizados en el proyecto.
 
-## git stash: Guardar Cambios Temporalmente
+## git stash: Guarda cambios locales temporalmente para trabajar en otra cosa.
 
 El comando `git stash` se utiliza para guardar temporalmente los cambios no confirmados en tu directorio de trabajo. Esto te permite limpiar tu directorio de trabajo y cambiar de rama sin perder tus cambios. Los cambios guardados se pueden aplicar posteriormente cuando sea necesario.
 
@@ -497,7 +497,7 @@ git stash clear
 
 El comando `git stash` es una herramienta poderosa para gestionar tus cambios no confirmados, permitiéndote guardar y restaurar fácilmente el estado de tu directorio de trabajo mientras trabajas en diferentes ramas o tareas.
 
-## git tag: Crear y Administrar Etiquetas en Git
+## git tag: Crea, lista o elimina etiquetas (versiones específicas) en el repositorio.
 
 El comando `git tag` se utiliza para crear, listar y administrar etiquetas (tags) en Git. Las etiquetas son referencias estáticas a commits específicos y se utilizan comúnmente para marcar versiones importantes en el historial del proyecto, como versiones de lanzamiento.
 
