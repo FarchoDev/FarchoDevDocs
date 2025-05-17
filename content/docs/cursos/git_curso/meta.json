@@ -12,6 +12,9 @@
     "2.2_configuracion_inicial_de_git",
     "---Módulo 3: Uso básico---",
     "3.1_iniciar_y_clonar_repositorios",
-    "3.2_gestion_basica_de_cambios_y_archivos"
+    "3.2_gestion_basica_de_cambios_y_archivos",
+    "3.3_exploracion_del_historial_y_navegacion",
+    "3.4_trabajo_con_repositorios_remotos",
+    "3.5_funcionalidades_avanzadas"
   ]
 }

@@ -1,0 +1,711 @@
+---
+title: 3.5. Funcionalidades avanzadas
+---
+
+En esta sección, exploraremos algunas funcionalidades más avanzadas de Git que nos permiten realizar tareas específicas con mayor precisión y control sobre nuestro repositorio.
+
+## git cherry-pick: Aplicar Commits Específicos a tu Rama Actual
+
+El comando `git cherry-pick` se utiliza para aplicar los cambios introducidos por un commit específico (o una serie de commits) en una rama diferente a la rama actual. Esto es útil cuando deseas incorporar ciertos cambios sin fusionar toda la rama de origen.
+
+### ¿Qué Hace git cherry-pick?
+
+Cuando ejecutas `git cherry-pick`, Git realiza las siguientes acciones:
+
+- **Aplica los Cambios de un Commit:** Transfiere los cambios introducidos por un commit específico a tu rama actual, creando un nuevo commit con esos cambios.
+- **Mantiene el Historial de Commits:** El commit original permanece en la rama de origen, pero sus cambios se aplican en la rama actual.
+
+### Cómo Usar git cherry-pick
+
+1. **Aplicar un Commit Específico**
+
+Para aplicar un commit específico a tu rama actual, necesitas el hash del commit:
+
+```bash
+git cherry-pick <hash_commit>
+
+```
+
+Ejemplo:
+
+```bash
+git cherry-pick a1b2c3d4
+
+```
+
+1. **Aplicar una Serie de Commits**
+
+Para aplicar una serie de commits, puedes especificar un rango de commits utilizando el formato `A..B`, donde `A` es el commit anterior al primer commit que deseas aplicar y `B` es el último commit que deseas aplicar:
+
+```bash
+git cherry-pick A..B
+
+```
+
+Ejemplo:
+
+```bash
+git cherry-pick a1b2c3d4..e5f6g7h8
+
+```
+
+### Opciones Comunes de git cherry-pick
+
+- **`n` o `-no-commit`:** Aplica los cambios del commit sin crear automáticamente un nuevo commit. Esto te permite revisar y hacer ajustes antes de confirmar los cambios.
+    
+    ```bash
+    git cherry-pick -n <hash_commit>
+    
+    ```
+    
+- **`x`:** Añade una nota al mensaje del commit indicando el hash del commit original. Esto es útil para rastrear el origen de los cambios.
+    
+    ```bash
+    git cherry-pick -x <hash_commit>
+    
+    ```
+    
+- **`-abort`:** Aborta el proceso de `cherry-pick` si encuentras conflictos que no deseas resolver.
+    
+    ```bash
+    git cherry-pick --abort
+    
+    ```
+    
+- **`-continue`:** Continúa con el `cherry-pick` después de resolver conflictos.
+    
+    ```bash
+    git cherry-pick --continue
+    
+    ```
+    
+
+### Ejemplo Completo
+
+Aquí tienes un ejemplo completo de cómo utilizar `git cherry-pick`:
+
+```bash
+# Navegar a la rama destino
+git checkout main
+
+# Aplicar un commit específico
+git cherry-pick a1b2c3d4
+
+# Aplicar una serie de commits
+git cherry-pick a1b2c3d4..e5f6g7h8
+
+# Aplicar un commit sin crear automáticamente un nuevo commit
+git cherry-pick -n a1b2c3d4
+
+# Añadir una nota al mensaje del commit
+git cherry-pick -x a1b2c3d4
+
+# Abortar el proceso de cherry-pick
+git cherry-pick --abort
+
+# Continuar con el cherry-pick después de resolver conflictos
+git cherry-pick --continue
+
+```
+
+### Verificar los Cambios Aplicados
+
+Después de ejecutar `git cherry-pick`, puedes verificar los cambios aplicados utilizando otros comandos:
+
+1. **Consultar el Historial de Commits**
+
+Para ver el historial de commits y verificar que los commits seleccionados se hayan aplicado:
+
+```bash
+git log
+
+```
+
+1. **Comprobar el Estado del Repositorio**
+
+Para ver el estado del repositorio y cualquier cambio pendiente:
+
+```bash
+git status
+
+```
+
+### Resumen de Comandos Utilizados
+
+```bash
+**# Aplicar un commit específico a tu rama actual**
+git cherry-pick <hash_commit>
+
+# **Aplicar una serie de commits**
+git cherry-pick A..B
+
+# **Aplicar un commit sin crear automáticamente un nuevo commit**
+git cherry-pick -n <hash_commit>
+
+# **Añadir una nota al mensaje del commit**
+git cherry-pick -x <hash_commit>
+
+# **Abortar el proceso de cherry-pick**
+git cherry-pick --abort
+
+# **Continuar con el cherry-pick después de resolver conflictos**
+git cherry-pick --continue
+```
+
+El comando `git cherry-pick` es una herramienta poderosa para aplicar cambios específicos de una rama a otra, permitiéndote integrar selectivamente los commits necesarios sin fusionar toda la rama de origen.
+
+## git revert: Deshacer Cambios de un Commit Anterior
+
+El comando `git revert` se utiliza para deshacer los cambios introducidos por un commit anterior. A diferencia de `git reset`, que modifica el historial de commits, `git revert` crea un nuevo commit que invierte los cambios de un commit específico, preservando así el historial del repositorio.
+
+### ¿Qué Hace git revert?
+
+Cuando ejecutas `git revert`, Git realiza las siguientes acciones:
+
+- **Crea un Nuevo Commit:** Genera un nuevo commit que invierte los cambios introducidos por un commit anterior.
+- **Preserva el Historial de Commits:** El commit original permanece en el historial, pero se añade un nuevo commit que deshace sus cambios.
+
+### Cómo Usar git revert
+
+1. **Revertir un Commit Específico**
+
+Para revertir un commit específico, necesitas el hash del commit:
+
+```bash
+git revert <hash_commit>
+
+```
+
+Ejemplo:
+
+```bash
+git revert a1b2c3d4
+
+```
+
+1. **Revertir una Serie de Commits**
+
+Para revertir una serie de commits, puedes especificar un rango de commits utilizando el formato `A..B`, donde `A` es el commit anterior al primer commit que deseas revertir y `B` es el último commit que deseas revertir:
+
+```bash
+git revert A..B
+
+```
+
+Ejemplo:
+
+```bash
+git revert a1b2c3d4..e5f6g7h8
+
+```
+
+### Opciones Comunes de git revert
+
+- **`-no-commit` o `n`:** Aplica los cambios de la reversión sin crear automáticamente un nuevo commit. Esto te permite revisar y hacer ajustes antes de confirmar los cambios.
+    
+    ```bash
+    git revert -n <hash_commit>
+    
+    ```
+    
+- **`m <parent-number>`:** Especifica el número de padre para reversiones de commits de merge. Esto es necesario para revertir correctamente un commit de merge, ya que tiene más de un padre.
+    
+    ```bash
+    git revert -m 1 <hash_commit>
+    
+    ```
+    
+- **`-continue`:** Continúa con la reversión después de resolver conflictos.
+    
+    ```bash
+    git revert --continue
+    
+    ```
+    
+- **`-abort`:** Aborta el proceso de reversión si encuentras conflictos que no deseas resolver.
+    
+    ```bash
+    git revert --abort
+    
+    ```
+    
+
+### Ejemplo Completo
+
+Aquí tienes un ejemplo completo de cómo utilizar `git revert`:
+
+```bash
+# Revertir un commit específico
+git revert a1b2c3d4
+
+# Revertir una serie de commits
+git revert a1b2c3d4..e5f6g7h8
+
+# Revertir un commit sin crear automáticamente un nuevo commit
+git revert -n a1b2c3d4
+
+# Revertir un commit de merge (el número de padre especifica la rama base)
+git revert -m 1 a1b2c3d4
+
+# Abortar el proceso de reversión
+git revert --abort
+
+# Continuar con la reversión después de resolver conflictos
+git revert --continue
+
+```
+
+### Verificar los Cambios Aplicados
+
+Después de ejecutar `git revert`, puedes verificar los cambios aplicados utilizando otros comandos:
+
+1. **Consultar el Historial de Commits**
+
+Para ver el historial de commits y verificar que los commits seleccionados se hayan revertido:
+
+```bash
+git log
+
+```
+
+1. **Comprobar el Estado del Repositorio**
+
+Para ver el estado del repositorio y cualquier cambio pendiente:
+
+```bash
+git status
+
+```
+
+### Resumen de Comandos Utilizados
+
+```bash
+**# Revertir un commit específico**
+git revert <hash_commit>
+
+# **Revertir una serie de commits**
+git revert A..B
+
+# **Revertir un commit sin crear automáticamente un nuevo commit**
+git revert -n <hash_commit>
+
+# **Revertir un commit de merge (especificando el número de padre)**
+git revert -m 1 <hash_commit>
+
+# **Abortar el proceso de reversión**
+git revert --abort
+
+# **Continuar con la reversión después de resolver conflictos**
+git revert --continue
+```
+
+El comando `git revert` es una herramienta poderosa para deshacer cambios específicos en tu repositorio de Git, permitiéndote revertir commits anteriores sin alterar el historial, manteniendo así un registro claro y coherente de todos los cambios realizados en el proyecto.
+
+## git stash: Guardar Cambios Temporalmente
+
+El comando `git stash` se utiliza para guardar temporalmente los cambios no confirmados en tu directorio de trabajo. Esto te permite limpiar tu directorio de trabajo y cambiar de rama sin perder tus cambios. Los cambios guardados se pueden aplicar posteriormente cuando sea necesario.
+
+### ¿Qué Hace git stash?
+
+Cuando ejecutas `git stash`, Git realiza las siguientes acciones:
+
+- **Guarda los Cambios No Confirmados:** Incluye tanto los archivos modificados como los archivos no rastreados.
+- **Limpia el Directorio de Trabajo:** Restaura tu directorio de trabajo al estado del último commit confirmado.
+- **Crea una Entrada en el Stash:** Guarda los cambios en una pila (stash) que puedes listar y aplicar posteriormente.
+
+### Cómo Usar git stash
+
+1. **Guardar Cambios No Confirmados**
+
+Para guardar todos los cambios no confirmados:
+
+```bash
+git stash
+
+```
+
+1. **Guardar Cambios y Mantener Archivos No Rastreado**
+
+Para incluir archivos no rastreados en el stash, usa la opción `-u` o `--include-untracked`:
+
+```bash
+git stash -u
+
+```
+
+1. **Guardar Cambios con un Mensaje**
+
+Para añadir una descripción a tus cambios guardados:
+
+```bash
+git stash save "mensaje_descriptivo"
+
+```
+
+### Administrar el Stash
+
+1. **Listar Cambios Guardados**
+
+Para ver todos los cambios guardados en el stash:
+
+```bash
+git stash list
+
+```
+
+1. **Aplicar Cambios Guardados**
+
+Para aplicar el stash más reciente a tu directorio de trabajo:
+
+```bash
+git stash apply
+
+```
+
+Para aplicar un stash específico (identificado por su índice o hash):
+
+```bash
+git stash apply stash@{n}
+
+```
+
+1. **Eliminar Cambios del Stash Después de Aplicarlos**
+
+Para aplicar el stash más reciente y eliminarlo de la pila:
+
+```bash
+git stash pop
+
+```
+
+Para eliminar un stash específico:
+
+```bash
+git stash drop stash@{n}
+
+```
+
+1. **Crear una Rama desde un Stash**
+
+Para crear una nueva rama con los cambios de un stash específico:
+
+```bash
+git stash branch nombre_rama stash@{n}
+
+```
+
+1. **Eliminar Todos los Stashes**
+
+Para eliminar todos los stashes guardados:
+
+```bash
+git stash clear
+
+```
+
+### Ejemplo Completo
+
+Aquí tienes un ejemplo completo de cómo utilizar `git stash`:
+
+```bash
+# Guardar cambios no confirmados
+git stash
+
+# Guardar cambios y archivos no rastreados
+git stash -u
+
+# Guardar cambios con un mensaje descriptivo
+git stash save "trabajo en progreso"
+
+# Listar todos los stashes guardados
+git stash list
+
+# Aplicar el stash más reciente
+git stash apply
+
+# Aplicar un stash específico
+git stash apply stash@{2}
+
+# Aplicar y eliminar el stash más reciente
+git stash pop
+
+# Eliminar un stash específico
+git stash drop stash@{2}
+
+# Crear una nueva rama desde un stash
+git stash branch nueva_rama stash@{1}
+
+# Eliminar todos los stashes
+git stash clear
+```
+
+### Verificar los Cambios Aplicados
+
+Después de aplicar un stash, puedes verificar los cambios aplicados utilizando otros comandos:
+
+1. **Consultar el Historial de Commits**
+
+Para ver el historial de commits y verificar el estado del repositorio:
+
+```bash
+git log
+
+```
+
+1. **Comprobar el Estado del Repositorio**
+
+Para ver el estado del repositorio y cualquier cambio pendiente:
+
+```bash
+git status
+
+```
+
+### Resumen de Comandos Utilizados
+
+```bash
+# **Guardar cambios no confirmados**
+git stash
+
+# **Guardar cambios y archivos no rastreados**
+git stash -u
+
+# **Guardar cambios con un mensaje descriptivo**
+git stash save "mensaje_descriptivo"
+
+# **Listar todos los stashes guardados**
+git stash list
+
+# **Aplicar el stash más reciente**
+git stash apply
+
+# **Aplicar un stash específico**
+git stash apply stash@{n}
+
+# **Aplicar y eliminar el stash más reciente**
+git stash pop
+
+# **Eliminar un stash específico**
+git stash drop stash@{n}
+
+# **Crear una nueva rama desde un stash**
+git stash branch nombre_rama stash@{n}
+
+# **Eliminar todos los stashes**
+git stash clear
+```
+
+El comando `git stash` es una herramienta poderosa para gestionar tus cambios no confirmados, permitiéndote guardar y restaurar fácilmente el estado de tu directorio de trabajo mientras trabajas en diferentes ramas o tareas.
+
+## git tag: Crear y Administrar Etiquetas en Git
+
+El comando `git tag` se utiliza para crear, listar y administrar etiquetas (tags) en Git. Las etiquetas son referencias estáticas a commits específicos y se utilizan comúnmente para marcar versiones importantes en el historial del proyecto, como versiones de lanzamiento.
+
+### ¿Qué Hace git tag?
+
+Cuando ejecutas `git tag`, Git realiza las siguientes acciones:
+
+- **Crear una Nueva Etiqueta:** Puedes crear etiquetas ligeras (lightweight tags) o anotadas (annotated tags) para marcar commits específicos.
+- **Listar Etiquetas Existentes:** Puedes listar todas las etiquetas en el repositorio.
+- **Eliminar Etiquetas:** Puedes eliminar etiquetas que ya no necesitas.
+
+### Cómo Usar git tag
+
+1. **Crear una Etiqueta Ligera**
+
+Una etiqueta ligera es simplemente un nombre apuntando a un commit específico:
+
+```bash
+git tag nombre_etiqueta
+
+```
+
+Ejemplo:
+
+```bash
+git tag v1.0
+
+```
+
+1. **Crear una Etiqueta Anotada**
+
+Las etiquetas anotadas se almacenan como objetos completos en la base de datos de Git y pueden contener un mensaje, nombre del etiquetador, y fecha:
+
+```bash
+git tag -a nombre_etiqueta -m "mensaje de la etiqueta"
+
+```
+
+Ejemplo:
+
+```bash
+git tag -a v1.0 -m "Versión 1.0 de lanzamiento"
+
+```
+
+1. **Crear una Etiqueta para un Commit Específico**
+
+Puedes crear una etiqueta en un commit específico proporcionando el hash del commit:
+
+```bash
+git tag nombre_etiqueta hash_commit
+
+```
+
+Ejemplo:
+
+```bash
+git tag v1.0 a1b2c3d4
+
+```
+
+1. **Listar Todas las Etiquetas**
+
+Para ver todas las etiquetas en el repositorio:
+
+```bash
+git tag
+
+```
+
+1. **Mostrar Información de una Etiqueta Anotada**
+
+Para mostrar información detallada de una etiqueta anotada:
+
+```bash
+git show nombre_etiqueta
+
+```
+
+1. **Eliminar una Etiqueta**
+
+Para eliminar una etiqueta localmente:
+
+```bash
+git tag -d nombre_etiqueta
+
+```
+
+Ejemplo:
+
+```bash
+git tag -d v1.0
+
+```
+
+1. **Compartir Etiquetas con un Repositorio Remoto**
+
+Las etiquetas no se envían automáticamente al repositorio remoto con `git push`. Debes enviarlas explícitamente:
+
+```bash
+git push origin nombre_etiqueta
+
+```
+
+Para enviar todas las etiquetas a la vez:
+
+```bash
+git push origin --tags
+
+```
+
+1. **Eliminar una Etiqueta de un Repositorio Remoto**
+
+Para eliminar una etiqueta del repositorio remoto:
+
+```bash
+git push origin --delete nombre_etiqueta
+
+```
+
+### Ejemplo Completo
+
+Aquí tienes un ejemplo completo de cómo utilizar `git tag`:
+
+```bash
+# Crear una etiqueta ligera
+git tag v1.0
+
+# Crear una etiqueta anotada con un mensaje
+git tag -a v1.0 -m "Versión 1.0 de lanzamiento"
+
+# Crear una etiqueta en un commit específico
+git tag v1.0 a1b2c3d4
+
+# Listar todas las etiquetas
+git tag
+
+# Mostrar información de una etiqueta anotada
+git show v1.0
+
+# Eliminar una etiqueta localmente
+git tag -d v1.0
+
+# Enviar una etiqueta al repositorio remoto
+git push origin v1.0
+
+# Enviar todas las etiquetas al repositorio remoto
+git push origin --tags
+
+# Eliminar una etiqueta del repositorio remoto
+git push origin --delete v1.0
+
+```
+
+### Verificar las Etiquetas
+
+Después de crear, listar o eliminar etiquetas, puedes verificar las etiquetas y el estado del repositorio utilizando otros comandos:
+
+1. **Consultar el Historial de Commits**
+
+Para ver el historial de commits y verificar que las etiquetas estén asociadas con los commits correctos:
+
+```bash
+git log --oneline --decorate
+
+```
+
+1. **Comprobar el Estado del Repositorio**
+
+Para ver el estado del repositorio y cualquier cambio pendiente:
+
+```bash
+git status
+
+```
+
+### Resumen de Comandos Utilizados
+
+```bash
+**# Crear una etiqueta ligera**
+git tag nombre_etiqueta
+
+# **Crear una etiqueta anotada**
+git tag -a nombre_etiqueta -m "mensaje de la etiqueta"
+
+# **Crear una etiqueta en un commit específico**
+git tag nombre_etiqueta hash_commit
+
+# **Listar todas las etiquetas**
+git tag
+
+# **Mostrar información de una etiqueta anotada**
+git show nombre_etiqueta
+
+# **Eliminar una etiqueta localmente**
+git tag -d nombre_etiqueta
+
+# **Enviar una etiqueta al repositorio remoto**
+git push origin nombre_etiqueta
+
+# **Enviar todas las etiquetas al repositorio remoto**
+git push origin --tags
+
+# **Eliminar una etiqueta del repositorio remoto**
+git push origin --delete nombre_etiqueta
+
+```
+
+- 
+
+El comando `git tag` es una herramienta esencial para marcar y gestionar versiones importantes en el historial de tu proyecto, facilitando la identificación y el acceso a puntos específicos del desarrollo.
