@@ -1,14 +1,14 @@
 ---
-title: Módulo 4. Trabajo con Ramas (Branches)
+title: 4.1. Trabajo con Ramas
 ---
 
 En este módulo, nos adentraremos en el manejo de ramas en Git, lo cual es fundamental para desarrollar de manera efectiva y colaborativa en proyectos.
 
-### ¿Qué es una Rama en Git?
+## ¿Qué es una Rama en Git?
 
 Una rama es una línea de desarrollo independiente. Puedes pensar en las ramas como caminos paralelos que puedes tomar en el desarrollo de tu proyecto. La rama principal a menudo se llama `main` o `master`, y desde allí puedes crear otras ramas para trabajar en nuevas características o correcciones sin afectar la rama principal.
 
-### Crear una Rama
+## Crear una Rama
 
 La creación de ramas en Git es una práctica esencial para cualquier flujo de trabajo colaborativo. Permite a los desarrolladores trabajar en características, correcciones de errores o experimentos de forma aislada sin afectar la rama principal del proyecto. Veamos en detalle cómo se crea una rama en Git.
 
@@ -28,7 +28,7 @@ git branch nueva_caracteristica
 
 Este comando crea una nueva rama llamada `nueva_caracteristica` basada en el commit actual, pero no cambia a esa rama automáticamente.
 
-### Listar Ramas
+## Listar Ramas
 
 Listar ramas en Git es una operación básica pero esencial para cualquier desarrollador. Te permite ver todas las ramas disponibles en tu repositorio, tanto locales como remotas, y entender en qué rama estás trabajando actualmente.
 
@@ -42,7 +42,7 @@ git branch
 
 Esto mostrará una lista de todas las ramas locales y marcará la rama en la que estás actualmente con un asterisco `*`.
 
-### Cambiar de Rama
+## Cambiar de Rama
 
 Cambiar de rama en Git es una operación fundamental que permite a los desarrolladores alternar entre diferentes líneas de desarrollo en un proyecto. Esto es especialmente útil cuando se trabaja en múltiples características, correcciones de errores o experimentos simultáneamente.
 
@@ -62,7 +62,7 @@ git checkout nueva_caracteristica
 
 Este comando cambia tu directorio de trabajo a la rama `nueva_caracteristica`, permitiéndote trabajar en ella.
 
-### Crear y Cambiar de Rama en un Solo Paso
+## Crear y Cambiar de Rama en un Solo Paso
 
 En Git, es común necesitar crear una nueva rama y cambiar a ella inmediatamente para comenzar a trabajar en una nueva característica o corrección de errores. Esto se puede lograr de manera eficiente con un solo comando.
 
@@ -82,7 +82,7 @@ git checkout -b correccion_rapida
 
 Este comando crea la rama `correccion_rapida` y cambia automáticamente a ella.
 
-### Fusionar Ramas
+## Fusionar Ramas
 
 Una vez que hayas terminado de trabajar en una rama y estés listo para incorporar los cambios en otra rama, puedes fusionar las ramas. Esto se hace con el comando `git merge`.
 
@@ -108,7 +108,7 @@ git merge nueva_caracteristica
 
 Esto fusiona los cambios de la rama `nueva_caracteristica` en la rama `main`.
 
-### Resolver Conflictos de Fusión
+## Resolver Conflictos de Fusión
 
 A veces, al fusionar ramas, puede haber conflictos si los mismos archivos han sido modificados en ambas ramas. Git te notificará sobre estos conflictos y tendrás que resolverlos manualmente.
 
@@ -121,7 +121,7 @@ git add archivo_conflictivo
 git commit -m "Resuelto conflicto de fusión"
 ```
 
-### Eliminar Ramas
+## Eliminar Ramas
 
 Una vez que una rama ha sido fusionada y ya no la necesitas, puedes eliminarla.
 
@@ -143,7 +143,7 @@ Este comando elimina la rama `nueva_caracteristica` localmente si ya ha sido fus
 git branch -D nombre_rama
 ```
 
-### Ramas Remotas
+## Ramas Remotas
 
 Además de trabajar con ramas locales, también puedes trabajar con ramas remotas. Para ver las ramas remotas, puedes usar:
 
@@ -169,7 +169,7 @@ Para crear una rama local que rastree una rama remota:
 git checkout -b nombre_rama_local origin/nombre_rama_remota
 ```
 
-### Resumen de Comandos de Utilizados
+## Resumen de Comandos de Utilizados
 
 - **Crear una nueva rama:**
   ```bash
