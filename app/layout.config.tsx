@@ -10,7 +10,20 @@ import type { BaseLayoutProps } from 'fumadocs-ui/layouts/shared';
 export const baseOptions: BaseLayoutProps = {
   nav: {
     // can be JSX too!
-    title: 'Farcho Dev',
+    title: (
+      <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+        <img
+          src="/images/logo.png"
+          alt="Logo"
+          style={{
+            width: '150px',
+            height: '32px',
+            objectFit: 'cover',
+          }}
+        />
+      </div>
+),
+
   },
   links: [
     {
