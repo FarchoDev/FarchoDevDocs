@@ -17,7 +17,7 @@ export const baseOptions: BaseLayoutProps = {
           alt="Logo"
           style={{
             width: '150px',
-            height: '32px',
+            height: '25px',
             objectFit: 'cover',
           }}
         />

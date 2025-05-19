@@ -4,6 +4,7 @@ import { Inter } from 'next/font/google';
 import type { ReactNode } from 'react';
 import { Banner } from 'fumadocs-ui/components/banner';
 
+
 const inter = Inter({
   subsets: ['latin'],
 });
