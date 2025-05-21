@@ -9,6 +9,16 @@ const inter = Inter({
   subsets: ['latin'],
 });
 
+// app/layout.tsx o layout.js
+export const metadata = {
+  title: 'Farcho Dev',
+  description: 'Descripción de la página',
+  icons: {
+    icon: '/images/favicon.ico',
+  },
+};
+
+
 export default function Layout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" className={inter.className} suppressHydrationWarning>
