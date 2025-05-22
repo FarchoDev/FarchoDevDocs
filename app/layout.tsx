@@ -12,7 +12,7 @@ const inter = Inter({
 // app/layout.tsx o layout.js
 export const metadata = {
   title: 'Farcho Dev',
-  description: 'Descripción de la página',
+  description: 'Un espacio creado para aprendices del SENA que organiza y preserva materiales de formación, cursos adicionales y recursos clave para fortalecer el aprendizaje en desarrollo de software.',
   icons: {
     icon: '/images/favicon.ico',
   },
