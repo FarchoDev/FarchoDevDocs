@@ -1,0 +1,209 @@
+[33mcommit 1f11dd576aeb23335708202987dbfaba9e070013[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Farley Piedrahita Orozco <farley.developer@gmail.com>
+Date:   Wed May 21 20:32:36 2025 -0500
+
+    fix: Update links in the 5.5 section of git course
+
+[33mcommit 5a543f288f407104ee920ca6821b597d4b0471f6[m
+Author: Farley Piedrahita Orozco <farley.developer@gmail.com>
+Date:   Wed May 21 20:01:02 2025 -0500
+
+    Fix: Correct link in section 5.4 of the Git course
+
+[33mcommit 2eb30892888e5b1a332d4cb22f136f4819b5990a[m
+Author: Farley Piedrahita Orozco <farley.developer@gmail.com>
+Date:   Wed May 21 19:55:41 2025 -0500
+
+    fix: Update links in the 5.4 section of git course
+
+[33mcommit bcada53627b79bf629ed7e322661bcf46798b104[m
+Author: Farley Piedrahita Orozco <farley.developer@gmail.com>
+Date:   Wed May 21 19:25:14 2025 -0500
+
+    fix: Update links in the 5.3 section of git course
+
+[33mcommit 262c15b9612422a89eaf03e3ca9f6da323cd0668[m
+Author: Farley Piedrahita Orozco <farley.developer@gmail.com>
+Date:   Wed May 21 19:00:28 2025 -0500
+
+    fix: Update page description for clarity and detail
+
+[33mcommit e6dccb5d3f8b7197467d7d5d3bb2e6bf5e33eef4[m
+Author: Farley Piedrahita Orozco <farley.developer@gmail.com>
+Date:   Wed May 21 18:47:21 2025 -0500
+
+    feat: Add favicon and metadata to the page
+
+[33mcommit 3b19ff8758c9618dc519697accfe60affc88031b[m
+Author: Farley Piedrahita Orozco <farley.developer@gmail.com>
+Date:   Wed May 21 18:31:16 2025 -0500
+
+    fix: Update links in the 5.2 section of git course
+
+[33mcommit 1d8f14baa94b250b691c0230b8f9e38ec08a6431[m
+Author: Farley Piedrahita Orozco <farley.developer@gmail.com>
+Date:   Mon May 19 17:27:10 2025 -0500
+
+    feat: Adjust logo height and add support for image zoom in the Git section
+
+[33mcommit e7ffba5dd919abe4623be7163ea3c286d67013f4[m
+Author: Farley Piedrahita Orozco <farley.developer@gmail.com>
+Date:   Mon May 19 16:40:52 2025 -0500
+
+    feat: Add Module 5 on Remote Work with Git and update the index structure
+
+[33mcommit 809624f681321bc45380da5a5156906ad99c830f[m
+Author: Farley Piedrahita Orozco <farley.developer@gmail.com>
+Date:   Mon May 19 16:07:56 2025 -0500
+
+    feat(nav): Add a round logo next to the title in the navigation bar
+
+[33mcommit 46a83a9e0bcd6ff917ed86ae6afe454e74bb4ab8[m
+Author: Farley Piedrahita Orozco <farley.developer@gmail.com>
+Date:   Mon May 19 15:36:34 2025 -0500
+
+    feat: Adding links for the module 4 of git course
+
+[33mcommit efc54a6449fa7f70888e998ea73bcbd6f33cbfd4[m
+Author: Farley Piedrahita Orozco <farley.developer@gmail.com>
+Date:   Sat May 17 18:40:20 2025 -0500
+
+    fix: Update links in the 3.5 section of git course
+
+[33mcommit 43ffff88de18ccf06858dfff309dc6cf8506ba16[m
+Author: Farley Piedrahita Orozco <farley.developer@gmail.com>
+Date:   Sat May 17 17:45:33 2025 -0500
+
+    fix: Correction of the URL description in section 3.4 of the Git course
+
+[33mcommit 35cdf3aa966c9cce5250758664e04551a92d7cb9[m
+Author: Farley Piedrahita Orozco <farley.developer@gmail.com>
+Date:   Sat May 17 17:36:04 2025 -0500
+
+    fix: Update links in the 3.4 section of git course
+
+[33mcommit 3a150ff61c59dcca628c48a543100728854c0f8b[m
+Author: Farley Piedrahita Orozco <farley.developer@gmail.com>
+Date:   Sat May 17 17:20:44 2025 -0500
+
+    fix: Update links in the 3.3 section of git course
+
+[33mcommit 11c8540edd7492bded6c9a7c169bd086569f17db[m
+Author: Farley Piedrahita Orozco <farley.developer@gmail.com>
+Date:   Sat May 17 17:06:22 2025 -0500
+
+    feat: Update the content of the welcome banner in the layout
+
+[33mcommit dd3677863e1e055e395874687abb6143344adc7c[m
+Author: Farley Piedrahita Orozco <farley.developer@gmail.com>
+Date:   Sat May 17 16:19:59 2025 -0500
+
+    feat: Contents 3.4 and 3.5 were separated from module 3 into their respective mdx pages.
+
+[33mcommit 5a06d1f7fb3a5c52f23fd758de78e3a462a23583[m
+Author: Farley Piedrahita Orozco <farley.developer@gmail.com>
+Date:   Sat May 17 16:04:09 2025 -0500
+
+    fix: Correct format and links in the basic management section of changes and files
+
+[33mcommit 36c80f851df7e1a92763738a006083a053868d96[m
+Author: Farley Piedrahita Orozco <farley.developer@gmail.com>
+Date:   Sat May 17 14:52:53 2025 -0500
+
+    fix: Update titles and links in the basic management section of changes and files
+
+[33mcommit be0a01c4dd8dc638fb8603d28e58373aec15cb4c[m
+Author: Farley Piedrahita Orozco <farley.developer@gmail.com>
+Date:   Sat May 17 13:58:54 2025 -0500
+
+    feat: Contents 3.1 and 3.2 were separated from module 3 into their respective mdx pages.
+
+[33mcommit a662c07c86f312ac802222f573adc26d2f170c78[m
+Author: Farley Piedrahita Orozco <farley.developer@gmail.com>
+Date:   Sat May 17 13:36:34 2025 -0500
+
+    fix: Correct the title of Module 3 in the meta.json file
+
+[33mcommit 0715e0523339db72519e3d139edff553e89528a1[m
+Author: Farley Piedrahita Orozco <farley.developer@gmail.com>
+Date:   Sat May 17 13:23:10 2025 -0500
+
+    fix: Update links in the Initial Git Setup section
+
+[33mcommit bb607bffb01d21003fa76ec8d6b1d7f29fd36ac5[m
+Merge: 04b6514 22ce44d
+Author: Farley Piedrahita Orozco <farley.developer@gmail.com>
+Date:   Sat May 17 12:53:46 2025 -0500
+
+    Merge pull request #6 from FarchoDev/feat/banner
+    
+    fix: Add Banner component to layout for improved user notification
+
+[33mcommit 22ce44d3767086edeaf3bc4d7171a00caa57d71c[m[33m ([m[1;31morigin/feat/banner[m[33m)[m
+Author: Farley Piedrahita Orozco <farley.developer@gmail.com>
+Date:   Sat May 17 12:50:56 2025 -0500
+
+    fix: Add Banner component to layout for improved user notification
+
+[33mcommit 04b65141887311c78c40a8f62e0b3dfba602d902[m
+Author: Farley Piedrahita Orozco <farley.developer@gmail.com>
+Date:   Sat May 17 12:17:31 2025 -0500
+
+    fix: Improvement of content and structure in Shift Left Testing documents
+
+[33mcommit dc82bfb937c3c1266cefbb7fd6e9ecbe9ecfbac5[m
+Author: Farley Piedrahita Orozco <farley.developer@gmail.com>
+Date:   Wed May 14 21:17:35 2025 -0500
+
+    The Shift Left Testing module for courses was changed to sena/fc_docs, and additionally, the content of module 1 was improved.
+
+[33mcommit 5dfb6e3a7b7592812e2aa080ce3f6157958e728b[m
+Author: Farley Piedrahita Orozco <farley.developer@gmail.com>
+Date:   Wed May 14 16:34:05 2025 -0500
+
+    fix: Add comments to ignore sound in the dark variant
+
+[33mcommit d206343e123cc473a57faa6832c330db85a6749e[m
+Author: Farley Piedrahita Orozco <farley.developer@gmail.com>
+Date:   Wed May 14 16:27:05 2025 -0500
+
+    fix: ⚠ The config property experimental.turbo is deprecated. Move this setting to config.turbopack as Turbopack is now stable.
+
+[33mcommit 1646c9b562fe9f851dfb842135bd3612f3ab42f7[m
+Merge: d9054cc 54e52b1
+Author: Farley Piedrahita Orozco <farchodev@gmail.com>
+Date:   Tue May 13 01:56:11 2025 -0500
+
+    Merge pull request #5 from FarchoDev/feature/feedback
+    
+    The Feedback component of FumaDocs is integrated into the project.
+
+[33mcommit 54e52b1d7fd2525e5ac8062fa3439b780f4b95f2[m[33m ([m[1;31morigin/feature/feedback[m[33m)[m
+Author: Farley Piedrahita Orozco <farley.developer@gmail.com>
+Date:   Tue May 13 01:50:57 2025 -0500
+
+    The Feedback component of FumaDocs is integrated into the project.
+
+[33mcommit d9054ccdb256ba1b88a7d07acfe4cbdebd687ed4[m
+Merge: 26a29e9 e32a84c
+Author: Farley Piedrahita Orozco <farchodev@gmail.com>
+Date:   Mon May 12 23:33:44 2025 -0500
+
+    Merge pull request #3 from FarchoDev/fix/GridItems
+    
+    fix: Fixed image not updating until React detects theme change after …
+
+[33mcommit e32a84c8ee89bb6b7fea3bcb9e7767d947e643ff[m[33m ([m[1;31morigin/fix/GridItems[m[33m)[m
+Author: Farley Piedrahita Orozco <farley.developer@gmail.com>
+Date:   Mon May 12 23:30:13 2025 -0500
+
+    fix: Fixed image not updating until React detects theme change after initial load.
+
+[33mcommit 26a29e972b89b3ba9b11f1a40a357c8e3fd67865[m
+Merge: 29c33f4 4415173
+Author: Farley Piedrahita Orozco <farchodev@gmail.com>
+Date:   Mon May 12 19:14:52 2025 -0500
+
+    Merge pull request #2 from FarchoDev/refactor/components
+    
+    Modularization of components was carried out, data separation, fr
