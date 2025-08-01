@@ -14,7 +14,7 @@ export const baseOptions: BaseLayoutProps = {
       <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
         <img
           src="/images/logo.png"
-          alt="Logo"
+          alt="Farcho Dev - Plataforma Educativa"
           style={{
             width: '150px',
             height: '25px',
@@ -29,7 +29,8 @@ export const baseOptions: BaseLayoutProps = {
     {
       text: 'Inicio',
       url: '/',
-      active: 'nested-url',},
+      active: 'nested-url',
+    },
     {
       type: 'menu',
       text: 'Análisis y Desarrollo de Software',
@@ -75,6 +76,10 @@ export const baseOptions: BaseLayoutProps = {
         {
           text: 'Automatización de procesos para la eficiencia organizacional',
           url: '/docs/sena/fc_docs/automatizacion-de-procesos-para-la-eficiencia-organizacional',          
+        },
+        {
+          text: 'Shift Left Testing en Desarrollo Ágil',
+          url: '/docs/sena/fc_docs/shift-left-testingen-desarrolloagil',          
         },
       ],
     },
