@@ -3,7 +3,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Button from '@/components/ui/Button';
-import { ArrowRightIcon, BookOpenIcon, CodeBracketIcon, AcademicCapIcon } from '@heroicons/react/24/outline';
+// Using lucide-react icons instead of heroicons
+import { ArrowRight, BookOpen, Code, GraduationCap } from 'lucide-react';
 
 export function HeroSection() {
   return (
@@ -20,7 +21,7 @@ export function HeroSection() {
             transition={{ duration: 0.6 }}
             className="inline-flex items-center px-4 py-2 rounded-full bg-blue-100 text-blue-800 text-sm font-medium mb-8 dark:bg-blue-900 dark:text-blue-200"
           >
-            <AcademicCapIcon className="w-4 h-4 mr-2" />
+            <GraduationCap className="w-4 h-4 mr-2" />
             Plataforma Educativa SENA
           </motion.div>
 
@@ -59,9 +60,9 @@ export function HeroSection() {
           >
             <Button size="lg" href="/docs" className="group">
               Explorar Documentación
-              <ArrowRightIcon className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Button>
-            <Button variant="outline" size="lg" href="/cursos">
+            <Button variant="outline" size="lg" href="/docs/cursos/git_curso">
               Ver Cursos Disponibles
             </Button>
           </motion.div>
@@ -74,17 +75,17 @@ export function HeroSection() {
             className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto"
           >
             <FeatureCard
-              icon={<BookOpenIcon className="w-8 h-8" />}
+              icon={<BookOpen className="w-8 h-8" />}
               title="Documentación Completa"
               description="Accede a guías detalladas y materiales de formación organizados por competencias."
             />
             <FeatureCard
-              icon={<CodeBracketIcon className="w-8 h-8" />}
+              icon={<Code className="w-8 h-8" />}
               title="Cursos Especializados"
               description="Aprende Git, GitHub, testing y otras tecnologías con cursos prácticos."
             />
             <FeatureCard
-              icon={<AcademicCapIcon className="w-8 h-8" />}
+              icon={<GraduationCap className="w-8 h-8" />}
               title="Formación SENA"
               description="Contenido alineado con los programas de Análisis y Desarrollo de Software."
             />
