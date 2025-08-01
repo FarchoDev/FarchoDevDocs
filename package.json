@@ -26,6 +26,7 @@
   },
   "dependencies": {
     "@formkit/auto-animate": "^0.8.2",
+    "@heroicons/react": "^2.2.0",
     "@octokit/app": "^15.1.6",
     "@octokit/core": "^6.1.5",
     "@radix-ui/react-label": "^2.1.6",
