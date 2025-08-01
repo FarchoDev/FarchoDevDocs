@@ -4,7 +4,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/Card';
 import Button from '@/components/ui/Button';
-import { StarIcon, TrendingUpIcon, ClockIcon } from '@heroicons/react/24/solid';
+import { Star, TrendingUp, Clock } from 'lucide-react';
 
 interface FeaturedItem {
   id: string;
@@ -39,7 +39,7 @@ export function FeaturedSection({ items }: FeaturedSectionProps) {
             transition={{ duration: 0.6 }}
             className="flex items-center mb-8"
           >
-            <StarIcon className="w-6 h-6 text-yellow-500 mr-3" />
+            <Star className="w-6 h-6 text-yellow-500 mr-3" />
             <h2 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white">
               Contenido Destacado
             </h2>
@@ -62,7 +62,7 @@ export function FeaturedSection({ items }: FeaturedSectionProps) {
               transition={{ duration: 0.6 }}
               className="flex items-center mb-6"
             >
-              <TrendingUpIcon className="w-6 h-6 text-green-500 mr-3" />
+              <TrendingUp className="w-6 h-6 text-green-500 mr-3" />
               <h3 className="text-xl font-bold text-gray-900 dark:text-white">
                 Más Populares
               </h3>
@@ -83,7 +83,7 @@ export function FeaturedSection({ items }: FeaturedSectionProps) {
               transition={{ duration: 0.6 }}
               className="flex items-center mb-6"
             >
-              <ClockIcon className="w-6 h-6 text-blue-500 mr-3" />
+              <Clock className="w-6 h-6 text-blue-500 mr-3" />
               <h3 className="text-xl font-bold text-gray-900 dark:text-white">
                 Agregado Recientemente
               </h3>
@@ -123,7 +123,7 @@ function FeaturedCard({ item, index }: { item: FeaturedItem; index: number }) {
             <span className={`px-2 py-1 rounded-full text-xs font-medium ${getTypeColor(item.type)}`}>
               {item.type === 'course' ? 'Curso' : item.type === 'documentation' ? 'Documentación' : 'Guía'}
             </span>
-            <StarIcon className="w-4 h-4 text-yellow-500" />
+            <Star className="w-4 h-4 text-yellow-500" />
           </div>
           <CardTitle className="text-lg">{item.title}</CardTitle>
           <CardDescription>{item.description}</CardDescription>
@@ -161,7 +161,7 @@ function TrendingItem({ item, index }: { item: FeaturedItem; index: number }) {
           {item.description}
         </p>
       </div>
-      <TrendingUpIcon className="w-4 h-4 text-green-500 ml-2" />
+      <TrendingUp className="w-4 h-4 text-green-500 ml-2" />
     </motion.div>
   );
 }
@@ -187,7 +187,7 @@ function RecentItem({ item, index }: { item: FeaturedItem; index: number }) {
           </span>
         )}
       </div>
-      <ClockIcon className="w-4 h-4 text-blue-500 ml-2" />
+      <Clock className="w-4 h-4 text-blue-500 ml-2" />
     </motion.div>
   );
 }
