@@ -2,9 +2,9 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import Button from '@/components/ui/Button';
+import { Button } from '@/components/ui/Button';
 // Using lucide-react icons instead of heroicons
-import { ArrowRight, BookOpen, Code, GraduationCap } from 'lucide-react';
+import { ArrowRight, BookOpen, Code, GraduationCap, Link } from 'lucide-react';
 
 export function HeroSection() {
   return (
@@ -58,12 +58,18 @@ export function HeroSection() {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="flex flex-col sm:flex-row gap-4 justify-center mb-16"
           >
-            <Button size="lg" href="/docs" className="group">
-              Explorar Documentación
+            <Button 
+            size="lg" 
+            className="group"
+            >
+              <Link href="/docs">Explorar Documentación</Link>
               <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Button>
-            <Button variant="outline" size="lg" href="/docs/cursos/git_curso">
-              Ver Cursos Disponibles
+            <Button 
+            variant="outline" 
+            size="lg"
+            >
+              <Link href="/docs/cursos/git_curso">Ver Cursos Disponibles</Link>
             </Button>
           </motion.div>
 

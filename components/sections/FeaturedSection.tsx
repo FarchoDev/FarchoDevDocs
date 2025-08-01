@@ -3,8 +3,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/Card';
-import Button from '@/components/ui/Button';
-import { Star, TrendingUp, Clock } from 'lucide-react';
+import { Button } from '@/components/ui/Button';
+import { Star, TrendingUp, Clock, Link } from 'lucide-react';
 
 interface FeaturedItem {
   id: string;
@@ -135,7 +135,12 @@ function FeaturedCard({ item, index }: { item: FeaturedItem; index: number }) {
                 {item.readTime} lectura
               </span>
             )}
-            <Button variant="ghost" size="sm" href={item.link}>
+            <Button 
+            asChild
+            variant="ghost"
+            className="w-full group-hover:bg-blue-50 dark:group-hover:bg-blue-900/20 transition-colors"
+            size="sm">
+              <Link href={item.link}>Leer más →</Link>
               Leer más →
             </Button>
           </div>

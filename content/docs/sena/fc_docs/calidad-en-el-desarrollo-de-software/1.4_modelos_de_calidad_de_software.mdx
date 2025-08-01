@@ -1,0 +1,231 @@
+---
+title: 1.4. Modelos de calidad de software
+---
+
+import { ImageZoom } from 'fumadocs-ui/components/image-zoom';
+import SoftwareQualityTriangle from '@/components/SoftwareQualityTriangle'
+
+Los modelos de calidad son aquellos documentos que integran la mayor parte de las mejores prácticas, proponen temas de administración en los que cada organización debe hacer énfasis, integran diferentes prácticas dirigidas a los procesos clave y permiten medir los avances en calidad (Scalone, 2006).
+
+En los últimos años, la industria de desarrollo de software se ha preocupado por mejorar sus procesos, lo que se evidencia en las inversiones que realizan con el fin de abanderar el mercado en este ramo.
+
+Por tal motivo, se han definido varios modelos basados en las experiencias exitosas de la ingeniería de software, que sirven de guía para las mejoras y unifican los criterios de evaluación de las empresas. 
+
+Las normas ISO de serie 9000, el modelo estadounidense conocido como CMM (Capability Maturity Model), el BOOTSTRAP (Estándar Europeo para Evaluación y Mejoras de Procesos de Desarrollo de Software) y la norma ISO 15504, conocida como SPICE, (Software Process Improvement and Capability determination) son los ejemplos más reconocidos de estos modelos. (Vega, Rivera  & García,  2008). 
+
+## 1.4.1. A nivel de producto
+
+Con el objetivo de garantizar resultados idóneos en el desarrollo de productos de software, se hace necesario seguir pautas establecidas según modelos de calidad. 
+
+## 1.4.2. Modelo McCAll
+
+Desarrollado para la fuerza aérea de los EE.UU en 1977 por Jim McCall, este modelo “Busca reducir la relación entre usuarios y desarrolladores, teniendo en cuenta factores de calidad donde estén presentes las relaciones de ambos” (Estayno, Dapozo, Cuenca  & Greiner, 2009).
+
+Su fin consiste en especificar los requisitos de calidad del producto software al comenzar el proyecto y en cada etapa del ciclo de vida. Se hace necesario evaluar cada factor de calidad estableciendo valores deseables y al finalizar el desarrollo del proyecto, se comprueba si lo establecido inicialmente se cumplió a cabalidad.  El modelo de McCall organiza los factores de calidad en tres ejes o puntos de vista, desde los cuales el usuario puede observar la idoneidad del producto. Estos son: 
+
+- Operación del producto 
+- Revisión del producto 
+- Transición del producto 
+
+Cada eje se descompone en once factores y estos a su vez contienen una serie de criterios o propiedades determinantes de la calidad, que pueden ser evaluados mediante un conjunto de métricas. Evaluación que requiere fijar valores máximos y mínimos. 
+
+Antes de comenzar a utilizar el modelo de McCall, es necesario seguir las siguientes pautas:
+
+1. Se aceptan los factores, criterios y métricas que propone el modelo.
+2. Se aceptan las relaciones entre factores y criterios, y entre criterios y métricas.
+3. Se selecciona un subconjunto de factores de calidad sobre los que se aplican los requisitos de calidad establecidos para el proyecto.
+
+<SoftwareQualityTriangle />
+
+<table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left' }}>
+  <thead>
+    <tr>
+      <th style={{ border: '1px solid #ddd', padding: '8px' }}>REVISIÓN</th>
+      <th style={{ border: '1px solid #ddd', padding: '8px' }}>TRANSICIÓN</th>
+      <th style={{ border: '1px solid #ddd', padding: '8px' }}>OPERACIÓN</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style={{ border: '1px solid #ddd', padding: '8px' }}>
+        Facilidad de mantenimiento<br />
+        <em>(¿Puedo arreglarlo?)</em>
+      </td>
+      <td style={{ border: '1px solid #ddd', padding: '8px' }}>
+        Interoperabilidad<br />
+        <em>(¿Puedo comunicarlo con otro sistema?)</em>
+      </td>
+      <td style={{ border: '1px solid #ddd', padding: '8px' }}>
+        Corrección<br />
+        <em>(¿Hace el software lo que yo quiero?)</em>
+      </td>
+    </tr>
+    <tr>
+      <td style={{ border: '1px solid #ddd', padding: '8px' }}>
+        Facilidad de prueba<br />
+        <em>(¿Puedo probarlo?)</em>
+      </td>
+      <td style={{ border: '1px solid #ddd', padding: '8px' }}>
+        Portabilidad<br />
+        <em>(¿Podré utilizarlo en otra máquina?)</em>
+      </td>
+      <td style={{ border: '1px solid #ddd', padding: '8px' }}>
+        Fiabilidad<br />
+        <em>(¿Lo hace de forma exacta todo el tiempo?)</em>
+      </td>
+    </tr>
+    <tr>
+      <td style={{ border: '1px solid #ddd', padding: '8px' }}>
+        Flexibilidad<br />
+        <em>(¿Puedo modificarlo?)</em>
+      </td>
+      <td style={{ border: '1px solid #ddd', padding: '8px' }}>
+        Reusabilidad<br />
+        <em>(¿Podré utilizar parte del software?)</em>
+      </td>
+      <td style={{ border: '1px solid #ddd', padding: '8px' }}>
+        Eficiencia<br />
+        <em>(¿Se ejecutará sobre mi hardware lo mejor posible?)</em>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td style={{ border: '1px solid #ddd', padding: '8px' }}>
+        Integridad<br />
+        <em>(¿Es seguro?)</em>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td style={{ border: '1px solid #ddd', padding: '8px' }}>
+        Facilidad de uso<br />
+        <em>(¿Puedo ejecutarlo?)</em>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+___Figura 1. Atributos del Modelo McCall Fuente:  Pressman (2010)___
+
+De acuerdo con la visión del usuario y sus factores de calidad asociados (visión de la dirección), se puede determinar la visión del desarrollador para cada factor de calidad establecido. 
+
+<ImageZoom
+  src="/images/calidad-en-el-desarrollo-de-software/001.png"
+  alt="Ejemplo de zoom"
+  width={800}
+  height={500}
+/> 
+
+___Figura 2. Factores de Calidad – Modelo McCall Fuente: SENA___
+
+## 1.4.3. Modelo Boehm
+
+Presentado por Barry Boehm en 1978, se considera el segundo más reconocido,  después de McCall. Introduce características de alto nivel, nivel intermedio y nivel primitivo.
+
+### Características de alto nivel
+
+Representan requerimientos generales de uso, estas pueden ser:
+
+- Utilidad per-se, ¿qué tan usable, confiable, eficiente? es el producto en sí mismo
+- Mantenibilidad, ¿qué tan fácil es modificarlo, entenderlo y re-testearlo?
+- Utilidad general, si puede seguir usándose, si se cambia el ambiente
+
+### Características de nivel intermedio 
+ 
+Representan los factores de calidad:
+
+- Portabilidad (Utilidad General)
+- Confiabilidad (Utilidad Per se)
+- Eficiencia (Utilidad Per se)
+- Usabilidad (Utilidad Per se)
+- Testeabilidad (Mantenibilidad)
+- Facilidad de entendimiento (Mantenibilidad)
+- Modificabilidad o flexibilidad (Mantenibilidad)
+
+### Características primitivas
+
+El nivel más bajo corresponde a características directamente asociadas a una o dos métricas de calidad.
+
+<table>
+  <thead>
+    <tr>
+      <th>Característica</th>
+      <th>Subcaracterísticas</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>De portabilidad</td>
+      <td>
+        Independencia de dispositivos<br />
+        Auto contención
+      </td>
+    </tr>
+    <tr>
+      <td>De confiabilidad</td>
+      <td>
+        Auto contención<br />
+        Exactitud<br />
+        Completitud<br />
+        Consistencia<br />
+        Robustez / Integridad
+      </td>
+    </tr>
+    <tr>
+      <td>De eficiencia</td>
+      <td>
+        Accesibilidad<br />
+        Eficiencia de uso de dispositivos
+      </td>
+    </tr>
+    <tr>
+      <td>De usabilidad</td>
+      <td>
+        Robustez / Integridad<br />
+        Accesibilidad<br />
+        Comunicación
+      </td>
+    </tr>
+    <tr>
+      <td>De testeabilidad</td>
+      <td>
+        Comunicación<br />
+        Auto descripción<br />
+        Estructuración
+      </td>
+    </tr>
+    <tr>
+      <td>De entendibilidad</td>
+      <td>
+        Consistencia<br />
+        Estructuración<br />
+        Concisión<br />
+        Legibilidad
+      </td>
+    </tr>
+    <tr>
+      <td>De modificabilidad</td>
+      <td>
+        Estructuración<br />
+        Automantenibilidad
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+___Tabla 2. Características primitivas – modelo Boehm___
+
+<ImageZoom
+  src="/images/calidad-en-el-desarrollo-de-software/002.png"
+  alt="Ejemplo de zoom"
+  width={800}
+  height={500}
+/> 
+
+___Figura 3. modelo Boehm Fuente: Carlos Luis Cabascango (2012)___
+
+## 1.4.4. A nivel de proceso
+
+Existen diferentes modelos que a nivel de proceso orientan la calidad de software. Dentro de ellos se puede mencionar al Modelo CMM padre del modelo CMMI, IRAM-ISO 9001, TICKIT, Modelo Bootstrap, Personal Software Process (PSP), Team Software Process (TSP), Practical Software Measurement (PSM), Six Sigma For Software, entre otros. En el presente material se estudiará el modelo CMMI (Capability Maturity Model Integration), por su gran incidencia en el mercado de desarrollo de software.

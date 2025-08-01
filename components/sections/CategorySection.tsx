@@ -3,7 +3,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/Card';
-import Button from '@/components/ui/Button';
+import { Button } from '@/components/ui/Button';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -105,12 +105,16 @@ function CategoryCard({ category, index }: { category: Category; index: number }
             ))}
           </div>
           
-          <Button 
-            variant="outline" 
+          import Link from "next/link";
+
+          <Button
+            asChild
+            variant="outline"
             className="w-full group-hover:bg-blue-50 dark:group-hover:bg-blue-900/20 transition-colors"
-            href={`/category/${category.id}`}
           >
-            Ver Todos los Recursos
+            <Link href={`/category/${category.id}`}>
+              Ver Todos los Recursos
+            </Link>
           </Button>
         </CardContent>
       </Card>

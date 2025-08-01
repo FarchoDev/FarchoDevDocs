@@ -1,0 +1,15 @@
+{
+  "title": "Modelos y estándares de calidad del software",
+  "root": true,
+  "pages": [
+    "index",
+    "---Módulo 1: Modelos y estándares de calidad del software---",
+    "1.1_introduccion",
+    "1.2_definiciones",
+    "1.3_modelos_y_estandares_de_calidad_de_software",
+    "1.4_modelos_de_calidad_de_software",
+    "1.5_estandares_de_calidad_de_software",
+    "1.6_glosario",
+    "1.7_referencias_bibliograficas"
+  ]
+}
