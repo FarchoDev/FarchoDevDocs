@@ -2,7 +2,7 @@
 
 import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { MagnifyingGlassIcon, XMarkIcon } from '@heroicons/react/24/outline';
+import { Search, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import Fuse from 'fuse.js';
 
@@ -115,7 +115,7 @@ export function SearchBar({ data, placeholder = "Buscar cursos, documentación..
   return (
     <div ref={searchRef} className={cn('relative w-full max-w-2xl mx-auto', className)}>
       <div className="relative">
-        <MagnifyingGlassIcon className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+        <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
         <input
           ref={inputRef}
           type="text"
@@ -134,7 +134,7 @@ export function SearchBar({ data, placeholder = "Buscar cursos, documentación..
             }}
             className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300"
           >
-            <XMarkIcon className="w-5 h-5" />
+            <X className="w-5 h-5" />
           </button>
         )}
       </div>
@@ -204,7 +204,7 @@ export function SearchBar({ data, placeholder = "Buscar cursos, documentación..
           className="absolute top-full left-0 right-0 mt-2 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-600 rounded-lg shadow-lg z-50 p-4 text-center"
         >
           <div className="text-gray-500 dark:text-gray-400">
-            <MagnifyingGlassIcon className="w-8 h-8 mx-auto mb-2 opacity-50" />
+            <Search className="w-8 h-8 mx-auto mb-2 opacity-50" />
             <p className="text-sm">No se encontraron resultados para "{query}"</p>
           </div>
         </motion.div>
